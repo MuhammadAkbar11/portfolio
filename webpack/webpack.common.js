@@ -45,6 +45,14 @@ module.exports = {
           },
         },
       },
+      {
+				test: /\.(eot|gif|otf|ttf|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+				use: [
+					{
+						loader: 'file-loader',
+					},
+				],
+			},
     ],
   },
   plugins: [
