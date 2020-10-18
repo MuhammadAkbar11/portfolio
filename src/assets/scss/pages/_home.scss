@@ -1,0 +1,14 @@
+.hero {
+  line-height: 3rem;
+  flex: 0.2;
+  @apply mt-4 py-5;
+}
+
+.selected-project {
+  flex: 1;
+  @apply w-full;
+
+  &-title {
+    @apply text-sm;
+  }
+}

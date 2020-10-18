@@ -1,5 +1,14 @@
 @import "tailwindcss/base";
+@import "./assets/scss/base/_typohraphy.scss";
 
 @import "tailwindcss/components";
+@import "./assets/scss/utils/_variables.scss";
+
+@import "./assets/scss/components/_buttons.scss";
+
+@import "./assets/scss/layouts/_wrapper.scss";
+@import "./assets/scss/layouts/_navigtaions.scss";
+
+@import "./assets/scss/pages/_home.scss";
 
 @import "tailwindcss/utilities";

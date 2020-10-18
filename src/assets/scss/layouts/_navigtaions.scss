@@ -1,0 +1,5 @@
+.nav {
+  height: 90px;
+  width: 100%;
+  @apply flex justify-between flex-row flex-wrap items-center text-primary py-3;
+}

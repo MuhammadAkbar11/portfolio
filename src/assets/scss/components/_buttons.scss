@@ -1,0 +1,18 @@
+.btn {
+  outline: none;
+  @apply px-5 py-1 rounded-md;
+}
+
+.btn-outline {
+  @apply border border-primary text-primary;
+
+  &:hover {
+    @apply bg-primary text-gray-900;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0.2rem rgba($primary, $alpha: 1);
+    @apply bg-primary text-gray-900  border border-primary;
+  }
+}
