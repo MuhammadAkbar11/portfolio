@@ -1,19 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Nav from './Nav';
+import Sidebar from './Sidebar';
 
 const Templates = props => {
-  // const [hideFooter, setHideFooter] = useState(false);
+  /* eslint-disable */
+  const [sideOpen , setSideOpen ] = useState(false);
+
+  const toggleSidebar = () => {
+    if(sideOpen === false) {
+      console.log('open');
+      setSideOpen(true)
+    } else {
+      console.log('close');
+      setSideOpen(false)
+    }
+  }
 
   const { children, mainClass } = props;
   return (
-    <div className='wrapper'>
+    <div className={`wrapper ${sideOpen ? "overflow-y-hidden h-screen " : " min-h-screen " } `}>
       {/* nav */}
-      <Nav />
+      <Nav toggleSidebar={toggleSidebar} />
       {/* main Content */}
       <div className={`main ${mainClass}`}>
         <>{children}</>
       </div>
+      {/* Sidebar */}
+      <Sidebar open={sideOpen} toggle={toggleSidebar} />
     </div>
   );
 };

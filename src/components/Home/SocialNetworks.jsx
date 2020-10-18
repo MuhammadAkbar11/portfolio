@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
   faGithub,
@@ -9,9 +10,13 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function SocialNetworks() {
+function SocialNetworks(props) {
+  const { className } = props;
+
   return (
-    <div className='w-full mt-auto flex flex-row flex-wrap justify-center  '>
+    <div
+      className={`w-full mt-auto flex flex-row flex-wrap justify-center  ${className}`}
+    >
       {[
         {
           id: 1,
@@ -47,5 +52,13 @@ function SocialNetworks() {
     </div>
   );
 }
+
+SocialNetworks.defaultProps = {
+  className: '',
+};
+
+SocialNetworks.propTypes = {
+  className: PropTypes.string,
+};
 
 export default SocialNetworks;

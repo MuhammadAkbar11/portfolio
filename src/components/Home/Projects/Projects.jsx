@@ -2,14 +2,6 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 const Projects = () => {
-  // const [projects] = useState([
-  //   {
-  //     id: 1,
-  //     name: "",
-  //     url: "",
-  //   }
-  // ]),
-
   const projectItems = [
     {
       id: 1,
