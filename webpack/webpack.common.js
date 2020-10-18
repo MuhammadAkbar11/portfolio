@@ -50,7 +50,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'React, Webpack and Babel Boilerplate',
+      title: 'Muhammad Akbar | ',
       template: './src/index.html',
       filename: 'index.html',
       inject: 'body',
