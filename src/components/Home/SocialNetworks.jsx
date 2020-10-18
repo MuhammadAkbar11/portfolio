@@ -26,17 +26,21 @@ function SocialNetworks() {
           icon: faTwitter,
         },
         {
-          id: 5,
+          id: 4,
           icon: faInstagram,
         },
         {
-          id: 6,
+          id: 5,
           icon: faTelegram,
         },
       ].map(item => {
         return (
-          <a className=' text-xl mx-2 hover:text-primary ' href='#/'>
-            <FontAwesomeIcon key={item.id} icon={item.icon} />
+          <a
+            key={item.id}
+            className=' text-xl mx-2 hover:text-primary '
+            href='#/'
+          >
+            <FontAwesomeIcon icon={item.icon} />
           </a>
         );
       })}
