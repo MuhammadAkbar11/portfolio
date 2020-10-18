@@ -1,5 +1,4 @@
 const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -9,14 +8,7 @@ module.exports = {
   resolve: {
     extensions: ['*', '.js', '.jsx', '.json'],
   },
-  devServer: {
-    port: 9000,
-    contentBase: path.resolve(__dirname, '../', 'dist'),
-    hot: true,
-    open: true,
-    watchContentBase: true,
-    compress: true,
-  },
+
   module: {
     rules: [
       {
@@ -46,17 +38,16 @@ module.exports = {
         },
       },
       {
-				test: /\.(eot|gif|otf|ttf|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-				use: [
-					{
-						loader: 'file-loader',
-					},
-				],
-			},
+        test: /\.(eot|gif|otf|ttf|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Muhammad Akbar | ',
       template: './src/index.html',

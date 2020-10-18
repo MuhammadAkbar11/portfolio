@@ -12,11 +12,19 @@ module.exports = {
     filename: '[name].bundle.js',
     publicPath: '/',
   },
+  devServer: {
+    port: 9000,
+    contentBase: path.resolve(__dirname, '../', 'dist'),
+    hot: true,
+    open: true,
+    watchContentBase: true,
+    compress: true,
+    historyApiFallback: true,
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css',
-
     }),
     new Dotenv({
       path: './.env.development',
