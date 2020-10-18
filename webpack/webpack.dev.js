@@ -9,14 +9,14 @@ module.exports = {
   devtool: 'eval-cheap-source-map',
   output: {
     path: path.resolve(__dirname, '../', 'dist'),
-    filename: '[name].[contenthash].bundle.js',
+    filename: '[name].bundle.js',
     publicPath: '/',
   },
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css',
-      chunkFilename: '[name].[contenthash].css',
+
     }),
     new Dotenv({
       path: './.env.development',
