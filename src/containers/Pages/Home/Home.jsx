@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Hero from '../../../components/Home/Hero';
-import SelectedProjects from '../../../components/Home/SelectedProjects';
+import Projects from '../../../components/Home/Projects/Projects';
 import SocialNetworks from '../../../components/Home/SocialNetworks';
 import Templates from '../../../components/layouts/Templates';
 
@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <Templates mainClass='pb-5'>
       <Hero />
-      <SelectedProjects />
+      <Projects />
       <SocialNetworks />
     </Templates>
   );
