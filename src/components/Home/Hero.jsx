@@ -4,18 +4,18 @@ import React from 'react';
 const Hero = () => {
   return (
     <div className='hero'>
-      <p className=' text-5xl font-montserrat font-extrabold text-primary '>
-        Hi, There
-      </p>
-      <p className=' text-light text-lg font-poppins font-bold mt-1 '>
+      <div className='hero-greeting-title  '>Hi, There</div>
+      <div className='hero-name '>
         I’ m Muhammad <span className='text-primary'>Akbar </span> Let-Let
-      </p>
-      <p className='text-slate -mt-1 text-2xl  '>
-        A FullStack <span className=' text-lightness-slate'>Web</span> Developer{' '}
-      </p>
-      <button type='button' className=' btn btn-outline mt-5 '>
-        Say Hello
-      </button>
+      </div>
+      <div className='hero-title mt-3  '>
+        A FullStack <span className=' text-underline '>Web</span> Developer{' '}
+      </div>
+      <div className=' mt-5 lg:mt-8 px-1 '>
+        <button type='button' className='btn btn-outline lg:px-6 lg:py-4 '>
+          Say Hello
+        </button>
+      </div>
     </div>
   );
 };

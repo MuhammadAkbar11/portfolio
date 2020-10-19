@@ -1,8 +1,100 @@
 .wrapper {
-  @apply bg-secondary text-slate min-h-screen  flex flex-col  px-6;
+  @apply bg-secondary text-slate  flex flex-col pt-2  px-6;
+
+  .side-layout {
+    display: none #{!important};
+  }
 
   .main {
     flex: 1;
+
     @apply flex flex-col;
+  }
+}
+
+$spacing: 15% #{!important};
+$pt-screen-md: 1.5rem;
+@screen md {
+  .wrapper {
+    min-height: 100vh;
+    padding: {
+      left: $spacing;
+      right: $spacing;
+    }
+
+    .main {
+      width: 100% - $spacing;
+      padding-top: $pt-screen-md;
+    }
+
+    .side-layout {
+      padding-top: $pt-screen-md;
+      display: flex #{!important};
+      @apply bg-secondary fixed flex-col justify-between
+      top-0 bottom-0 px-3;
+
+      &-left {
+        width: $spacing;
+        @apply pl-5 left-0;
+
+        &__top {
+          @apply w-full  h-full;
+        }
+
+        &__middle {
+          @apply w-full flex justify-center items-center h-full mb-4;
+
+          & > a {
+            font-size: 14px;
+            transform: rotate(-90deg);
+            @apply text-slate;
+          }
+        }
+
+        &__bottom {
+          $height: 120px;
+          height: $height;
+          @apply relative  w-full flex justify-center items-center;
+
+          &::before {
+            content: "";
+            @apply border-yellow-400  w-full h-full;
+          }
+
+          &::after {
+            content: "";
+            height: 100%;
+            width: 1px;
+
+            z-index: 3;
+            position: absolute #{!important};
+            @apply bg-slate;
+          }
+        }
+      }
+
+      &-right {
+        width: $spacing;
+        @apply right-0;
+      }
+    }
+
+    &-spacing-right {
+      @apply fixed right-0;
+      height: 100vh;
+      width: $spacing;
+      display: flex #{!important};
+    }
+  }
+}
+
+$pt-screen-lg: 3rem;
+
+@screen lg {
+  .wrapper {
+    .main,
+    .side-layout {
+      padding-top: $pt-screen-lg;
+    }
   }
 }

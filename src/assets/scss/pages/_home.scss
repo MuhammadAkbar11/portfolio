@@ -1,14 +1,73 @@
 .hero {
-  line-height: 3rem;
-  flex: 0.2;
   @apply mt-4 py-5;
+
+  &-greeting-title {
+    @apply text-5xl font-montserrat font-extrabold text-primary;
+  }
+
+  &-name {
+    @apply text-light text-lg font-poppins font-bold;
+  }
+  &-title {
+    @apply text-slate text-2xl;
+  }
 }
 
-.selected-project {
+.social-icons-menu {
+  @apply w-full mt-auto flex flex-row flex-wrap justify-center;
+
+  & .social-icon {
+    @apply text-xl mx-2;
+
+    &:hover,
+    &:focus {
+      transition: 0.2s all;
+      @apply text-primary;
+    }
+  }
+}
+
+.contoiner-selected-work {
   flex: 1;
   @apply w-full;
+}
 
-  &-title {
-    @apply text-sm;
+.slider-works {
+  @apply relative flex justify-center items-center cursor-pointer p-3  rounded-md text-light-slate;
+
+  &:hover {
+    @apply bg-primary  text-secondary;
+  }
+}
+
+@screen md {
+  .hero {
+    &-greeting-title {
+      font-size: 3.5rem;
+    }
+
+    &-name {
+      font-size: 2rem;
+    }
+
+    &-title {
+      @apply text-slate -mt-1 text-4xl;
+    }
+  }
+}
+
+@screen lg {
+  .hero {
+    &-greeting-title {
+      font-size: 4.5rem;
+    }
+
+    &-name {
+      font-size: 3rem;
+    }
+
+    &-title {
+      @apply text-slate -mt-2  text-6xl;
+    }
   }
 }

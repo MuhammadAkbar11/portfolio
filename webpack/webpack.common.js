@@ -9,6 +9,22 @@ module.exports = {
     extensions: ['*', '.js', '.jsx', '.json'],
   },
 
+  devServer: {
+    port: 9000,
+    onListening: function (server) {
+      const port = server.listeningApp.address().port;
+      console.log('==========================');
+      console.log('|| Listening on port:', port, ' ||');
+      console.log('==========================');
+    },
+    watchContentBase: true,
+    contentBase: path.resolve(__dirname, '../', 'dist'),
+    hot: true,
+    open: true,
+    compress: true,
+    historyApiFallback: true,
+  },
+
   module: {
     rules: [
       {

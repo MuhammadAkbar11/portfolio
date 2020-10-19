@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
-import Nav from './Nav';
 import SocialNetworks from '../Home/SocialNetworks';
 import SidebarMenu from './SidebarMenu';
+import Header from './Header';
 
 const Sidebar = props => {
   const [textOverlay, setTextOverlay] = useState('Home');
@@ -10,49 +10,44 @@ const Sidebar = props => {
 
   const handleTextOverlay = useCallback(e => {
     const { textContent } = e.target;
-    setTextOverlay(textContent);
+
+    const text = textContent.split('.')[1];
+
+    setTextOverlay(text);
   }, []);
 
   return (
-    <aside
-      className={`fixed flex flex-col z-50  px-6  w-full h-screen bg-light-secondary  shadow ${
-        open ? 'w-100 left-0  right-0 ' : ' w-0 hidden right-0 '
-      }`}
-    >
-      <Nav toggleSidebar={toggle} navClassName='z-10' />
-      {/* text Background */}
-      <div className='left-0 absolute w-full flex justify-center items-center  top-0 bottom-0 z-0 '>
-        <h1
-          style={{ fontSize: '9rem' }}
-          className=' uppercase font-bold text-primary opacity-50 '
-        >
-          {textOverlay}
-        </h1>
+    <aside className={`sidemenu ${open ? 'open' : ''}`}>
+      <Header toggleSidebar={toggle} headerClass='z-10' />
+
+      <div className='textoverlay-container  '>
+        <h1 className=' text-overlay  '>{textOverlay}</h1>
       </div>
 
-      <nav
-        style={{ lineHeight: '5.5rem' }}
-        className='flex flex-1 flex-col h-auto  items-center justify-start text-5xl pt-12 font-montserrat z-10'
-      >
+      <nav className='sidemenu-nav'>
         <SidebarMenu
           touch={handleTextOverlay}
           hover={handleTextOverlay}
           text='Home'
+          label='01.'
         />
         <SidebarMenu
           touch={handleTextOverlay}
           hover={handleTextOverlay}
           text='About'
+          label='02.'
         />
         <SidebarMenu
           touch={handleTextOverlay}
           hover={handleTextOverlay}
           text='Works'
+          label='03.'
         />
         <SidebarMenu
           touch={handleTextOverlay}
           hover={handleTextOverlay}
           text='Contact'
+          label='04.'
         />
       </nav>
       <SocialNetworks className='flex-1 items-center z-10' />

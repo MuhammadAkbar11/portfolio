@@ -1,20 +1,28 @@
 import React, { useEffect } from 'react';
 import Hero from '../../../components/Home/Hero';
-import Projects from '../../../components/Home/Projects/Projects';
-import SocialNetworks from '../../../components/Home/SocialNetworks';
-import Templates from '../../../components/layouts/Templates';
+import Navigations from '../../../components/Home/Navigations';
+import SliderWorks from '../../../components/Home/SliderWorks';
 
-const Home = () => {
+import SocialNetworks from '../../../components/Home/SocialNetworks';
+import Wrapper from '../../../components/layouts/Wrapper';
+
+const Home = props => {
   useEffect(() => {
     document.title = 'Muhammad Akbar | Home';
   }, []);
 
+  /* eslint-disable */
+  console.log(props);
+
   return (
-    <Templates mainClass='pb-5'>
+    <Wrapper mainClass='pb-5  md:pb-10 '>
       <Hero />
-      <Projects />
-      <SocialNetworks />
-    </Templates>
+      <SliderWorks />
+      <div className='flex flex-row justify-between w-full  mt-16 '>
+        <SocialNetworks className='flex-1 md:justify-start' />
+        <Navigations />
+      </div>
+    </Wrapper>
   );
 };
 

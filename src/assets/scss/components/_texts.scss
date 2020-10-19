@@ -1,0 +1,23 @@
+.text-underline {
+  z-index: 5;
+  @apply relative text-lightness-slate italic;
+
+  &::after {
+    content: "";
+    width: 110%;
+    left: -5%;
+    right: 0;
+    bottom: 5px;
+    position: absolute;
+    height: 20%;
+    z-index: -1;
+    transition: 0.1s all ease-in-out;
+    @apply bg-primary opacity-50 rounded-full;
+  }
+
+  .hero-title:hover & {
+    &::after {
+      height: 40%;
+    }
+  }
+}

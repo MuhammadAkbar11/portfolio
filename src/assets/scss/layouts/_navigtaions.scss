@@ -1,5 +1,50 @@
-.nav {
-  height: 90px;
-  width: 100%;
-  @apply flex justify-between flex-row flex-wrap items-center text-primary py-3;
+.sidemenu {
+  right: -200vw;
+  transition: 0.2s all;
+  @apply fixed  flex flex-col z-50  px-6 h-screen bg-secondary;
+
+  &.open {
+    z-index: 9000;
+    transition: 0.3s all;
+    @apply left-0  right-0;
+  }
+
+  &-nav {
+    line-height: 4.5rem;
+    @apply flex flex-1 flex-col h-auto  items-center justify-start pt-12 font-montserrat z-10;
+  }
+
+  &-item {
+    font-family: $font-iconsolata;
+    transition: 0.1s all;
+    @apply relative text-5xl text-light-slate font-normal;
+
+    &:hover {
+      @apply text-primary;
+    }
+  }
+
+  &-label {
+    font-size: 1rem #{!important};
+    margin-right: 5px #{!important};
+    @apply text-primary;
+  }
+
+  .textoverlay-container {
+    position: absolute;
+    @apply w-full flex justify-center items-center left-0 top-0 bottom-0 z-0;
+
+    .text-overlay {
+      font-family: $font-monserrat;
+      font-size: 8.3rem;
+      transition-delay: 0.4s;
+      @apply uppercase font-extrabold text-lightness-secondary opacity-50;
+    }
+  }
+}
+
+@screen md {
+  .sidemenu {
+    @apply hidden;
+  }
 }

@@ -14,9 +14,7 @@ function SocialNetworks(props) {
   const { className } = props;
 
   return (
-    <div
-      className={`w-full mt-auto flex flex-row flex-wrap justify-center  ${className}`}
-    >
+    <div className={`social-icons-menu ${className}`}>
       {[
         {
           id: 1,
@@ -40,11 +38,7 @@ function SocialNetworks(props) {
         },
       ].map(item => {
         return (
-          <a
-            key={item.id}
-            className=' text-xl mx-2 hover:text-primary '
-            href='#/'
-          >
+          <a key={item.id} className='social-icon' href='#/'>
             <FontAwesomeIcon icon={item.icon} />
           </a>
         );

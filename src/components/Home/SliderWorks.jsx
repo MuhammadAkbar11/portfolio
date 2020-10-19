@@ -1,7 +1,8 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import '../../assets/scss/vendors/swipper.scss';
 
-const Projects = () => {
+const SliderWorks = () => {
   const projectItems = [
     {
       id: 1,
@@ -21,19 +22,20 @@ const Projects = () => {
     /* eslint-disable */
   ].map((item, i) => {
     return (
-      <SwiperSlide
-        className=' relative  flex justify-center items-center cursor-pointer p-3  rounded-md text-light-slate hover:bg-primary  hover:text-secondary '
-        key={item.id}
-      >
-      <img className=" absolute z-0 w-full object-cover h-full rounded-md bg-secondary " src={`https://picsum.photos/id/${item.id * 5}/500/500`} alt=""/>
-      <p className="z-10" >{item.title}</p>
+      <SwiperSlide className='' key={item.id}>
+        <img
+          className=' absolute z-0 w-full object-cover h-full rounded-md bg-secondary '
+          src={`https://picsum.photos/id/${item.id * 5}/500/500`}
+          alt=''
+        />
+        <p className='z-10'>{item.title}</p>
       </SwiperSlide>
     );
   });
 
   return (
-    <div className='selected-project my-16 md:hidden '>
-      <p className='selected-project-title'>Selected Project </p>
+    <div className='contoiner-selected-works my-16 md:hidden '>
+      <p className='text-sm'>My selected works</p>
       <>
         <Swiper
           slidesOffsetAfter={0}
@@ -50,4 +52,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default SliderWorks;
