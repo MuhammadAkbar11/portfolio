@@ -1,12 +1,13 @@
+/* eslint-disable */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Sidebar from './Sidebar';
 import Header from './Header';
 
 import SideLayout from './SideLayout';
+import PageTitleOverlay from './PageTitleOverlay';
 
 const Wrapper = props => {
-  /* eslint-disable */
   const [sideOpen, setSideOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -19,19 +20,21 @@ const Wrapper = props => {
     }
   };
 
-  const { children, mainClass } = props;
+  const { children, mainClass, titleOverlay, showTitleOverlay } = props;
 
-  const wrapperHide = sideOpen
-    ? 'overflow-y-hidden h-screen'
-    : ' min-h-screen ';
+  const wrapperHide = sideOpen ? 'overflow-y-hidden h-screen' : '';
 
   return (
-    <div className={`wrapper sm:px-10 ${wrapperHide}  `}>
+    <div
+      className={`wrapper bg-secondary text-slate flex flex-col px-6 pt-1  ${wrapperHide}  `}
+    >
       <SideLayout position='left' />
       <Header toggleSidebar={toggleSidebar} />
-      <main className={`main ${mainClass}`}>{children}</main>
+      {showTitleOverlay ? <PageTitleOverlay text={titleOverlay} /> : null}
+      <main className={`flex flex-1 flex-col flex-wrap  h-full  ${mainClass}`}>
+        {children}
+      </main>
       <Sidebar open={sideOpen} toggle={toggleSidebar} />
-      <aside className='wrapper-spacing-right'></aside>
       <SideLayout position='right' />
     </div>
   );
@@ -40,11 +43,15 @@ const Wrapper = props => {
 Wrapper.defaultProps = {
   children: '',
   mainClass: '',
+  titleOverlay: '',
+  showTitleOverlay: false,
 };
 
 Wrapper.propTypes = {
   children: PropTypes.node,
   mainClass: PropTypes.string,
+  titleOverlay: PropTypes.string,
+  showTitleOverlay: PropTypes.bool,
 };
 
 export default Wrapper;

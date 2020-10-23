@@ -1,0 +1,25 @@
+.page-title-overlay {
+  overflow: hidden #{!important};
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 95px;
+
+  z-index: 0 #{!important};
+
+  & &__text {
+    font-size: 21vw;
+    white-space: nowrap;
+    letter-spacing: 5px;
+    color: rgba($lightness-secondary, $alpha: 0.1);
+  }
+}
+
+@screen min-sm {
+  .page-title-overlay {
+    overflow: hidden #{!important};
+    & &__text {
+      overflow: hidden #{!important};
+    }
+  }
+}

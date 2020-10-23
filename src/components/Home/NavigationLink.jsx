@@ -1,17 +1,19 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 function NavigationLink(props) {
   const { text, label, url } = props;
   return (
     <>
-      <a
-        href={url}
-        className={`text-slate hover:text-primary font-iconsolata mx-3 text-lg `}
+      <Link
+        to={url}
+        className={`text-slate hover:text-primary font-iconsolata min-md:mr-2 min-lg:mx-3  lg:text-lg min-md:text-base `}
       >
-        {' '}
-        <span className=' text-primary text-sm '>{label}</span> {text}
-      </a>
+        <>
+          <span className=' text-primary text-sm '>{label}</span> {text}
+        </>
+      </Link>
     </>
   );
 }

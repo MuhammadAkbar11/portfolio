@@ -1,25 +1,23 @@
 import React, { useEffect } from 'react';
+
+import Wrapper from '../../../components/layouts/Wrapper';
 import Hero from '../../../components/Home/Hero';
-import Navigations from '../../../components/Home/Navigations';
+
 import SliderWorks from '../../../components/Home/SliderWorks';
 
+import Navigations from '../../../components/Home/Navigations';
 import SocialNetworks from '../../../components/Home/SocialNetworks';
-import Wrapper from '../../../components/layouts/Wrapper';
 
-const Home = props => {
+const Home = () => {
   useEffect(() => {
     document.title = 'Muhammad Akbar | Home';
   }, []);
-
-  /* eslint-disable */
-  console.log(props);
-
   return (
-    <Wrapper mainClass='pb-5  md:pb-10 '>
+    <Wrapper mainClass='pt-24'>
       <Hero />
       <SliderWorks />
-      <div className='flex flex-row justify-between w-full  mt-16 '>
-        <SocialNetworks className='flex-1 md:justify-start' />
+      <div className='flex flex-row justify-between w-full py-6 md:mt-auto '>
+        <SocialNetworks className='flex-1 min-md:justify-start' />
         <Navigations />
       </div>
     </Wrapper>

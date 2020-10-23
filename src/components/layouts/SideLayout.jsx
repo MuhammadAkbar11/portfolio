@@ -1,7 +1,6 @@
+/* eslint-disable */
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-
-import TopLogo from '../TopLogo';
 
 const SideLayout = props => {
   const [classPosition, setClassPosition] = useState('');
@@ -11,39 +10,35 @@ const SideLayout = props => {
 
   const leftContent = (
     <>
-      <div className='side-layout-left__top    '>
-        <TopLogo className=' h-12 mt-2 mb-auto mx-auto  ' />
-      </div>
-      <div className='side-layout-left__middle  '>
+      <div className='side-layout-left__top -ml-5 '></div>
+      <div className='side-layout-left__middle -ml-5  '>
         <a href='#/' className='flex-1 '>
           MuhammadAkbarletlet@gmail.com
         </a>
       </div>
-      <div className='side-layout-left__bottom ' />
+      <div className='side-layout-left__bottom -ml-5' />
     </>
   );
 
-  const rightContent = (
-    <div>
-      <button
-        type='button'
-        className='btn btn-outline text-center btn-sm mx-auto lg:px-8 '
-      >
-        Resume
-      </button>
-    </div>
-  );
+  const rightContent = <div className=' h-full '></div>;
 
   useEffect(() => {
     if (position === 'left') {
-      setClassPosition('side-layout-left');
+      setClassPosition('side-layout-left pl-5 left-0');
       setChildren(leftContent);
     } else {
-      setClassPosition('side-layout-right');
+      setClassPosition('side-layout-right right-0 ');
       setChildren(rightContent);
     }
   }, []);
-  return <aside className={`side-layout ${classPosition} `}>{children}</aside>;
+  return (
+    <aside
+      className={` min-md:flex  bg-transparent fixed flex-col justify-between
+  top-0 bottom-0 px-3 ${classPosition} `}
+    >
+      {children}
+    </aside>
+  );
 };
 
 SideLayout.propTypes = {

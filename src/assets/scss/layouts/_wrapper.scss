@@ -1,41 +1,26 @@
 .wrapper {
-  @apply bg-secondary text-slate  flex flex-col pt-2  px-6;
+  padding-top: 80px;
+  min-height: 800px;
 
-  .side-layout {
-    display: none #{!important};
-  }
-
-  .main {
-    flex: 1;
-
-    @apply flex flex-col;
+  @media (min-height: 810px) {
+    min-height: 100vh;
   }
 }
 
 $spacing: 15% #{!important};
 $pt-screen-md: 1.5rem;
-@screen md {
+@screen min-md {
   .wrapper {
-    min-height: 100vh;
     padding: {
       left: $spacing;
       right: $spacing;
     }
-
-    .main {
-      width: 100% - $spacing;
-      padding-top: $pt-screen-md;
-    }
-
     .side-layout {
       padding-top: $pt-screen-md;
       display: flex #{!important};
-      @apply bg-secondary fixed flex-col justify-between
-      top-0 bottom-0 px-3;
 
       &-left {
         width: $spacing;
-        @apply pl-5 left-0;
 
         &__top {
           @apply w-full  h-full;
@@ -66,7 +51,7 @@ $pt-screen-md: 1.5rem;
             height: 100%;
             width: 1px;
 
-            z-index: 3;
+            z-index: 50;
             position: absolute #{!important};
             @apply bg-slate;
           }
@@ -77,24 +62,6 @@ $pt-screen-md: 1.5rem;
         width: $spacing;
         @apply right-0;
       }
-    }
-
-    &-spacing-right {
-      @apply fixed right-0;
-      height: 100vh;
-      width: $spacing;
-      display: flex #{!important};
-    }
-  }
-}
-
-$pt-screen-lg: 3rem;
-
-@screen lg {
-  .wrapper {
-    .main,
-    .side-layout {
-      padding-top: $pt-screen-lg;
     }
   }
 }

@@ -1,18 +1,3 @@
-.hero {
-  @apply mt-4 py-5;
-
-  &-greeting-title {
-    @apply text-5xl font-montserrat font-extrabold text-primary;
-  }
-
-  &-name {
-    @apply text-light text-lg font-poppins font-bold;
-  }
-  &-title {
-    @apply text-slate text-2xl;
-  }
-}
-
 .social-icons-menu {
   @apply w-full mt-auto flex flex-row flex-wrap justify-center;
 
@@ -37,37 +22,5 @@
 
   &:hover {
     @apply bg-primary  text-secondary;
-  }
-}
-
-@screen md {
-  .hero {
-    &-greeting-title {
-      font-size: 3.5rem;
-    }
-
-    &-name {
-      font-size: 2rem;
-    }
-
-    &-title {
-      @apply text-slate -mt-1 text-4xl;
-    }
-  }
-}
-
-@screen lg {
-  .hero {
-    &-greeting-title {
-      font-size: 4.5rem;
-    }
-
-    &-name {
-      font-size: 3rem;
-    }
-
-    &-title {
-      @apply text-slate -mt-2  text-6xl;
-    }
   }
 }
