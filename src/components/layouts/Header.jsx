@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Logo from '../../assets/img/Logo.png';
 
@@ -17,10 +17,13 @@ const Header = props => {
         </div>
         {/* eslint-disable */}
         <div className={`${minHeaderSideClass} `}>
+          <button type='button' className='btn btn-outline max-md:hidden '>
+            Resume
+          </button>
           <button
             type='button'
             onClick={toggleSidebar}
-            className='cursor-pointer '
+            className='cursor-pointer min-md:hidden '
           >
             Toggle
           </button>

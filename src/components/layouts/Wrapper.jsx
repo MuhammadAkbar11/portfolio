@@ -6,6 +6,7 @@ import Header from './Header';
 
 import SideLayout from './SideLayout';
 import PageTitleOverlay from './PageTitleOverlay';
+import Toggle from '../Toggle';
 
 const Wrapper = props => {
   const [sideOpen, setSideOpen] = useState(false);
@@ -22,11 +23,11 @@ const Wrapper = props => {
 
   const { children, mainClass, titleOverlay, showTitleOverlay } = props;
 
-  const wrapperHide = sideOpen ? 'overflow-y-hidden h-screen' : '';
+  const wrapperHide = sideOpen ? 'overflow-hidden ' : '  ';
 
   return (
     <div
-      className={`wrapper bg-secondary text-slate flex flex-col px-6 pt-1  ${wrapperHide}  `}
+      className={`wrapper bg-secondary text-slate flex flex-col  px-6 pt-1  ${wrapperHide}  `}
     >
       <SideLayout position='left' />
       <Header toggleSidebar={toggleSidebar} />
@@ -34,7 +35,7 @@ const Wrapper = props => {
       <main className={`flex flex-1 flex-col flex-wrap  h-full  ${mainClass}`}>
         {children}
       </main>
-      <Sidebar open={sideOpen} toggle={toggleSidebar} />
+      <Sidebar open={sideOpen} toggleCLose={<Toggle click={toggleSidebar} />} />
       <SideLayout position='right' />
     </div>
   );

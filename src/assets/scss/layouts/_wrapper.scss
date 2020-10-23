@@ -2,6 +2,10 @@
   padding-top: 80px;
   min-height: 800px;
 
+  .side-layout {
+    display: none #{!important};
+  }
+
   @media (min-height: 810px) {
     min-height: 100vh;
   }
@@ -18,6 +22,7 @@ $pt-screen-md: 1.5rem;
     .side-layout {
       padding-top: $pt-screen-md;
       display: flex #{!important};
+      flex-wrap: nowrap;
 
       &-left {
         width: $spacing;

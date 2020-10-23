@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import Navigations from './Navigations';
 
 const SideLayout = props => {
   const [classPosition, setClassPosition] = useState('');
@@ -20,7 +21,16 @@ const SideLayout = props => {
     </>
   );
 
-  const rightContent = <div className=' h-full '></div>;
+  const rightContent = (
+    <div className='relative h-full w-full flex justify-center  items-end'>
+      <nav
+        style={{ transform: 'rotate(90deg)', width: '150vw' }}
+        className='flex flex-1   flex-no-wrap mx-auto my-auto  '
+      >
+        <Navigations />
+      </nav>
+    </div>
+  );
 
   useEffect(() => {
     if (position === 'left') {
@@ -33,7 +43,7 @@ const SideLayout = props => {
   }, []);
   return (
     <aside
-      className={` min-md:flex  bg-transparent fixed flex-col justify-between
+      className={` hidden min-md:flex  bg-transparent fixed flex-col justify-between
   top-0 bottom-0 px-3 ${classPosition} `}
     >
       {children}
