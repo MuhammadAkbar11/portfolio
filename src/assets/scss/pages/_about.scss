@@ -1,0 +1,11 @@
+.about-content {
+  & &-paragraph p:hover .text-underline {
+    &::after {
+      height: 40%;
+    }
+  }
+
+  .profile-picture {
+    width: 70%;
+  }
+}

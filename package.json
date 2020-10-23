@@ -14,7 +14,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --config webpack/webpack.config.js --env.env=dev ",
+    "start": "webpack-dev-server --config  webpack/webpack.config.js --env.env=dev --color",
     "build": "webpack --config webpack/webpack.config.js --env.env=prod"
   },
   "devDependencies": {
