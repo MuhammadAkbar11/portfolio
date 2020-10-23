@@ -17,6 +17,7 @@
 
 @screen min-sm {
   .page-title-overlay {
+    top: 70px;
     overflow: hidden #{!important};
     & &__text {
       overflow: hidden #{!important};

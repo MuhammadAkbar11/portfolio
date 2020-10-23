@@ -58,7 +58,7 @@
   &:hover div {
     transition: 1;
     animation-name: slideright;
-    animation-duration: 0.8s;
+    animation-duration: 0.7s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
@@ -85,7 +85,7 @@
   75% {
     transition: 0.05s;
     opacity: 1;
-    transform: translateY(100%) rotate(-90deg);
+    transform: translateY(80%) rotate(-90deg);
   }
 
   100% {

@@ -44,12 +44,14 @@ const Sidebar = props => {
             touch={handleTextOverlay}
             hover={handleTextOverlay}
             text='Works'
+            url='/works'
             label='03.'
           />
           <SidebarMenu
             touch={handleTextOverlay}
             hover={handleTextOverlay}
             text='Contact'
+            url='/contact'
             label='04.'
           />
         </nav>

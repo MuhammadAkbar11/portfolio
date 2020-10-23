@@ -12,9 +12,9 @@ const Header = props => {
       <header
         className={`header left-0 px-6 flex justify-between flex-row flex-wrap items-center text-primary ${headerClass} min-md:pt-5 min-md:px-0 `}
       >
-        <div className={`${minHeaderSideClass} `}>
+        <a href='/' className={`${minHeaderSideClass} `}>
           <img className='h-12 ' src={Logo} alt='Logo' />
-        </div>
+        </a>
         {/* eslint-disable */}
         <div className={`${minHeaderSideClass} `}>
           <button type='button' className='btn btn-outline max-md:hidden '>

@@ -5,7 +5,7 @@ const PageTitleOverlay = props => {
   const { text, className } = props;
   return (
     <div
-      className={`page-title-overlay w-full text-center flex justify-center flex-no-wrap ${className}`}
+      className={`page-title-overlay w-full text-center flex justify-center flex-no-wrap ${className} `}
     >
       <span className='page-title-overlay__text text-light-slate -ml-2  font-black text-center'>
         {text}
