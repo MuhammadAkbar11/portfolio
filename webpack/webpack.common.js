@@ -3,22 +3,26 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    index: path.resolve(__dirname, '../', 'src/index.js'),
+    index: [
+      path.resolve(__dirname, '../', 'src/index.js'),
+      'webpack-hot-middleware/client?reload=true',
+    ],
   },
   resolve: {
     extensions: ['*', '.js', '.jsx', '.json'],
   },
 
   devServer: {
-    port: 9000,
+    // port: 9000,
     onListening: function (server) {
       const port = server.listeningApp.address().port;
-      console.log('==========================');
+      console.log('==================================');
       console.log('|| Listening on port:', port, ' ||');
-      console.log('==========================');
+      console.log('==================================');
     },
     watchContentBase: true,
     contentBase: path.resolve(__dirname, '../', 'dist'),
+    overlay: true,
     hot: true,
     open: true,
     compress: true,

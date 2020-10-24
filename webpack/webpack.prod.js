@@ -5,13 +5,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
-const Dotenv = require('dotenv-webpack');
-
 module.exports = {
   mode: 'production',
   devtool: 'source-map',
   output: {
-    path: path.resolve(__dirname, '../', 'dist'),
+    path: path.resolve(__dirname, '../', 'build'),
     filename: 'js/[name].[contenthash].bundle.js',
     chunkFilename: 'js/chunk-[name].[contenthash].js',
     publicPath: './',
@@ -32,6 +30,12 @@ module.exports = {
       maxAsyncRequests: 5,
       maxInitialRequests: 3,
       cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.css$/,
+          chunks: 'all',
+          enforce: true,
+        },
         default: {
           minChunks: 2,
           priority: -20,
@@ -62,9 +66,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash].css',
       chunkFilename: 'css/chunk-[name].[contenthash].css',
-    }),
-    new Dotenv({
-      path: './.env.production',
     }),
   ],
   module: {

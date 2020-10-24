@@ -14,14 +14,17 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --config  webpack/webpack.config.js --env.env=dev --color",
-    "build": "webpack --config webpack/webpack.config.js --env.env=prod"
+    "start": "export NODE_ENV=dev && nodemon src/server/main.js ",
+    "build": " export NODE_ENV=prod && nodemon src/server/main.js",
+    "dev": "webpack --config  webpack/webpack.config.js --env.env=dev --color",
+    "prod": "webpack --config webpack/webpack.config.js --env.env=prod --colors"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
+    "@babel/register": "^7.12.1",
     "autoprefixer": "9.6.1",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
@@ -38,10 +41,12 @@
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "4.0.0",
     "eslint-watch": "^7.0.0",
+    "express": "^4.17.1",
     "file-loader": "^6.1.1",
     "html-webpack-plugin": "^4.5.0",
     "mini-css-extract-plugin": "^1.0.0",
     "node-sass": "^4.14.1",
+    "nodemon": "^2.0.6",
     "optimize-css-assets-webpack-plugin": "^5.0.4",
     "postcss": "^8.1.1",
     "postcss-cli": "^8.1.0",
@@ -55,12 +60,15 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.1.0",
     "webpack-cli": "3.3.12",
+    "webpack-dev-middleware": "^3.7.2",
     "webpack-dev-server": "^3.11.0",
+    "webpack-hot-middleware": "^2.25.0",
     "webpack-merge": "^5.2.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
