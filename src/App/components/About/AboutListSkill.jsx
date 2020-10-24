@@ -4,7 +4,7 @@ import AboutSkill from './AboutSkills';
 const dataSkills = {
   skills1: ['Html', 'Css & Scss', 'Javascript'],
   skills2: ['ReactJs', 'TaildwindCss', 'Bootstrap 4'],
-  skills3: ['GIT', 'Webpack', 'Figma'],
+  skills3: ['GIT', 'Figma'],
 };
 
 function AboutListSkill() {

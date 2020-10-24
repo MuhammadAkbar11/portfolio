@@ -10,8 +10,8 @@ function NavigationLink(props) {
         to={url}
         className={`navigation-link text-slate whitespace-no-wrap hover:text-primary font-iconsolata min-md:mx-3 `}
       >
-        <div>
-          <span className=' text-primary text-sm '>{label}</span> {text}
+        <div className='text-sm'>
+          <span className=' text-primary  '>{label}</span> {text}
         </div>
       </Link>
     </>
