@@ -1,17 +1,17 @@
 .wrapper {
   padding-top: 80px;
-  min-height: 800px;
+  // min-height: 800px;
 
   .side-layout {
     display: none #{!important};
   }
 
-  @media (min-height: 810px) {
-    min-height: 100vh;
-  }
+  // @media (min-height: 810px) {
+  min-height: 100vh;
+  // }
 }
 
-$spacing: 15% #{!important};
+$spacing: 10% #{!important};
 $pt-screen-md: 1.5rem;
 @screen min-md {
   .wrapper {

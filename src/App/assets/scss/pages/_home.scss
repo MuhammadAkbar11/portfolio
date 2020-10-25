@@ -1,9 +1,5 @@
 .social-icons-menu {
-  @apply w-full mt-auto flex flex-row flex-wrap justify-center;
-
   & .social-icon {
-    @apply text-xl mx-2;
-
     &:hover,
     &:focus {
       transition: 0.2s all;

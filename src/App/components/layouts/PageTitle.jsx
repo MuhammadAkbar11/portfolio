@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 const PageTitle = props => {
   const { title, children } = props;
+  /* eslint-disable */
+  console.log(title.split(' '));
   return (
     <>
       <div className='w-full flex flex-col flex-wrap min-md:mt-8  '>

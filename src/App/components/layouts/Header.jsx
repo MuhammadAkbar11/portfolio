@@ -10,7 +10,7 @@ const Header = props => {
   return (
     <>
       <header
-        className={`header left-0 px-6 flex justify-between flex-row flex-wrap items-center text-primary ${headerClass} min-md:pt-5 min-md:px-0 `}
+        className={`header left-0 px-6 flex justify-between flex-row flex-wrap items-center text-primary ${headerClass} min-md:pt-6 min-md:pl-0 min-md:pr-8 `}
       >
         <a href='/' className={`${minHeaderSideClass} `}>
           <img className='h-12 ' src={Logo} alt='Logo' />

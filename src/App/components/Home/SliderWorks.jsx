@@ -34,7 +34,7 @@ const SliderWorks = () => {
   });
 
   return (
-    <div className=' flex-1 w-full  my-16 min-md:hidden '>
+    <div className=' flex-1 w-full  my-16 min-lg:hidden '>
       <p className='text-sm'>My selected works</p>
       <>
         <Swiper

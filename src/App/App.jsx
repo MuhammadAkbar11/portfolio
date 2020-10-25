@@ -9,15 +9,18 @@ import Works from './containers/Works/Works';
 const App = () => {
   const [showTextOverlay, setShowTextOverlay] = useState(false);
   const [titleOverlay, setTitleOverlay] = useState('');
+  const [mainClass, setMainClass] = useState('pt-32');
 
   const handleShowTextOverlay = value => setShowTextOverlay(value);
 
   const handleTitleOverlay = value => setTitleOverlay(value);
 
+  const handleMainClass = value => setMainClass(value);
+
   return (
     <Router>
       <Wrapper
-        mainClass='relative pt-32 z-5 h-full'
+        mainClass={`relative z-5 ${mainClass} `}
         showTitleOverlay={showTextOverlay}
         titleOverlay={titleOverlay}
       >
@@ -29,6 +32,7 @@ const App = () => {
               <Home
                 handleIsTextOverlay={handleShowTextOverlay}
                 handleTextOverlay={handleTitleOverlay}
+                handleMainClass={handleMainClass}
               />
             )}
           />

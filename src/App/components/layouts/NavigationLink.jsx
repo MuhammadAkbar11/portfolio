@@ -8,7 +8,7 @@ function NavigationLink(props) {
     <>
       <Link
         to={url}
-        className={`navigation-link text-slate whitespace-no-wrap hover:text-primary font-iconsolata min-md:mx-3 `}
+        className={`navigation-link text-slate whitespace-no-wrap hover:text-primary font-iconsolata min-md:mx-3 cursor-pointer `}
       >
         <div className='text-sm'>
           <span className=' text-primary  '>{label}</span> {text}

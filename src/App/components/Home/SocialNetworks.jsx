@@ -38,7 +38,11 @@ function SocialNetworks(props) {
         },
       ].map(item => {
         return (
-          <a key={item.id} className='social-icon' href='#/'>
+          <a
+            key={item.id}
+            className='social-icon mr-2 min-md:mr-4 text-2xl '
+            href='#/'
+          >
             <FontAwesomeIcon icon={item.icon} />
           </a>
         );
