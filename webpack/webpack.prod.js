@@ -75,16 +75,7 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                auto: resourcePath => resourcePath.endsWith('.module.css'),
-                localIdentName: '[name]__[local]___[hash:base64:5]',
-              },
-              sourceMap: true,
-            },
-          },
+          'css-loader',
           {
             loader: 'postcss-loader',
           },
@@ -95,16 +86,7 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                auto: resourcePath => resourcePath.endsWith('.module.scss'),
-                localIdentName: '[name]__[local]___[hash:base64:5]',
-              },
-              sourceMap: true,
-            },
-          },
+          'css-loader',
           'sass-loader',
           'postcss-loader',
         ],

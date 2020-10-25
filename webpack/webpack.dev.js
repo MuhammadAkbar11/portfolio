@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -8,10 +7,13 @@ module.exports = {
   devtool: 'eval-cheap-source-map',
   output: {
     path: path.resolve(__dirname, '../', 'dist'),
-    filename: 'js/[name].bundle.[contenthash].js',
-    publicPath: '/',
+    filename: 'js/[name].bundle.js',
+    publicPath: './',
   },
-
+  watch: true,
+  watchOptions: {
+    ignored: /node_modules/,
+  },
   optimization: {
     splitChunks: {
       cacheGroups: {
@@ -42,10 +44,9 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash].css',
-      chunkFilename: 'css/chunk-[name].[contenthash].css',
+      filename: 'css/[name].css',
+      chunkFilename: 'css/chunk-[name].css',
     }),
-    new webpack.HotModuleReplacementPlugin(),
   ],
 
   module: {
@@ -53,38 +54,14 @@ module.exports = {
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                auto: resourcePath => resourcePath.endsWith('.module.css'),
-                localIdentName: '[name]__[local]___[hash:base64:5]',
-              },
-              sourceMap: true,
-            },
-          },
-          {
-            loader: 'postcss-loader',
-          },
-        ],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.scss$/,
         exclude: /node_modules/,
         use: [
           MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                auto: resourcePath => resourcePath.endsWith('.module.scss'),
-                localIdentName: '[name]__[local]___[hash:base64:5]',
-              },
-              sourceMap: true,
-            },
-          },
+          'css-loader',
           'sass-loader',
           'postcss-loader',
         ],

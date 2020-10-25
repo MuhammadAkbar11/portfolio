@@ -5,13 +5,14 @@ const Footer = props => {
   const { className } = props;
 
   return (
-    <div
+    <a
+      href='#/'
       className={` w-full h-20 flex justify-center items-center mb-3 font-iconsolata  ${className}`}
     >
       Design & Build by{' '}
       <span className='text-primary mx-2'> Muhammad Akbar Let-let </span>
       2020
-    </div>
+    </a>
   );
 };
 
