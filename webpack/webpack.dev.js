@@ -7,7 +7,8 @@ module.exports = {
   devtool: 'eval-cheap-source-map',
   output: {
     path: path.resolve(__dirname, '../', 'dist'),
-    filename: 'js/[name].bundle.js',
+    filename: 'js/[name].bundle-[contenthash].js',
+    chunkFilename: 'js/chunk-[name]-[contenthash].js',
     publicPath: './',
   },
   watch: true,
@@ -44,8 +45,8 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].css',
-      chunkFilename: 'css/chunk-[name].css',
+      filename: 'css/[name]-[contenthash].css',
+      chunkFilename: 'css/chunk-[name]-[contenthash].css',
     }),
   ],
 
