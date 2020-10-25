@@ -9,18 +9,12 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../', 'dist'),
     filename: 'js/[name].bundle.[contenthash].js',
-    publicPath: './',
+    publicPath: '/',
   },
 
   optimization: {
     splitChunks: {
       cacheGroups: {
-        styles: {
-          name: 'styles',
-          test: /\.css$/,
-          chunks: 'all',
-          enforce: true,
-        },
         default: {
           minChunks: 2,
           priority: -20,

@@ -16,9 +16,13 @@ module.exports = {
     // port: 9000,
     onListening: function (server) {
       const port = server.listeningApp.address().port;
-      console.log('==================================');
-      console.log('|| Listening on port:', port, ' ||');
-      console.log('==================================');
+      console.log('==============================');
+      console.log('|| Listening on port:', port, '||');
+      console.log('==============================');
+    },
+    watchOptions: {
+      ignored: /node_modules/,
+      pool: 1000,
     },
     watchContentBase: true,
     contentBase: path.resolve(__dirname, '../', 'dist'),
@@ -26,7 +30,9 @@ module.exports = {
     hot: true,
     open: true,
     compress: true,
-    historyApiFallback: true,
+    historyApiFallback: {
+      index: 'index.html',
+    },
   },
 
   module: {
@@ -53,7 +59,7 @@ module.exports = {
           loader: 'file-loader',
           options: {
             name: '[path][name].[hash].[ext]',
-            context: 'src',
+            context: 'src/App',
           },
         },
       },

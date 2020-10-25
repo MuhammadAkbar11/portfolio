@@ -5,7 +5,7 @@ module.exports = {
     // defaultLineHeights: true,
     // standardFontWeights: true
   },
-  purge: [],
+  purge: {},
   target: 'relaxed',
   prefix: '',
   important: false,
