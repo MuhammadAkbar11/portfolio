@@ -1,12 +1,8 @@
 import React from 'react';
-import SocialNetworks from './SocialNetworks';
-// import PropTypes from 'prop-types';
 
 const Hero = () => {
-  /* eslint-disable */
-
   return (
-    <div className='flex flex-col flex-1 h-full w-full justify-start min-md:p-0 md:justify-center lg:justify-center xl:justify-center xll:justify-center '>
+    <div className='flex flex-col flex-1 h-full w-full justify-center min-md:p-0'>
       <h1 className=' font-montserrat  lg:my-1 xl:-my-1 font-extrabold text-primary text-4xl sm:text-5xl min-md:text-6xl   xll:text-5rem  '>
         Hi, There
       </h1>
@@ -23,7 +19,6 @@ const Hero = () => {
         >
           Say Hello
         </button>
-        <SocialNetworks className=' ml-8 max-lg:hidden' />
       </div>
     </div>
   );

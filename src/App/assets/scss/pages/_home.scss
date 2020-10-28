@@ -7,16 +7,3 @@
     }
   }
 }
-
-.contoiner-selected-work {
-  flex: 1;
-  @apply w-full;
-}
-
-.slider-works {
-  @apply relative flex justify-center items-center cursor-pointer p-3  rounded-md text-light-slate;
-
-  &:hover {
-    @apply bg-primary  text-secondary;
-  }
-}

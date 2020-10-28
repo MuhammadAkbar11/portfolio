@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Hero from '../../components/Home/Hero';
-import SliderWorks from '../../components/Home/SliderWorks';
 import SocialNetworks from '../../components/Home/SocialNetworks';
 import Footer from '../../components/layouts/Footer';
 
@@ -19,7 +18,6 @@ const Home = props => {
   return (
     <>
       <Hero />
-      <SliderWorks />
       <SocialNetworks className='flex flex-row flex-wrap justify-center  min-lg:hidden' />
       <Footer />
     </>
