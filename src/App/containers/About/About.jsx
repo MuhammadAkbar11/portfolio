@@ -20,7 +20,7 @@ const About = props => {
     <>
       {/* Title */}
       <PageTitle title='02. About Me'>
-        Can I Make <span className=' text-primary'>It Better?</span>
+        How do I say <span className=' text-primary'>About</span> myself?
       </PageTitle>
 
       {/* content */}

@@ -14,8 +14,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "export NODE_ENV=dev && nodemon  src/server/server.main.js",
-    "start:simple:server": "nodemon src/server/server.simple.js & yarn run build:dev",
+    "start": "export NODE_ENV=dev HOT=true && nodemon  src/server/server.main.js",
+    "start:simple:server": "nodemon src/server/server.simple.js",
     "build:dev": "webpack --config  webpack/webpack.config.js --env.env=dev",
     "production": "yarn build:prod & yarn start:prod",
     "start:prod": "export NODE_ENV=prod && nodemon  src/server/server.main.js",
