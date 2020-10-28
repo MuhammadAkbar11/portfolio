@@ -1,12 +1,24 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const HOT = process.env.HOT;
+
+console.log(HOT);
+
+let ENTRYFILE;
+
+if (HOT == true) {
+  ENTRYFILE = [
+    path.resolve(__dirname, '../', 'src/index.js'),
+    'webpack-hot-middleware/client?reload=true',
+  ];
+} else {
+  ENTRYFILE = path.resolve(__dirname, '../', 'src/index.js');
+}
+
 module.exports = {
   entry: {
-    index: [
-      path.resolve(__dirname, '../', 'src/index.js'),
-      'webpack-hot-middleware/client?reload=true',
-    ],
+    index: ENTRYFILE,
   },
   resolve: {
     extensions: ['*', '.js', '.jsx', '.json'],
@@ -40,6 +52,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
+        include: path.resolve(__dirname, '../', 'src'),
         use: [
           'babel-loader',
           {
