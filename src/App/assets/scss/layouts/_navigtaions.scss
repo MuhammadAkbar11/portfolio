@@ -2,16 +2,13 @@
   right: -200vw;
   transition: 0.2s all;
   display: none;
-  @apply bg-secondary;
 
-  &.open {
-    z-index: 9000 #{!important};
-    position: fixed #{!important};
-    transition: 0.3s all;
-    display: flex;
-    flex-direction: column;
-    @apply top-0 left-0  right-0 z-50 px-8 pt-6 h-screen;
-  }
+  z-index: 9000 #{!important};
+  position: fixed #{!important};
+  transition: 0.3s all;
+  display: flex;
+  flex-direction: column;
+  @apply bg-secondary top-0 left-0  right-0 z-50 px-8 pt-6 h-screen;
 
   &-nav {
     line-height: 4.5rem;
@@ -48,8 +45,7 @@
 }
 
 @screen min-md {
-  .sidemenu,
-  .sidemenu.open {
+  .sidemenu {
     display: none;
   }
 }

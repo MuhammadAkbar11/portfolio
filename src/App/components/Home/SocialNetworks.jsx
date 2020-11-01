@@ -40,7 +40,7 @@ function SocialNetworks(props) {
         return (
           <a
             key={item.id}
-            className='social-icon mr-2 min-md:mr-4 text-2xl '
+            className='social-icon mr-2 min-md:mr-5 text-2xl '
             href='#/'
           >
             <FontAwesomeIcon icon={item.icon} />

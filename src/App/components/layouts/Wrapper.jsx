@@ -1,41 +1,33 @@
 /* eslint-disable */
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import Sidebar from './Sidebar';
 import Header from './Header';
 
 import SideLayout from './SideLayout';
 import PageTitleOverlay from './PageTitleOverlay';
-import Toggle from '../Toggle';
+
+import { LayoutContext } from '../../context/context';
 
 const Wrapper = props => {
-  const [sideOpen, setSideOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    if (sideOpen === false) {
-      console.log('open');
-      setSideOpen(true);
-    } else {
-      console.log('close');
-      setSideOpen(false);
-    }
-  };
+  const context = useContext(LayoutContext);
+  const { isOpenSideMenu } = context.layoutStore;
 
   const { children, mainClass, titleOverlay, showTitleOverlay } = props;
 
-  const wrapperHide = sideOpen ? 'overflow-hidden ' : '  ';
+  const wrapperHide = isOpenSideMenu ? 'overflow-hidden ' : '  ';
 
   return (
     <div
       className={`wrapper bg-secondary text-slate flex flex-col  px-6 pt-1  ${wrapperHide}  `}
     >
       <SideLayout position='left' />
-      <Header toggleSidebar={toggleSidebar} />
+      <Header />
       {showTitleOverlay ? <PageTitleOverlay text={titleOverlay} /> : null}
       <main className={`flex flex-1 flex-col flex-wrap  h-full  ${mainClass}`}>
         {children}
       </main>
-      <Sidebar open={sideOpen} toggleCLose={<Toggle click={toggleSidebar} />} />
+      {isOpenSideMenu && <Sidebar />}
       <SideLayout position='right' />
     </div>
   );

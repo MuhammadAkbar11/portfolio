@@ -1,0 +1,29 @@
+.toggle {
+  width: 55px;
+  height: 45px;
+  border: 1px solid;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  overflow: hidden;
+
+  & &-path {
+    position: relative;
+    width: 100%;
+    height: 3px;
+    transform: scale(0);
+    background-color: $primary;
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 3px;
+      transform: scale(1);
+      background-color: $primary;
+    }
+  }
+}

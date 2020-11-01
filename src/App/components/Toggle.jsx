@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Toggle = props => {
+  /* eslint-disable */
   const { click } = props;
   return (
     <>
-      <button onClick={click} type='button' className='btn btn-outline'>
-        Klik
-      </button>
+      <div className='toggle '>
+        <div className='toggle-path py-2'></div>
+      </div>
     </>
   );
 };
