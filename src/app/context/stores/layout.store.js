@@ -22,6 +22,7 @@ const LayoutStore = {
       label: '04.',
     },
   ],
+  paddingMain: 'pt-16',
 };
 
 export default LayoutStore;
