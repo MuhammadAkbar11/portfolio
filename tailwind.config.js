@@ -271,6 +271,7 @@ module.exports = {
     fontFamily: {
       poppins: ['"Poppins"', 'sans-serif'],
       inconsolata: ["'Inconsolata'", 'monospace'],
+      montserrat: ["'Montserrat'", 'sans-serif'],
       sans: [
         'system-ui',
         '-apple-system',

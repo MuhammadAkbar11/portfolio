@@ -9,15 +9,17 @@ module.exports = {
     'react/jsx-filename-extension': 0,
     'import/no-named-as-default': 0,
     'import/no-unresolved': 0,
+    'import/prefer-default-export': 0,
   },
   settings: {
     'import/resolver': {
       alias: {
         map: [
-          ['@', path.join(__dirname, 'src')],
-          ['@app', path.join(__dirname, 'src/app')],
-          ['@containers', path.join(__dirname, 'src/app/containers')],
-          ['@components', path.join(__dirname, 'src/app/components')],
+          ['@', path.resolve(__dirname, '/src')],
+          ['assets', path.resolve(__dirname, '/src/assets')],
+          ['@app', path.resolve(__dirname, '/src/app')],
+          ['@containers', path.join(__dirname, '/src/app/containers')],
+          ['@components', path.join(__dirname, '/src/app/components')],
         ],
         extensions: ['.js', '.jsx', '.json'],
       },

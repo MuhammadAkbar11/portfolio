@@ -1,4 +1,4 @@
 {
   "ignore": ["dist", "node_modules"],
-  "watch": ["src", "webpack"]
+  "watch": ["src/server", "webpack"]
 }
