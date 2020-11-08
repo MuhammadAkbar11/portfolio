@@ -6,47 +6,68 @@ import { Button } from '.';
 import { fadeUpVariants } from '../animation/fadeUp';
 
 const StyledHero = motion.custom(styled.div`
-  ${tw`flex   flex-col flex-1 h-full w-full justify-start min-md:p-0  `}
+  ${tw`flex   flex-col flex-1 h-full w-full justify-start lg:justify-center min-md:pt-12  `}
 `);
 
 const StyleGreeting = motion.custom(styled.h1`
-  ${tw`font-montserrat  lg:my-1 xl:-my-1 font-extrabold text-primary text-4xl sm:text-5xl min-md:text-6xl   xll:text-8xl `}
+  ${tw`font-inconsolata pl-1  text-primary text-lg sm:text-base min-md:text-lg `}
 `);
 
 const Title = motion.custom(styled.h3`
-  ${tw`text-light text-lg font-poppins font-semibold  sm:text-2xl min-md:text-3xl  xll:text-4xl`}
+  ${tw`text-light text-3xl pl-0  sm:text-5xl md:text-5xl lg:text-7xl xl:text-9xl xll:text-10xl font-poppins font-semibold mt-3 min-md:-mt-1 `}
 `);
 
 const SubTitle = motion.custom(styled.h3`
-  ${tw`text-slate text-3xl sm:text-4xl min-md:text-5xl  lg:my-1 xl:-my-1  xll:text-6xl `}
+  ${tw`text-slate pl-1 text-2xl mt-3 min-md:mt-5 sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl   `}
+  text-transform: uppercase !important;
 `);
 
-const variants = {
-  open: {
+const Devider = motion.custom(styled.hr`
+  ${tw`bg-primary ml-1 h-1  mt-3 min-lg:mt-2 w-10  `}
+  transform-origin: 0 0;
+  @media (min-width: 766px) {
+    width: 7rem;
+  }
+  border: none;
+`);
+
+const heroVariant = {
+  show: {
+    opacity: 1,
     transition: {
+      duration: 1,
       when: 'beforeChildren',
-      staggerChildren: 1,
     },
   },
   closed: {
-    transition: { staggerChildren: 0.05, staggerDirection: -1 },
+    opacity: 0,
+  },
+};
+
+const hrMotion = {
+  show: {
+    scaleX: [0, 1],
+    transition: {
+      delay: 1.5,
+      scaleX: [0.1, 2],
+    },
+  },
+  closed: {
+    scaleX: 0,
   },
 };
 
 const hero = () => {
   return (
-    <StyledHero variants={variants} animate='open'>
-      <StyleGreeting
-        variants={fadeUpVariants(0.3)}
-        initial='init'
-        animate='show'
-      >
-        Hi, There
+    <StyledHero variants={heroVariant} initial='closed' animate='show'>
+      <StyleGreeting variants={fadeUpVariants(0.5)}>
+        Hi, my name is{' '}
       </StyleGreeting>
-      <Title variants={fadeUpVariants(0.4)} initial='init' animate='show'>
-        I’ m Muhammad <span className='text-primary'>Akbar </span> Let-Let
+      <Title variants={fadeUpVariants(0.7)}>
+        Muhammad <span className='text-primary'>Akbar </span>
       </Title>
-      <SubTitle variants={fadeUpVariants(0.5)} initial='init' animate='show'>
+      <Devider variants={hrMotion} />
+      <SubTitle variants={fadeUpVariants(0.9)}>
         {' '}
         A Front-End<span className=' text-underline mx-2'>
           Web
@@ -54,11 +75,11 @@ const hero = () => {
       </SubTitle>
       <div className='mt-3 min-lg:mt-5 flex items-center  '>
         <Button
-          size='lg'
+          className='max-sm:mt-5 mt-10 ml-1'
+          size='xl'
+          href='/#'
           outline
-          variants={fadeUpVariants(0.6)}
-          initial='init'
-          animate='show'
+          variants={fadeUpVariants(1)}
         >
           Say Hello
         </Button>
