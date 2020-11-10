@@ -38,6 +38,7 @@ module.exports = {
       primary: '#63B3ED',
       'wire-primary': '#464646',
       secondary: '#0A192F',
+      'dark-secondary': '#061020',
       'light-secondary': '#172A45',
       'lightness-secondary': '#303c55',
       slate: '#8892B0',
@@ -313,6 +314,7 @@ module.exports = {
       '9xl': '5.5rem',
       '10xl': '6rem',
       '11xl': '6.5rem',
+      '12xl': '7rem',
     },
     fontWeight: {
       hairline: '100',
