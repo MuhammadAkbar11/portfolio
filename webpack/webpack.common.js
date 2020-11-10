@@ -74,7 +74,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'React, Webpack and Babel Boilerplate',
+      title: 'Muhammad Akbar | ...',
       template: path.resolve(__dirname, '..', 'src', 'index.html'),
       filename: 'index.html',
       inject: 'body',
