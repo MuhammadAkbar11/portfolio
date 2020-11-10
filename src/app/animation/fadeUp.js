@@ -6,7 +6,7 @@ const fadeUpVariants = delay => {
       y: 0,
       transition: {
         y: { stiffness: 1000, velocity: -100 },
-        delay: 0.5 + delay,
+        delay: 0.1 + delay,
         duration: 0.1,
       },
     },
