@@ -7,8 +7,8 @@ import { StyledTopMenu } from '@app/styled';
 import { Button } from '..';
 
 const StyledNav = motion.custom(styled.nav`
-  ${tw`min-md:justify-center min-md:flex `}
-  width: 10%;
+  ${tw`min-md:justify-center min-md:flex  `}
+  width: 15%;
 `);
 
 const topbar = () => {
@@ -25,7 +25,7 @@ const topbar = () => {
         }}
         transition={{
           duration: 0.5,
-          delay: 1,
+          delay: 2,
         }}
       >
         <img className='h-10' src={Logo} alt='' />
@@ -41,7 +41,7 @@ const topbar = () => {
         }}
         transition={{
           duration: 0.5,
-          delay: 1.5,
+          delay: 2.5,
         }}
       >
         <Button outline href='#/'>
