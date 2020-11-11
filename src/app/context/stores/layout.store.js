@@ -23,6 +23,10 @@ const LayoutStore = {
     },
   ],
   paddingMain: 'pt-16 min-lg:pt-10',
+  titleOverlay: {
+    isShow: false,
+    title: '',
+  },
 };
 
 export default LayoutStore;

@@ -2,6 +2,7 @@ import React, { useReducer } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import Home from '@app/containers/Home';
+import About from '@app/containers/About';
 import { LayoutProvider, PublicProvider } from './context/context';
 import PublicStore from './context/stores/public.store';
 import PublicReducer from './context/reducers/public.reducer';
@@ -28,7 +29,8 @@ const App = () => {
           }}
         >
           <Switch>
-            <Route path='/' exact component={Home} />
+            <Route path='/' exact render={() => <Home />} />
+            <Route path={'/about'} render={() => <About />} />
           </Switch>
         </LayoutProvider>
       </PublicProvider>

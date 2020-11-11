@@ -1,14 +1,15 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Wrapper } from '@app/styled';
-import { SideWrapper, TopBar } from '@components';
+import { Wrapper, MainContent } from '@app/styled';
+
+import { SideWrapper, TopBar, TitleOverlay } from '@components';
+
 import { LayoutContext } from '@app/context/context';
-import { MainContent } from '../../styled';
 
 const template = props => {
   const context = useContext(LayoutContext);
 
-  const { paddingMain } = context.layoutStore;
+  const { paddingMain, titleOverlay } = context.layoutStore;
 
   const { children } = props;
 
@@ -16,6 +17,7 @@ const template = props => {
     <Wrapper>
       <SideWrapper position='left' />
       <TopBar />
+      {titleOverlay.isShow && <TitleOverlay text={titleOverlay.title} />}
       <MainContent className={`${paddingMain}   `}>{children}</MainContent>
       <SideWrapper position='right' />
     </Wrapper>
