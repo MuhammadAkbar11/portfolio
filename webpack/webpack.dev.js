@@ -15,7 +15,14 @@ module.exports = {
   watchOptions: {
     ignored: '/node_modules/',
   },
-
+  devServer: {
+    hot: true,
+    open: true,
+    overlay: true,
+    historyApiFallback: {
+      index: 'index.html',
+    },
+  },
   optimization: {
     splitChunks: {
       cacheGroups: {

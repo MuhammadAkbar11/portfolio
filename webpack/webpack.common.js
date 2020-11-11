@@ -26,16 +26,7 @@ module.exports = {
   stats: {
     colors: true,
   },
-  devServer: {
-    contentBase: path.join(__dirname, '..', 'dist'),
-    hot: true,
-    open: true,
-    overlay: true,
-    compress: true,
-    historyApiFallback: {
-      index: 'index.html',
-    },
-  },
+
   module: {
     rules: [
       {
