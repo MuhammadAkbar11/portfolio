@@ -29,14 +29,6 @@ const TitleOverlayTextStyled = motion.custom(styled.div`
   overflow: hidden;
   animation: animate 1s 1.5s forwards;
 
-  /* &.show::before {
-    ${tw`absolute left-0 right-0 top-0 h-full text-primary  `}
-    content: attr(data-text);
-    overflow: hidden;
-    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
-
-  } */
-
   @keyframes animate {
     0% {
       clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);

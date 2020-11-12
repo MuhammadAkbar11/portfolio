@@ -11,3 +11,8 @@ export {
   styledHeroInfo as StyledHeroInfo,
   styledHeroInfoContents as StyledHeroInfoContents,
 } from './hero.styled';
+
+// about
+export { styledAboutSection as StyledAboutSection } from './about.styled';
+export { styledAboutTextWrapper as StyledAboutTextWrapper } from './about.styled';
+export { styledAboutProfPictWrapper as StyledAboutProfPictWrapper } from './about.styled';

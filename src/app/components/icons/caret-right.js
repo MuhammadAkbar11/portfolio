@@ -3,8 +3,7 @@ import React from 'react';
 const caretRight = () => {
   return (
     <svg
-      width='20'
-      height='20'
+      height='100%'
       viewBox='0 0 20 20'
       className=' text-current h-full my-auto '
       fill='none'
