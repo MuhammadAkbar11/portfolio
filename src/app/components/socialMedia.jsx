@@ -11,35 +11,12 @@ const variantSocialMedia = {
       delay: 1,
       duration: 0.8,
       when: 'beforeChildren',
-      staggerChildren: 0.2,
+      staggerChildren: 0.5,
       staggerDirection: 1,
     },
   },
   closed: {
     opacity: 0,
-  },
-};
-
-const variantSocialMediaIcons = {
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.3,
-      type: 'spring',
-      stiffness: 100,
-      ease: 'easeInOut',
-    },
-  },
-  closed: {
-    opacity: 0,
-    y: 10,
-  },
-  hover: {
-    scale: 1.09,
-    transition: {
-      yoyo: Infinity,
-    },
   },
 };
 
@@ -52,6 +29,7 @@ const socialMedia = props => {
       initial='closed'
       animate='show'
       className={`flex ${className}`}
+      transition={{}}
     >
       {/* prettier-disable */}
 
@@ -76,17 +54,13 @@ const socialMedia = props => {
         const { Icon } = icon;
         return (
           <SocialIcons
-            className=' relative '
+            className=''
             key={icon.id}
             url={icon.url}
             icon={
-              <motion.div
-                whileHover='hover'
-                variants={variantSocialMediaIcons}
-                className=' h-6 w-8 mr-3 hover:text-primary'
-              >
+              <div className=' h-6 w-8 mr-3 hover:text-primary'>
                 <Icon />
-              </motion.div>
+              </div>
             }
           />
         );
