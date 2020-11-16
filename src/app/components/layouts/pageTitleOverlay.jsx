@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { motion } from 'framer-motion';
@@ -65,24 +65,38 @@ const variant = {
 };
 
 const pageTitleOverlay = props => {
+  const [hide, setHide] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const { className, text } = props;
 
+  const ref = useRef(0);
+
   useEffect(() => {
     setIsMounted(true);
-  }, [isMounted]);
+    setTimeout(() => {
+      setHide(true);
+    }, 2500); // eslint-disable-line
+  }, []);
 
   return (
-    <TitleOverlayStyled
-      variants={variant}
-      initial='hide'
-      animate={isMounted ? 'show' : ''}
-      className={className}
-    >
-      <TitleOverlayTextStyled className={isMounted && `show`} data-text={text}>
-        {text}
-      </TitleOverlayTextStyled>
-    </TitleOverlayStyled>
+    <>
+      {!hide && (
+        <TitleOverlayStyled
+          ref={ref}
+          variants={variant}
+          initial='hide'
+          animate={isMounted ? 'show' : ''}
+          className={className}
+        >
+          <TitleOverlayTextStyled
+            className={isMounted && `show`}
+            data-text={text}
+          >
+            {text}
+          </TitleOverlayTextStyled>
+        </TitleOverlayStyled>
+      )}
+    </>
   );
 };
 

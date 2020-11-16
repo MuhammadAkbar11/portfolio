@@ -4,8 +4,23 @@ import Paragraph from './paragraph';
 import AboutListSkill from './aboutListSkills';
 import { ExternalLink, Socials } from '..';
 
-const aboutInfo = props => {
-  const { variants } = props; // eslint-disable-line
+const variants = {
+  init: {
+    opacity: 0,
+    y: '1rem',
+  },
+  show: {
+    opacity: 1,
+    y: '0rem',
+    transition: {
+      duration: 0.6,
+      type: 'spring',
+      when: 'beforeChildren',
+    },
+  },
+};
+
+const aboutInfo = () => {
   return (
     <StyledAboutTextWrapper variants={variants}>
       <Paragraph>
@@ -24,9 +39,9 @@ const aboutInfo = props => {
       </Paragraph>
       <Paragraph>
         {/*eslint-disable */}i grew up in southest{' '}
-        <span className='  text-primary '>Maluku</span>, but now i live in{' '}
-        <span className='  text-primary '>Bekasi</span>, Vest Java. I'm
-        currently a student at{' '}
+        <span className='text-primary '>Maluku</span>, but now i live in{' '}
+        <span className='text-primary '>Bekasi</span>, Vest Java. I'm currently
+        a student at{' '}
         <ExternalLink href='http://www.bsi.ac.id'>
           UBSI Jatiwaringin
         </ExternalLink>
@@ -38,7 +53,8 @@ const aboutInfo = props => {
       <br />
       <br />
       <Paragraph>
-        Let's make great products together! <br />
+        <span className='text-2xl'>Let's make great products together! </span>
+        <br />
         <ExternalLink className='font-inconsolata'>
           Muhammadakbarletlet@gmail.com
         </ExternalLink>

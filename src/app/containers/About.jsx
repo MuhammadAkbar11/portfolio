@@ -9,6 +9,38 @@ import { StyledAboutSection } from '@app/styled';
 import useTitleOverlay from '../hooks/useTitleOverlay';
 import useTitle from '../hooks/useTitle';
 
+const variants = {
+  init: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      delay: 2.8,
+      when: 'beforeChildren',
+      type: 'spring',
+      staggerChildren: 0.6,
+      staggerDirection: 1,
+    },
+  },
+};
+
+const colVariants = {
+  init: {
+    opacity: 0,
+    y: '1rem',
+  },
+  show: {
+    opacity: 1,
+    y: '0rem',
+    transition: {
+      duration: 0.5,
+      when: 'beforeChildren',
+    },
+  },
+};
+
 const About = () => {
   useTitleOverlay('About Me');
 
@@ -20,37 +52,6 @@ const About = () => {
       behavior: 'smooth',
     });
   }, []);
-
-  const variants = {
-    init: {
-      opacity: 0,
-    },
-    show: {
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        delay: 2.5,
-        when: 'beforeChildren',
-        staggerChildren: 0.4,
-        staggerDirection: 1,
-      },
-    },
-  };
-
-  const colVariants = {
-    init: {
-      opacity: 0,
-      y: '1rem',
-    },
-    show: {
-      opacity: 1,
-      y: '0rem',
-      transition: {
-        duration: 0.7,
-        when: 'beforeChildren',
-      },
-    },
-  };
 
   return (
     <Template>

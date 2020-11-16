@@ -13,7 +13,7 @@ const propTypes = {
 
 const paragraph = props => {
   const { className, children } = props;
-  return <p className={` leading-8 mt-4 ${className}`}>{children}</p>;
+  return <div className={` leading-8 mt-4 ${className}`}>{children}</div>;
 };
 
 paragraph.defaultProps = defProps;

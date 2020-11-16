@@ -1,19 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import { motion } from 'framer-motion';
 import { StyledAboutProfPictWrapper } from '@app/styled';
 
 import profileImg from '@/assets/img/profile.jpg';
-
-const defProps = {
-  variants: {},
-};
-
-const propTypes = {
-  variants: PropTypes.objectOf(PropTypes.object),
-};
 
 const ProfPictCard = motion.custom(styled.div`
   position: relative;
@@ -55,31 +46,23 @@ const ProfPictOverlay = styled.div`
   overflow: hidden;
 `;
 
-const aboutProfPict = props => {
-  const { variants } = props;
+const variants = {
+  init: {
+    opacity: 0,
+    y: '1rem',
+  },
+  show: {
+    opacity: 1,
+    y: '0rem',
+    transition: {
+      duration: 0.6,
+      type: 'spring',
+      when: 'beforeChildren',
+    },
+  },
+};
 
-  // const pictVariants = {
-  //   init: {
-  //     opacity: 0,
-  //     // x: '-200vw',
-  //     y: '4rem',
-  //     x: '-4rem',
-  //   },
-  //   show: {
-  //     opacity: 1,
-  //     // x: '0vw',
-  //     y: '0rem',
-  //     x: '-0rem',
-  //     rotate: [5, 0],
-  //     transition: {
-  //       type: 'spring',
-
-  //       dampping: 8,
-  //       duration: 0.7,
-  //     },
-  //   },
-  // };
-
+const aboutProfPict = () => {
   return (
     <StyledAboutProfPictWrapper variants={variants}>
       <ProfPictCard
@@ -97,9 +80,5 @@ const aboutProfPict = props => {
     </StyledAboutProfPictWrapper>
   );
 };
-
-aboutProfPict.defaultProps = defProps;
-
-aboutProfPict.propTypes = propTypes;
 
 export default aboutProfPict;
