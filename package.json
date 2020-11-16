@@ -17,7 +17,8 @@
     "start": "export NODE_ENV=dev HOT=true && nodemon src/server/server.main.js ",
     "prod": "yarn build:prod & yarn start:prod",
     "start:prod": "export NODE_ENV=prod && nodemon  src/server/server.main.js",
-    "build:prod": "webpack --config webpack/webpack.config.js --env.env=prod --colors"
+    "build:prod": "webpack --config webpack/webpack.config.js --env.env=prod --colors",
+    "dev:build": "webpack --config webpack/webpack.config.js --env.env=dev --colors"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
@@ -73,6 +74,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-intersection-observer": "^8.30.3",
     "react-router-dom": "^5.2.0",
     "styled-components": "^5.2.1",
     "tailwindcss": "^1.9.2",
