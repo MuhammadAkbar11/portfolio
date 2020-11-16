@@ -4,9 +4,6 @@ import { LayoutContext } from '@app/context/context';
 
 function useTitleOverlay(title) {
   const layoutContext = useContext(LayoutContext);
-
-  console.log(title, 'hooks'); // eslint-disable-line
-
   const dispatch = layoutContext.layoutDispatch;
 
   useEffect(() => {
