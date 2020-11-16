@@ -16,3 +16,7 @@ export {
 export { styledAboutSection as StyledAboutSection } from './about.styled';
 export { styledAboutTextWrapper as StyledAboutTextWrapper } from './about.styled';
 export { styledAboutProfPictWrapper as StyledAboutProfPictWrapper } from './about.styled';
+
+// works
+
+export { styledSelectedProjectSection as StyledSelectedProjectSection } from './works.styled';

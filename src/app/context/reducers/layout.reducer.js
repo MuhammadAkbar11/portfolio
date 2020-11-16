@@ -1,6 +1,5 @@
 /* eslint-disable */
 const LayoutReducer = (state, action) => {
-  console.log(action);
   switch (action.type) {
     case 'TOGGLE_SIDEBAR':
     // return toggleSidebar(state);
