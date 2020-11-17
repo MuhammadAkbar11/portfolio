@@ -1,25 +1,20 @@
 const LayoutStore = {
   isOpenSideBar: false,
-  sidemenuLink: [
+  navigations: [
     {
-      text: 'Home',
+      menu: 'Home',
       url: '/',
       label: '01.',
     },
     {
-      text: 'About',
+      menu: 'About',
       url: '/about',
       label: '02.',
     },
     {
-      text: 'Works',
+      menu: 'Works',
       url: '/works',
       label: '03.',
-    },
-    {
-      text: 'Contact',
-      url: '/contact',
-      label: '04.',
     },
   ],
   paddingMain: 'pt-16 min-lg:pt-10',

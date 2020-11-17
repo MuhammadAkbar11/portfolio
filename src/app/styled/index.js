@@ -1,8 +1,8 @@
 export { default as Wrapper } from './layouts/wrapper.styled';
 export { default as StyledTopMenu } from './layouts/topmenu.styled';
 export { default as MainContent } from './layouts/mainContent.styled';
+export { default as StyledNavigations } from './layouts/navigations.styled';
 
-// Home
 export {
   styledHero as StyledHero,
   styledfirstName as StyledFirstName,

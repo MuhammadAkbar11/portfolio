@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import tw from 'twin.macro';
+import { Navigations } from '..';
 
 const StyledSideWrap = styled.aside`
   ${tw`hidden min-md:flex  min-md:flex-no-wrap bg-transparent fixed flex-col justify-between
@@ -14,8 +15,8 @@ const sidewrap = props => {
   const { position } = props;
 
   const rightContent = (
-    <div className='relative  h-full w-full flex justify-center  items-end'>
-      this Right Contents
+    <div className='relative  h-full w-full flex justify-center  items-center'>
+      <Navigations />
     </div>
   );
   const leftContent = <div />;
