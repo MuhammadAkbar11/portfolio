@@ -8,25 +8,18 @@ import profileImg from '@/assets/img/profile.jpg';
 
 const ProfPictCard = motion.custom(styled.div`
   position: relative;
-  width: 70% !important;
 
-  &:hover .overlay {
-    animation: slideRight 0.1s linear forwards;
+  width: 250px;
+  height: 250px;
+
+  @media (min-width: 992px) {
+    width: 280px;
+    height: 280px;
   }
 
-  @keyframes slideRight {
-    0% {
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-    30% {
-      clip-path: polygon(0 0, 100% 0, 100% 74%, 0 76%);
-    }
-    50% {
-      clip-path: polygon(0 0, 100% 0, 100% 42%, 0 44%);
-    }
-    100% {
-      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    }
+  @media (min-width: 1200px) {
+    width: 370px;
+    height: 370px;
   }
 `);
 
@@ -39,12 +32,13 @@ const ProfPictImg = styled.img`
   border-radius: 5px;
 `;
 
-const ProfPictOverlay = styled.div`
-  ${tw`absolute left-0 right-0 top-0 h-full w-full  bg-primary `}
-  border-radius: 5px;
-  opacity: 0.7;
+const ProfPictOverlay = motion.custom(styled.div`
+  ${tw`absolute left-0 right-0 top-0 h-full w-full  bg-secondary `}
+  border-radius: 0px;
   overflow: hidden;
-`;
+  transform-origin: 100% 100%;
+  /* opacity: 0.8; */
+`);
 
 const variants = {
   init: {
@@ -56,8 +50,19 @@ const variants = {
     y: '0rem',
     transition: {
       duration: 0.6,
-      type: 'spring',
       when: 'beforeChildren',
+    },
+  },
+};
+
+const variantsOverlay = {
+  init: {
+    scaleX: 1,
+  },
+  show: {
+    scaleX: 0,
+    transition: {
+      duration: 0.5,
     },
   },
 };
@@ -65,16 +70,8 @@ const variants = {
 const aboutProfPict = () => {
   return (
     <StyledAboutProfPictWrapper variants={variants}>
-      <ProfPictCard
-        whileHover={{
-          scale: 0.9,
-          y: 5,
-          rotate: 5,
-        }}
-        // variants={pictVariants}
-        className='mx-auto about-pict-card'
-      >
-        <ProfPictOverlay className='overlay' />
+      <ProfPictCard className=' about-pict-card max-lg:mx-auto min '>
+        <ProfPictOverlay className='overlay' variants={variantsOverlay} />
         <ProfPictImg src={profileImg} />
       </ProfPictCard>
     </StyledAboutProfPictWrapper>

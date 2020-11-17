@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyledAboutTextWrapper } from '@app/styled';
+import { ExternalLink } from '@components';
 import Paragraph from './paragraph';
 import AboutListSkill from './aboutListSkills';
-import { ExternalLink, Socials } from '..';
 
 const variants = {
   init: {
@@ -38,10 +38,10 @@ const aboutInfo = () => {
         self in web development.
       </Paragraph>
       <Paragraph>
-        {/*eslint-disable */}i grew up in southest{' '}
-        <span className='text-primary '>Maluku</span>, but now i live in{' '}
-        <span className='text-primary '>Bekasi</span>, Vest Java. I'm currently
-        a student at{' '}
+        {/*eslint-disable */}i grew up in{' '}
+        <span className='text-primary '>Southest Maluku</span>, but now i live
+        in <span className='text-primary '>Bekasi</span>, Vest Java. I'm
+        currently a student at{' '}
         <ExternalLink href='http://www.bsi.ac.id'>
           UBSI Jatiwaringin
         </ExternalLink>
@@ -50,18 +50,6 @@ const aboutInfo = () => {
         And here are few tecnologies i've been working with recently:
       </Paragraph>
       <AboutListSkill />
-      <br />
-      <br />
-      <Paragraph>
-        <span className='text-2xl'>Let's make great products together! </span>
-        <br />
-        <ExternalLink className='font-inconsolata'>
-          Muhammadakbarletlet@gmail.com
-        </ExternalLink>
-      </Paragraph>
-      <Paragraph>
-        <Socials />
-      </Paragraph>
     </StyledAboutTextWrapper>
   );
 };

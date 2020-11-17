@@ -4,6 +4,8 @@ import {
   PageTitle,
   AboutTextWrapper,
   AboutProfilePicture,
+  ExternalLink,
+  Socials,
 } from '@components';
 import { StyledAboutSection } from '@app/styled';
 import useTitleOverlay from '../hooks/useTitleOverlay';
@@ -20,8 +22,6 @@ const variants = {
       delay: 2.8,
       when: 'beforeChildren',
       type: 'spring',
-      staggerChildren: 0.6,
-      staggerDirection: 1,
     },
   },
 };
@@ -42,8 +42,7 @@ const colVariants = {
 };
 
 const About = () => {
-  useTitleOverlay('About Me');
-
+  useTitleOverlay('About Me', true);
   useTitle('About Me');
 
   useEffect(() => {
@@ -62,6 +61,16 @@ const About = () => {
         <AboutProfilePicture variants={colVariants} />
         <AboutTextWrapper variants={colVariants} />
       </StyledAboutSection>
+      <div>
+        <span className='text-2xl'>Let's make great products together! </span>
+        <br />
+        <ExternalLink className='font-inconsolata'>
+          Muhammadakbarletlet@gmail.com
+        </ExternalLink>
+      </div>
+      <div className='mt-4'>
+        <Socials />
+      </div>
     </Template>
   );
 };
