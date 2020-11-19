@@ -5,12 +5,12 @@ import useTitle from '../hooks/useTitle';
 import useTitleOverlay from '../hooks/useTitleOverlay';
 
 const Works = () => {
-  useTitleOverlay('My Works');
-  useTitle('My Works');
+  useTitleOverlay('My Works', true);
+  useTitle('Works');
 
   return (
     <Template>
-      <PageTitle title='02. My Works'>
+      <PageTitle title='works'>
         {/* eslint-disable */}
         Some <span className=' text-primary'>Things</span> {"I've"} builds
       </PageTitle>

@@ -13,6 +13,7 @@ const variants = {
     opacity: 1,
     y: '0rem',
     transition: {
+      delay: 0.5,
       duration: 0.6,
       type: 'spring',
       when: 'beforeChildren',
@@ -38,10 +39,9 @@ const aboutInfo = () => {
         self in web development.
       </Paragraph>
       <Paragraph>
-        {/*eslint-disable */}i grew up in{' '}
-        <span className='text-primary '>Southest Maluku</span>, but now i live
-        in <span className='text-primary '>Bekasi</span>, Vest Java. I'm
-        currently a student at{' '}
+        i grew up in <span className='text-primary '>Southest Maluku</span>, but
+        now i live in <span className='text-primary '>Bekasi</span>, Vest Java.
+        I'm currently a student at{' '}
         <ExternalLink href='http://www.bsi.ac.id'>
           UBSI Jatiwaringin
         </ExternalLink>

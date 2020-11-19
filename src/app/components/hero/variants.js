@@ -20,6 +20,7 @@ const buttonLinkVariant = {
       duration: 0.4,
       type: 'spring',
       stiffness: 200,
+      when: 'beforeChildren',
     },
   },
   closed: {

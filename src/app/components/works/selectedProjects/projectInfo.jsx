@@ -25,7 +25,7 @@ const StyledProjectInfo = motion.custom(styled.div`
           ${tw`justify-end `}
         }
         & .tool {
-          ${tw`ml-3`}
+          ${tw`mx-1 my-auto`}
         }
       `;
     }
@@ -40,7 +40,7 @@ const StyledProjectInfo = motion.custom(styled.div`
       }
 
       & .tool {
-        ${tw` mr-3`}
+        ${tw` mx-1 my-auto`}
       }
     `;
   }}
@@ -55,7 +55,7 @@ const Title = styled.h1`
 `;
 
 const Label = styled.p`
-  ${tw`text-lg text-primary font-thin font-inconsolata my-1`}
+  ${tw`text-lg text-primary font-thin font-inconsolata my-1 italic`}
 `;
 const Description = styled.div`
   ${tw`text-sm font-poppins`}
@@ -103,24 +103,33 @@ const actionVariants = {
 const projectInfo = props => {
   const { title, description, tools, position } = props;
 
+  const toolsLength = tools.length;
+
   return (
     <StyledProjectInfo variants={variants} position={position}>
       <StyledProjectInfoRow className='project-row'>
         <Title>{title}</Title>
-        <Label>Selected Project</Label>
+        <Label>{' // Selected Project'}</Label>
         <Description>
           {' '}
-          <p className={`leading-7  text-light-slate description`}>
+          <p className={`leading-7  text-lightness-slate description`}>
             {description}
           </p>
         </Description>
         <div className='my-5 w-full'>
-          <ul className='flex text-base  text-slate font-montserrat font-light tools'>
-            {tools.map(tool => (
+          <ul className='flex text-base  text-slate font-inconsolata  tools'>
+            <span className='font-semibold text-primary text-lg'>{'['}</span>
+            {tools.map((tool, i) => (
               <li key={tool + 1} className=' capitalize tool '>
-                {tool}
+                {`"${tool}"`}
+                {toolsLength === i + 1 ? (
+                  ''
+                ) : (
+                  <span className='text-lg font-semibold '>,</span>
+                )}
               </li>
             ))}
+            <span className='font-semibold text-primary text-lg'>{']'}</span>
           </ul>
         </div>
         <div className='flex relative'>

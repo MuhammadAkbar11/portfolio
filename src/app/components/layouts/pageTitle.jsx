@@ -10,7 +10,7 @@ const TitleWrapper = motion.custom(styled.div`
 `);
 
 const SmallTitle = motion.custom(styled.span`
-  ${tw` z-10  font-inconsolata text-xs min-md:text-lg  text-primary`}
+  ${tw` z-10  font-inconsolata text-xs min-md:text-lg text-primary`}
 `);
 
 const LargeTitle = motion.custom(styled.h1`
@@ -24,14 +24,15 @@ const pageTitle = props => {
     <>
       <TitleWrapper>
         <SmallTitle
-          variants={fadeUpVariants(2.5)}
+          variants={fadeUpVariants(0.1)}
           initial='closed'
           animate='show'
         >
-          {title}
+          .{title}
+          <span>()</span>
         </SmallTitle>
         <LargeTitle
-          variants={fadeUpVariants(2.6)}
+          variants={fadeUpVariants(0.5)}
           initial='closed'
           animate='show'
         >

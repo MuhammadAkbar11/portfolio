@@ -8,10 +8,10 @@ const variantSocialMedia = {
   show: {
     opacity: 1,
     transition: {
-      delay: 1,
-      duration: 0.8,
+      delay: 0.9,
+      duration: 0.5,
       when: 'beforeChildren',
-      staggerChildren: 0.5,
+      staggerChildren: 0.3,
       staggerDirection: 1,
     },
   },

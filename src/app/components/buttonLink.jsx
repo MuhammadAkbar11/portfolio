@@ -2,42 +2,45 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-
 import PropTypes from 'prop-types';
-import { CaretRight } from './icons';
 
 const StyledBtn = motion.custom(styled.div`
-  ${tw`flex items-center justify-around font-inconsolata text-lg hover:text-primary px-0 py-2`}
+  ${tw`flex items-center justify-around font-inconsolata text-xl lowercase hover:text-primary px-0 py-2`}
 `);
 
-const iconVariants = {
+const childrenVariants = {
   hover: {
-    x: [-3, 3],
-    // color: ['#63B3ED', '#63B3ED'],
+    y: [0, -2],
+    scale: [1, 1.05],
     transition: {
-      yoyo: Infinity,
-      duration: 0.6,
+      y: {
+        type: 'spring',
+        duration: 0.1,
+      },
+      scale: {
+        type: 'spring',
+        duration: 0.4,
+      },
     },
   },
 };
 
 const buttonLink = props => {
+  /* eslint-disable */
   const { url, className, children, ...attr } = props;
-  /* eslint-disable react/jsx-props-no-spreading */
   return (
     <>
       <StyledBtn
         as='a'
-        whileHover='hover'
         className={className}
+        whileHover='hover'
         href={url}
         {...attr}
       >
         {' '}
-        <motion.span variants={iconVariants} className='mr-2 h-3'>
-          <CaretRight />
+        <motion.span variants={childrenVariants} className=''>
+          .{children}()
         </motion.span>
-        <motion.span className='text-2xl'>{children}</motion.span>
       </StyledBtn>{' '}
     </>
   );

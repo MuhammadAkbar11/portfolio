@@ -22,6 +22,7 @@ const variants = {
     y: -3,
     transition: {
       duration: 0.3,
+      type: 'spring',
     },
   },
 };

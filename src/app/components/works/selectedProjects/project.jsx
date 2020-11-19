@@ -53,6 +53,7 @@ const project = props => {
     const delay = id / 3;
     setItemDelay(delay);
     setTimeout(() => setItemDelay(0.3), 1000);
+
     return () => {
       setItemDelay(0.3);
     };

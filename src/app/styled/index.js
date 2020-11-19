@@ -2,6 +2,7 @@ export { default as Wrapper } from './layouts/wrapper.styled';
 export { default as StyledTopMenu } from './layouts/topmenu.styled';
 export { default as MainContent } from './layouts/mainContent.styled';
 export { default as StyledNavigations } from './layouts/navigations.styled';
+export { default as StyledLoader } from './layouts/loader.styled';
 
 export {
   styledHero as StyledHero,

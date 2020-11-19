@@ -19,9 +19,9 @@ const variants = {
     opacity: 1,
     transition: {
       duration: 0.5,
-      delay: 2.8,
+      delay: 0.5,
       when: 'beforeChildren',
-      type: 'spring',
+      type: 'tween',
     },
   },
 };
@@ -43,7 +43,7 @@ const colVariants = {
 
 const About = () => {
   useTitleOverlay('About Me', true);
-  useTitle('About Me');
+  useTitle('About');
 
   useEffect(() => {
     window.scrollTo({
@@ -54,7 +54,7 @@ const About = () => {
 
   return (
     <Template>
-      <PageTitle title='02. About Me'>
+      <PageTitle title='about'>
         How do I say <span className=' text-primary'>About</span> myself?
       </PageTitle>
       <StyledAboutSection variants={variants} initial='init' animate='show'>
@@ -62,6 +62,7 @@ const About = () => {
         <AboutTextWrapper variants={colVariants} />
       </StyledAboutSection>
       <div>
+        {/* eslint-disable */}
         <span className='text-2xl'>Let's make great products together! </span>
         <br />
         <ExternalLink className='font-inconsolata'>

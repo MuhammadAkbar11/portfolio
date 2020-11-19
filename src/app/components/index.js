@@ -6,6 +6,7 @@ export { default as TitleOverlay } from './layouts/pageTitleOverlay';
 export { default as PageTitle } from './layouts/pageTitle';
 export { default as Navigations } from './layouts/navigations';
 export { default as NavigationItem } from './layouts/navigationItem';
+export { default as Loader } from './layouts/loader';
 
 export { default as ButtonLink } from './buttonLink';
 export { default as Button } from './button';

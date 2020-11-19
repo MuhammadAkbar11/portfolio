@@ -69,6 +69,7 @@ const StyledImg = motion.custom(styled.a`
   position: relative;
   transform-origin: 0 0;
   object-fit: cover;
+  overflow: hidden;
 
   &::after {
     ${tw`rounded-sm bg-primary`}
@@ -107,7 +108,7 @@ const overlayVariants = {
   },
 };
 
-const imgVariants = {
+const linkVariants = {
   init: {
     opacity: 0,
     y: 25,
@@ -124,6 +125,27 @@ const imgVariants = {
   },
 };
 
+const pictVariant = {
+  init: {
+    scale: 1,
+  },
+  animate: {
+    scale: 1.2,
+    transition: {
+      delay: 1.5,
+      type: 'tween',
+      duration: 0.3,
+    },
+  },
+  hover: {
+    scale: 1,
+    transition: {
+      type: 'tween',
+      duration: 0.3,
+    },
+  },
+};
+
 const projectPreview = props => {
   const { img, alt, position } = props;
   return (
@@ -134,11 +156,12 @@ const projectPreview = props => {
       />
       <StyledImg
         href='#/'
-        variants={imgVariants}
+        variants={linkVariants}
         position={position}
+        whileHover='hover'
         className='rounded-sm project-img '
       >
-        <img src={img} alt={alt} />
+        <motion.img variants={pictVariant} src={img} alt={alt} />
       </StyledImg>
     </StyledProjectPreview>
   );

@@ -25,7 +25,7 @@ const listProjects = () => {
   useEffect(() => {
     setTimeout(() => {
       setMount(true);
-    }, 2500);
+    }, 100);
   }, []);
 
   const selectedProjects = projects
