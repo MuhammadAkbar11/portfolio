@@ -65,7 +65,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Muhammad Akbar | ...',
+      title: 'Loading... Muhammad Akbar  | ..',
       template: path.resolve(__dirname, '..', 'src', 'index.html'),
       filename: 'index.html',
       inject: 'body',
