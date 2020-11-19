@@ -8,6 +8,8 @@ const useScrollShow = () => {
     if (inView) {
       setShow(true);
     }
+
+    return () => setShow(false);
   }, [inView, isShow]);
 
   return [ref, isShow];

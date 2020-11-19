@@ -2,10 +2,8 @@ import React from 'react';
 import { Template, PageTitle, SelectedProjects } from '@components';
 import { StyledSelectedProjectSection } from '@app/styled';
 import useTitle from '../hooks/useTitle';
-import useTitleOverlay from '../hooks/useTitleOverlay';
 
 const Works = () => {
-  useTitleOverlay('My Works', true);
   useTitle('Works');
 
   return (

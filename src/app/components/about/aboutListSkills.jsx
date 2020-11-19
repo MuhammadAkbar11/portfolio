@@ -10,7 +10,7 @@ const dataSkills = {
 function AboutListSkill() {
   const [skills] = useState(dataSkills);
   return (
-    <div className='mt-4 pt-4 text-slate grid grid-cols-2 min-lg:grid-cols-3 '>
+    <div className='mt-2 pt-2 text-slate grid grid-cols-2 min-lg:grid-cols-3 '>
       <AboutSkill skills={skills.skills1} />
       <AboutSkill skills={skills.skills2} />
       <AboutSkill skills={skills.skills3} />

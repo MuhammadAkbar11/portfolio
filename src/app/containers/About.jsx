@@ -8,7 +8,6 @@ import {
   Socials,
 } from '@components';
 import { StyledAboutSection } from '@app/styled';
-import useTitleOverlay from '../hooks/useTitleOverlay';
 import useTitle from '../hooks/useTitle';
 
 const variants = {
@@ -42,7 +41,6 @@ const colVariants = {
 };
 
 const About = () => {
-  useTitleOverlay('About Me', true);
   useTitle('About');
 
   useEffect(() => {
