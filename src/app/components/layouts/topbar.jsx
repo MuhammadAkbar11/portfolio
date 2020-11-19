@@ -1,52 +1,52 @@
-import React from 'react';
+/* eslint-disable */
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import Logo from 'assets/svg/AL.svg';
-import { motion } from 'framer-motion';
-import { StyledTopMenu } from '@app/styled';
+import { motion, useAnimation } from 'framer-motion';
+import { StyledTopMenu } from '../../styled';
 import { Button } from '..';
+import { useTopbarScroll } from '../../hooks';
 
 const StyledNav = motion.custom(styled.nav`
   ${tw`min-md:justify-center min-md:flex  `}
   width: 15%;
 `);
 
+const navVariants = delay => ({
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      type: 'spring',
+      delay,
+    },
+  },
+  closed: {
+    y: -20,
+    opacity: 0,
+  },
+});
+
 const topbar = () => {
+  const variants = useTopbarScroll();
+  const controls = useAnimation();
+
+  useEffect(() => {
+    controls.start('show');
+  }, [variants]);
   return (
-    <StyledTopMenu>
-      <StyledNav
-        initial={{
-          x: -10,
-          opacity: 0,
-        }}
-        animate={{
-          x: 0,
-          opacity: 1,
-        }}
-        transition={{
-          duration: 0.5,
-          delay: 2,
-        }}
-      >
+    <StyledTopMenu variants={variants} initial='closed' animate={controls}>
+      <StyledNav variants={navVariants(0.6)}>
         <img className='h-10' src={Logo} alt='' />
       </StyledNav>
-      <StyledNav
-        initial={{
-          x: 10,
-          opacity: 0,
-        }}
-        animate={{
-          x: 0,
-          opacity: 1,
-        }}
-        transition={{
-          duration: 0.5,
-          delay: 2.5,
-        }}
-      >
-        <Button outline href='#/'>
-          Resume
-        </Button>
+      <StyledNav variants={navVariants(1.2)}>
+        <div className='hidden min-md:block'>
+          <Button outline href='#/'>
+            Resume
+          </Button>
+        </div>
       </StyledNav>
     </StyledTopMenu>
   );

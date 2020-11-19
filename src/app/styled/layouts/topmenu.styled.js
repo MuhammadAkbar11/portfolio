@@ -1,14 +1,15 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 
-const styledTopmenu = styled.header`
-  ${tw`fixed w-full left-0 px-6 flex justify-between flex-row flex-wrap items-center text-primary min-md:px-0 `}
-  padding-top: 3rem;
+const styledTopmenu = motion.custom(styled.header`
+  ${tw`fixed w-full left-0 px-6 flex justify-between flex-row flex-wrap items-center text-primary min-md:px-0 py-2 min-md:py-4 `}
+  /* box-shadow: 0 .3rem 0.2rem rgba(3, 3, 3, 0.3); */
   height: 80px;
   top: 0;
   left: 0;
   right: 0;
   z-index: 7000;
-`;
+`);
 
 export default styledTopmenu;
