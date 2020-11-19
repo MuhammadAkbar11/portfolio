@@ -2,19 +2,19 @@ const LayoutStore = {
   isOpenSideBar: false,
   navigations: [
     {
-      menu: 'Home',
+      menu: 'home',
       url: '/',
-      label: '01.',
+      label: '()',
     },
     {
-      menu: 'About',
+      menu: 'about',
       url: '/about',
-      label: '02.',
+      label: '()',
     },
     {
-      menu: 'Works',
+      menu: 'works',
       url: '/works',
-      label: '03.',
+      label: '()',
     },
   ],
   paddingMain: 'pt-16 min-lg:pt-10',

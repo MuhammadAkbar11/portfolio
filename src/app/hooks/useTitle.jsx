@@ -4,10 +4,10 @@ const useTitle = title => {
   const [titleText, setTitle] = useState('');
   useEffect(() => {
     setTitle(title);
-    document.title = `Muhammad Akbar | ${titleText}`;
+    document.title = `Muhammad Akbar  | ${titleText}`;
     return () => {
       setTitle('Loading');
-      document.title = `Muhammad Akbar | ${titleText}`;
+      document.title = `${titleText}... Muhammad Akbar  | ..`;
     };
   }, [titleText]);
 };

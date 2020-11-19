@@ -52,12 +52,15 @@ const variantsChild = {
 };
 
 const navigationItem = props => {
-  const { menu, label, url } = props;
+  const { menu, url } = props;
   return (
     <Link to={url}>
       <StyledLink variants={variants} whileHover='hover' whileTap='tap'>
-        <motion.div className='text-base' variants={variantsChild}>
-          <span className=' text-primary  '>{label}</span> {menu}
+        <motion.div
+          className='text-base font-semibold '
+          variants={variantsChild}
+        >
+          .{menu}()
         </motion.div>
       </StyledLink>
     </Link>

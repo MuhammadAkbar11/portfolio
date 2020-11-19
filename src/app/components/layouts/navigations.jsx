@@ -10,7 +10,7 @@ const variants = {
   show: {
     opacity: 1,
     transition: {
-      delay: 2,
+      delay: 1.5,
       duration: 0.3,
       when: 'beforeChildren',
       staggerChildren: 0.5,
@@ -27,15 +27,9 @@ const navigations = () => {
 
   return (
     <StyledNavigations variants={variants} initial='init' animate='show'>
-      {navigations.map(item => {
-        return (
-          <NavigationItem
-            key={item.label}
-            menu={item.menu}
-            label={item.label}
-            url={item.url}
-          />
-        );
+      {navigations.map((item, index) => {
+        const key = index * 0.1;
+        return <NavigationItem key={key} menu={item.menu} url={item.url} />;
       })}
     </StyledNavigations>
   );
