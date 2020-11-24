@@ -1,24 +1,9 @@
-/* eslint-disable */
+import { toggleMobileMenu } from '../reducers-actions/layout/mobileMenu';
+
 const LayoutReducer = (state, action) => {
   switch (action.type) {
-    case 'TOGGLE_SIDEBAR':
-    // return toggleSidebar(state);
-    case 'SHOW_TITLEOVERLAY':
-      return {
-        ...state,
-        titleOverlay: {
-          isShow: true,
-          title: action.value,
-        },
-      };
-    case 'HIDE_TITLEOVERLAY':
-      return {
-        ...state,
-        titleOverlay: {
-          isShow: false,
-          title: action.value,
-        },
-      };
+    case 'TOGGLE_MOBILE_MENU':
+      return toggleMobileMenu(state, action.payload.value);
     default:
       return state;
   }

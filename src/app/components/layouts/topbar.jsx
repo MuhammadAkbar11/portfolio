@@ -5,7 +5,7 @@ import tw from 'twin.macro';
 import Logo from 'assets/svg/AL.svg';
 import { motion, useAnimation } from 'framer-motion';
 import { StyledTopMenu } from '../../styled';
-import { Button } from '..';
+import { Button, ToggleNav } from '..';
 import { useTopbarScroll } from '../../hooks';
 
 const StyledNav = motion.custom(styled.nav`
@@ -41,12 +41,16 @@ const topbar = () => {
       <StyledNav variants={navVariants(0.6)}>
         <img className='h-10' src={Logo} alt='' />
       </StyledNav>
-      <StyledNav variants={navVariants(1.2)}>
+      <StyledNav
+        variants={navVariants(1.2)}
+        className=' max-md:flex max-md:justify-end  '
+      >
         <div className='hidden min-md:block'>
           <Button outline href='#/'>
             Resume
           </Button>
         </div>
+        <ToggleNav />
       </StyledNav>
     </StyledTopMenu>
   );

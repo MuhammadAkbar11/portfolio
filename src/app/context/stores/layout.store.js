@@ -1,5 +1,5 @@
 const LayoutStore = {
-  isOpenSideBar: false,
+  mobileMenu: false,
   navigations: [
     {
       menu: 'home',

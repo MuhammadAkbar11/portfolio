@@ -37,7 +37,29 @@ const PublicStore = {
     {
       id: 4,
       title: 'Project 4',
-      type: 'others',
+      type: 'best',
+      desc: ` Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Nulla magni odit non architecto, dicta optio inventore
+      labore natus tenetur sapiente nesciunt quos repudiandae
+      culpa ipsum facilis officiis eveniet, exercitationem
+      blanditiis?`,
+      tools: ['Bootsrap 4', 'Css', 'Jquery'],
+    },
+    {
+      id: 5,
+      title: 'Project 5',
+      type: 'best',
+      desc: ` Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Nulla magni odit non architecto, dicta optio inventore
+      labore natus tenetur sapiente nesciunt quos repudiandae
+      culpa ipsum facilis officiis eveniet, exercitationem
+      blanditiis?`,
+      tools: ['Bootsrap 4', 'Css', 'Jquery'],
+    },
+    {
+      id: 6,
+      title: 'Project 6',
+      type: 'best',
       desc: ` Lorem ipsum dolor sit amet consectetur adipisicing elit.
       Nulla magni odit non architecto, dicta optio inventore
       labore natus tenetur sapiente nesciunt quos repudiandae

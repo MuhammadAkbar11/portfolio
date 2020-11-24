@@ -29,7 +29,6 @@ const socialMedia = props => {
       initial='closed'
       animate='show'
       className={`flex ${className}`}
-      transition={{}}
     >
       {/* prettier-disable */}
 

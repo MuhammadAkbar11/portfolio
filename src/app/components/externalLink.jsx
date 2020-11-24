@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 
 const StyledLink = motion.custom(styled.a`
-  ${tw` text-primary relative  `}
+  ${tw` text-current relative  `}
   opacity: 0.7;
   transition: 0.4s all;
   &::after {
@@ -24,6 +24,7 @@ const StyledLink = motion.custom(styled.a`
 
   &:hover {
     opacity: 1;
+    ${tw` text-primary relative  `}
     &::after {
       animation: widthFull 0.2s linear forwards;
     }
