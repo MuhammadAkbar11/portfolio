@@ -1,29 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyledAboutTextWrapper } from '@app/styled';
 import { ExternalLink } from '@components';
+import { useAnimation } from 'framer-motion';
 import Paragraph from './paragraph';
 import AboutListSkill from './aboutListSkills';
-
-const variants = {
-  init: {
-    opacity: 0,
-    y: '1rem',
-  },
-  show: {
-    opacity: 1,
-    y: '0rem',
-    transition: {
-      delay: 0.5,
-      duration: 0.6,
-      type: 'spring',
-      when: 'beforeChildren',
-    },
-  },
-};
+import { useScrollShow } from '../../hooks';
+import { texts } from './variants/default.variants';
+import { setAnimateTexts } from './variants/actions.variant';
 
 const aboutInfo = () => {
+  const [ref, inView] = useScrollShow();
+
+  const [variants, setVariants] = useState({ ...texts });
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      setVariants(setAnimateTexts);
+    }
+
+    return () => {
+      setAnimateTexts(texts);
+    };
+  }, [inView]);
+
+  useEffect(() => {
+    if (inView) controls.start('animate');
+  }, [variants]);
+
   return (
-    <StyledAboutTextWrapper variants={variants}>
+    <StyledAboutTextWrapper
+      variants={variants}
+      initial='init'
+      animate={controls}
+      ref={ref}
+    >
       <Paragraph>
         {/* eslint-disable */}
         <span className='text-lg'>Hello..</span>. <br /> I'm Muhammad Akbar
@@ -42,9 +53,11 @@ const aboutInfo = () => {
         i grew up in <span className='text-primary '>Southest Maluku</span>, but
         now i live in <span className='text-primary '>Bekasi</span>, Vest Java.
         I'm currently a student at{' '}
-        <ExternalLink href='http://www.bsi.ac.id'>
-          UBSI Jatiwaringin
-        </ExternalLink>
+        <span className='text-primary'>
+          <ExternalLink href='http://www.bsi.ac.id'>
+            UBSI Jatiwaringin
+          </ExternalLink>
+        </span>
       </Paragraph>
       <Paragraph>
         And here are few tecnologies i've been working with recently:

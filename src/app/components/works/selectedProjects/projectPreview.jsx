@@ -8,15 +8,16 @@ const defaultProps = {
   img: '',
   alt: 'akbar',
   position: '',
+  variants: {},
 };
 
 const proptypes = {
   img: PropTypes.string,
   alt: PropTypes.string,
   position: PropTypes.string,
+  variants: PropTypes.objectOf(PropTypes.object),
 };
 
-/* eslint-disable */
 const StyledProjectPreview = motion.custom(styled.div`
   ${tw`w-full relative flex items-center min-lg:w-1/2  hover:opacity-100 py-6 `}
   ${props => {
@@ -33,19 +34,18 @@ const StyledProjectPreview = motion.custom(styled.div`
           ${tw`ml-auto mr-5 min-lg:mr-auto min-lg:ml-5`}
         }
       `;
-    } else {
-      return css`
-        ${tw`min-lg:order-2`}
-
-        & .project-img-overlay {
-          transform-origin: 100% 100%;
-        }
-
-        & .project-img {
-          ${tw`mr-auto ml-5 min-lg:ml-auto min-lg:mr-5`}
-        }
-      `;
     }
+    return css`
+      ${tw`min-lg:order-2`}
+
+      & .project-img-overlay {
+        transform-origin: 100% 100%;
+      }
+
+      & .project-img {
+        ${tw`mr-auto ml-5 min-lg:ml-auto min-lg:mr-5`}
+      }
+    `;
   }}
 `);
 
@@ -95,73 +95,23 @@ const StyledImg = motion.custom(styled.a`
   }
 `);
 
-const overlayVariants = {
-  init: {
-    scaleX: 0,
-  },
-  animate: {
-    scaleX: [0, 1],
-    transition: {
-      type: 'spring',
-      duration: 0.3,
-    },
-  },
-};
-
-const linkVariants = {
-  init: {
-    opacity: 0,
-    y: 25,
-  },
-  animate: {
-    opacity: 1.5,
-    y: 0,
-
-    transition: {
-      type: 'spring',
-      stiffnes: 100,
-      duration: 0.6,
-    },
-  },
-};
-
-const pictVariant = {
-  init: {
-    scale: 1,
-  },
-  animate: {
-    scale: 1.2,
-    transition: {
-      delay: 1.5,
-      type: 'tween',
-      duration: 0.3,
-    },
-  },
-  hover: {
-    scale: 1,
-    transition: {
-      type: 'tween',
-      duration: 0.3,
-    },
-  },
-};
-
 const projectPreview = props => {
-  const { img, alt, position } = props;
+  const { img, alt, position, variants } = props;
+
   return (
     <StyledProjectPreview>
       <StyledOverlay
-        variants={overlayVariants}
+        variants={variants.overlay}
         className='project-img-overlay'
       />
       <StyledImg
         href='#/'
-        variants={linkVariants}
+        variants={variants.imgWrapper}
         position={position}
         whileHover='hover'
         className='rounded-sm project-img '
       >
-        <motion.img variants={pictVariant} src={img} alt={alt} />
+        <motion.img variants={variants.img} src={img} alt={alt} />
       </StyledImg>
     </StyledProjectPreview>
   );

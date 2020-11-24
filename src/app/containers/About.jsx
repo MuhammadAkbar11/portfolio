@@ -4,41 +4,10 @@ import {
   PageTitle,
   AboutTextWrapper,
   AboutProfilePicture,
-  ExternalLink,
-  Socials,
+  AboutMoreInfos,
 } from '@components';
 import { StyledAboutSection } from '@app/styled';
 import useTitle from '../hooks/useTitle';
-
-const variants = {
-  init: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-      delay: 0.5,
-      when: 'beforeChildren',
-      type: 'tween',
-    },
-  },
-};
-
-const colVariants = {
-  init: {
-    opacity: 0,
-    y: '1rem',
-  },
-  show: {
-    opacity: 1,
-    y: '0rem',
-    transition: {
-      duration: 0.5,
-      when: 'beforeChildren',
-    },
-  },
-};
 
 const About = () => {
   useTitle('About');
@@ -55,21 +24,11 @@ const About = () => {
       <PageTitle title='about'>
         How do I say <span className=' text-primary'>About</span> myself?
       </PageTitle>
-      <StyledAboutSection variants={variants} initial='init' animate='show'>
-        <AboutProfilePicture variants={colVariants} />
-        <AboutTextWrapper variants={colVariants} />
+      <StyledAboutSection>
+        <AboutProfilePicture />
+        <AboutTextWrapper />
       </StyledAboutSection>
-      <div>
-        {/* eslint-disable */}
-        <span className='text-2xl'>Let's make great products together! </span>
-        <br />
-        <ExternalLink className='font-inconsolata'>
-          Muhammadakbarletlet@gmail.com
-        </ExternalLink>
-      </div>
-      <div className='mt-4'>
-        <Socials />
-      </div>
+      <AboutMoreInfos />
     </Template>
   );
 };

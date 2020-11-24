@@ -12,6 +12,7 @@ const Works = () => {
         {/* eslint-disable */}
         Some <span className=' text-primary'>Things</span> {"I've"} builds
       </PageTitle>
+
       <StyledSelectedProjectSection>
         <SelectedProjects />
       </StyledSelectedProjectSection>

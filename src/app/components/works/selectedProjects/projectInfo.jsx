@@ -66,6 +66,8 @@ const defaultProps = {
   description: '',
   tools: [],
   position: '',
+  variants: {},
+  actionVariants: {},
 };
 
 const proptypes = {
@@ -73,36 +75,44 @@ const proptypes = {
   description: PropTypes.string,
   tools: PropTypes.arrayOf(PropTypes.string),
   position: PropTypes.string,
+  variants: PropTypes.objectOf(PropTypes.object),
+  actionVariants: PropTypes.objectOf(PropTypes.object),
 };
 
-const variants = {
-  init: {
-    opacity: 0,
-    y: 15,
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: 'spring',
-      duration: 0.6,
-    },
-  },
-};
+// const variants = {
+//   init: {
+//     opacity: 0,
+//     y: 15,
+//   },
+//   animate: {
+//     opacity: 1,
+//     y: 0,
+//     transition: {
+//       type: 'spring',
+//       duration: 0.6,
+//     },
+//   },
+// };
 
-const actionVariants = {
-  hover: {
-    scale: 1.09,
-    y: -3,
-  },
-  transition: {
-    type: 'spring',
-  },
-};
+// const actionVariants = {
+//   hover: {
+//     scale: 1.09,
+//     y: -3,
+//   },
+//   transition: {
+//     type: 'spring',
+//   },
+// };
 
 const projectInfo = props => {
-  const { title, description, tools, position } = props;
-
+  const {
+    title,
+    description,
+    tools,
+    position,
+    variants,
+    actionVariants,
+  } = props;
   const toolsLength = tools.length;
 
   return (

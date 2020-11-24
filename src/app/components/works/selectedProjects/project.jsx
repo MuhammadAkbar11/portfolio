@@ -1,11 +1,25 @@
+/* eslint-disable */
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import projectImg from 'assets/img/mending.png';
 
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import ProjectInfo from './projectInfo';
 import ProjectPreview from './projectPreview';
 import useScrollShow from '../../../hooks/useScrollShow';
+import { useIsWindowScrolling } from '../../../hooks';
+
+import {
+  projectDefaultVariants,
+  projectPreviewVariants,
+  projectInfoVariants,
+  projectActionsVariants,
+} from './variants/default.variants';
+import {
+  setAnimatePreview,
+  setAnimateProject,
+  setAnimateInfomation,
+} from './variants/actions.variants';
 
 const defaultProps = {
   id: '',
@@ -23,62 +37,60 @@ const proptypes = {
   isReverse: PropTypes.bool,
 };
 
-const variants = delay => {
-  return {
-    init: {
-      opacity: 0,
-      y: 30,
-    },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay,
-        duration: 0.4,
-        type: 'spring',
-        when: 'beforeChildren',
-        staggerChildren: 0.5,
-        staggerDirection: 1,
-      },
-    },
-  };
-};
-
 const project = props => {
   const { title, description, tools, id, isReverse } = props;
+  const { isWinScroll } = useIsWindowScrolling();
+  const [ref, inView] = useScrollShow('-10px');
+  const controls = useAnimation();
 
-  const [itemDelay, setItemDelay] = useState(0.3);
+  const [variants, setVariants] = useState({ ...projectDefaultVariants });
+  const [previewVariants, setPreviewVariants] = useState({
+    ...projectPreviewVariants,
+  });
+  const [infoVariants, setInfoVariants] = useState({ ...projectInfoVariants });
 
   useEffect(() => {
-    const delay = id / 3;
-    setItemDelay(delay);
-    setTimeout(() => setItemDelay(0.3), 1000);
+    if (inView) {
+      const delay = isWinScroll ? 0.1 : id / 2;
+      setVariants(prevState => setAnimateProject(prevState, delay));
+      setPreviewVariants(prevState => setAnimatePreview(prevState));
+      setInfoVariants(prevState => setAnimateInfomation(prevState));
+    }
 
     return () => {
-      setItemDelay(0.3);
+      setVariants({ ...projectDefaultVariants });
+      setPreviewVariants({ ...projectPreviewVariants });
+      setInfoVariants({ ...projectInfoVariants });
     };
-  }, []);
+  }, [inView, isWinScroll]);
 
-  const [ref, inView] = useScrollShow();
+  useEffect(() => {
+    if (inView) {
+      controls.start('animate');
+    }
+  }, [variants, inView, isWinScroll]);
 
   return (
     <>
       <motion.div
         ref={ref}
-        variants={variants(itemDelay)}
         initial='init'
-        animate={inView ? 'animate' : 'init'}
+        variants={variants}
+        animate={controls}
         className='flex flex-col min-lg:flex-row mt-8 min-lg:mb-24 '
       >
         <ProjectPreview
           img={projectImg}
           alt={title}
+          variants={previewVariants}
           position={isReverse ? 'left' : 'right'}
         />
         <ProjectInfo
           title={title}
           description={description}
           tools={tools}
+          variants={infoVariants}
+          actionVariants={projectActionsVariants}
           position={isReverse ? 'left' : 'right'}
         />
       </motion.div>

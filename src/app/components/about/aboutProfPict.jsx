@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { StyledAboutProfPictWrapper } from '@app/styled';
-
 import profileImg from '@/assets/img/profile.jpg';
+import { useScrollShow } from '../../hooks';
+import { coloumVariants, media } from './variants/default.variants';
+import {
+  setAnimatePPWrapp,
+  setAnimateOverlay,
+  setAnimateImage,
+} from './variants/actions.variant';
 
 const ProfPictCard = motion.custom(styled.div`
   position: relative;
@@ -35,70 +41,56 @@ const ProfPictImg = motion.custom(styled.img`
 `);
 
 const ProfPictOverlay = motion.custom(styled.div`
-  ${tw`absolute left-0 right-0 top-0 h-full w-full  bg-secondary `}
+  ${tw`absolute left-0 right-0 top-0 h-full w-full  bg-primary  `}
   border-radius: 0px;
   overflow: hidden;
   transform-origin: 0 0;
-  /* opacity: 0.8; */
+  opacity: 0.8;
 `);
 
-const variants = {
-  init: {
-    opacity: 0,
-    y: '1rem',
-  },
-  show: {
-    opacity: 1,
-    y: '0rem',
-    transition: { duration: 0.6, when: 'beforeChildren' },
-  },
-};
-
-const variantsOverlay = {
-  init: {
-    scaleX: 1,
-  },
-  show: {
-    scaleX: 0,
-    transition: {
-      delay: 0.3,
-      duration: 0.5,
-    },
-  },
-};
-
-const imgVariants = {
-  init: {
-    scale: 1,
-  },
-  show: {
-    scale: 1.3,
-    transition: {
-      delay: 0.8,
-      type: 'spring',
-      duration: 0.6,
-    },
-  },
-  hover: {
-    scale: 1.2,
-    rotate: -5,
-    transition: {
-      type: 'tween',
-      duration: 0.3,
-    },
-  },
-};
-
 const aboutProfPict = () => {
+  const [refWrapper, inViewWrapper] = useScrollShow();
+
+  const [variants, setVariants] = useState({ ...coloumVariants });
+  const [overlayVariants, setOverlayVariants] = useState({ ...media.overlay });
+  const [imageVariants, setImageVariants] = useState({ ...media.img });
+
+  const controlsWrapper = useAnimation();
+
+  useEffect(() => {
+    if (inViewWrapper) {
+      setVariants(setAnimatePPWrapp);
+      setOverlayVariants(setAnimateOverlay);
+      setImageVariants(setAnimateImage);
+    }
+
+    return () => {
+      setVariants(coloumVariants);
+      setOverlayVariants(media.overlay);
+      setImageVariants(media.img);
+    };
+  }, [inViewWrapper]);
+
+  useEffect(() => {
+    if (inViewWrapper) {
+      controlsWrapper.start('animate');
+    }
+  }, [variants, overlayVariants, imageVariants]);
+
   return (
-    <StyledAboutProfPictWrapper variants={variants}>
+    <StyledAboutProfPictWrapper
+      variants={variants}
+      ref={refWrapper}
+      initial='init'
+      animate={controlsWrapper}
+    >
       <ProfPictCard className=' about-pict-card max-lg:mx-auto min '>
         <ProfPictImg
-          variants={imgVariants}
+          variants={imageVariants}
           src={profileImg}
           whileHover='hover'
         />
-        <ProfPictOverlay className='overlay' variants={variantsOverlay} />
+        <ProfPictOverlay className='overlay' variants={overlayVariants} />
       </ProfPictCard>
     </StyledAboutProfPictWrapper>
   );
