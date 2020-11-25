@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { SocialIcons } from '.';
 import { Github, Instagram, LinkedIn } from './icons';
+import { useIsWindowScrolling } from '../hooks';
 
-const variantSocialMedia = {
+const defaultVariants = {
   show: {
-    opacity: 1,
+    opacity: 0,
     transition: {
       delay: 0.9,
       duration: 0.5,
@@ -21,13 +22,46 @@ const variantSocialMedia = {
 };
 
 const socialMedia = props => {
-  const { className } = props;
+  const { className, inView } = props;
+
+  const [variants, setVariants] = useState(defaultVariants);
+
+  const { isWinScroll } = useIsWindowScrolling();
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      setVariants(prevState => {
+        return {
+          ...prevState,
+          show: {
+            opacity: 1,
+            transition: {
+              delay: isWinScroll ? 0.1 : 0.9,
+              duration: 0.5,
+              when: 'beforeChildren',
+              staggerChildren: 0.3,
+              staggerDirection: 1,
+            },
+          },
+        };
+      });
+    }
+
+    return () => {
+      setVariants(defaultVariants);
+    };
+  }, [inView, isWinScroll]);
+
+  useEffect(() => {
+    if (inView) controls.start('show');
+  }, [inView, variants]);
 
   return (
     <motion.div
-      variants={variantSocialMedia}
+      variants={variants}
       initial='closed'
-      animate='show'
+      animate={controls}
       className={`flex ${className}`}
     >
       {/* prettier-disable */}
@@ -70,10 +104,12 @@ const socialMedia = props => {
 
 socialMedia.defaultProps = {
   className: '',
+  inView: false,
 };
 
 socialMedia.propTypes = {
   className: PropTypes.string,
+  inView: PropTypes.bool,
 };
 
 export default socialMedia;

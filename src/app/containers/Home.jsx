@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import { PublicContext } from '@app/context/context';
 import { Template, Hero, Socials } from '@components';
-import { useTitle } from '../hooks';
+import { useScrollShow, useTitle } from '../hooks';
 
 const Home = () => {
   const context = useContext(PublicContext); // eslint-disable-line
@@ -10,11 +10,15 @@ const Home = () => {
   useTitle('Home');
   // }, []);
 
+  const [ref, inView] = useScrollShow();
+
   return (
     <>
       <Template>
         <Hero />
-        <Socials />
+        <div className='pb-12' ref={ref}>
+          <Socials inView={inView} />
+        </div>
       </Template>
     </>
   );

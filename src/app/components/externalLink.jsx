@@ -6,37 +6,38 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 
 const StyledLink = motion.custom(styled.a`
-  ${tw` text-current relative  `}
+  ${tw` text-current relative  p-1 `}
   opacity: 0.7;
   transition: 0.4s all;
   &::after {
     ${tw`  bg-primary px-2 `}
     content : "";
-    opacity: 0.5;
+    opacity: 1;
     position: absolute;
     width: 100%;
+    height: 1px;
 
     left: 0;
     right: 0;
-    bottom: 0px;
-    border-radius: 3px;
+    bottom: -2px;
   }
 
   &:hover {
     opacity: 1;
-    ${tw` text-primary relative  `}
+    ${tw`text-secondary relative  `}
     &::after {
+      z-index: -1;
       animation: widthFull 0.2s linear forwards;
     }
   }
 
   @keyframes widthFull {
     0% {
-      height: 0%;
+      height: 2px;
     }
 
     100% {
-      height: 50%;
+      height: 100%;
     }
   }
 `);

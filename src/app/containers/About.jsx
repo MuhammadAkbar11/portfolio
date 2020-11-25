@@ -5,6 +5,7 @@ import {
   AboutTextWrapper,
   AboutProfilePicture,
   AboutMoreInfos,
+  Footer,
 } from '@components';
 import { StyledAboutSection } from '@app/styled';
 import useTitle from '../hooks/useTitle';
@@ -29,6 +30,7 @@ const About = () => {
         <AboutTextWrapper />
       </StyledAboutSection>
       <AboutMoreInfos />
+      <Footer />
     </Template>
   );
 };

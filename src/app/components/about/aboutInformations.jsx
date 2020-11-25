@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
-import { ExternalLink, Socials } from '..';
+import { ExternalLink } from '@components';
 import { useIsWindowScrolling, useScrollShow } from '../../hooks';
 import { setAnimateMoreInfo } from './variants/actions.variant';
 import { moreInfo as defaultVariants } from './variants/default.variants';
@@ -29,18 +29,18 @@ const aboutInformations = () => {
 
   /* eslint-disable */
   return (
-    <motion.div variants={variants} initial='init' animate={controls} ref={ref}>
-      <div className='text-primary'>
-        <span className='text-2xl text-light-slate '>
-          Let's make great products together!{' '}
-        </span>
-        <br />
-        <ExternalLink className='font-inconsolata'>
-          Muhammadakbarletlet@gmail.com
-        </ExternalLink>
-      </div>
-      <div className='mt-4'>
-        <Socials />
+    <motion.div
+      variants={variants}
+      className='mb-10'
+      initial='init'
+      animate={controls}
+      ref={ref}
+    >
+      <div className='text-primary text-2xl font-montserrat font-medium'>
+        <span className=' text-light-slate '>
+          Let's make great products together! , don't hesitate to
+        </span>{' '}
+        <ExternalLink className='font-inconsolata'>Contact Me</ExternalLink>
       </div>
     </motion.div>
   );

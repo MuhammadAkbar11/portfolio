@@ -1,5 +1,5 @@
 import React from 'react';
-import { Template, PageTitle, SelectedProjects } from '@components';
+import { Template, PageTitle, SelectedProjects, Footer } from '@components';
 import { StyledSelectedProjectSection } from '@app/styled';
 import useTitle from '../hooks/useTitle';
 
@@ -16,6 +16,7 @@ const Works = () => {
       <StyledSelectedProjectSection>
         <SelectedProjects />
       </StyledSelectedProjectSection>
+      <Footer />
     </Template>
   );
 };

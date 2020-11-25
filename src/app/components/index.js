@@ -7,6 +7,7 @@ export { default as Navigations } from './layouts/navigations';
 export { default as NavigationItem } from './layouts/navigationItem';
 export { default as Loader } from './layouts/loader';
 export { default as ToggleNav } from './layouts/toggleMenu';
+export { default as Footer } from './layouts/footer';
 
 export { default as MobileMenu } from './layouts/mobileMenu';
 export { default as MobileMenuNavigation } from './layouts/mobileMenuNavigation';
