@@ -7,7 +7,6 @@ import { LayoutContext } from '@app/context/context';
 import { AnimatePresence } from 'framer-motion';
 
 const template = props => {
-  /* eslint-disable */
   const context = useContext(LayoutContext);
   const [loader, setLoader] = useState(true);
 
