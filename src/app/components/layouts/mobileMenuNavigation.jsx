@@ -10,7 +10,7 @@ const variants = {
   animate: {
     opacity: 1,
     transition: {
-      delay: 0.2,
+      delay: 0.1,
       duration: 0.3,
       type: 'spring',
       when: 'beforeChildren',
@@ -26,7 +26,7 @@ const mobileMenuNavigation = () => {
   const { navigations } = lycontext.layoutStore;
 
   return (
-    <StyledMobileMenuNav variants={variants} initial='init' animate='animate'>
+    <StyledMobileMenuNav variants={variants}>
       {navigations.map((item, index) => {
         const key = index * 0.1;
         return <MobileMenuItem key={key} url={item.url} menu={item.menu} />;

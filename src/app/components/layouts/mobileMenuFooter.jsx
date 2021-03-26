@@ -10,7 +10,7 @@ const variants = {
   animate: {
     opacity: 1,
     transition: {
-      delay: 0.6,
+      delay: 0.4,
       duration: 0.4,
       type: 'spring',
       when: 'beforeChildren',
@@ -39,11 +39,7 @@ const actionsVariants = {
 
 const mobileMenuFooter = () => {
   return (
-    <StyledMobileMenuFooter
-      variants={variants}
-      initial='init'
-      animate='animate'
-    >
+    <StyledMobileMenuFooter variants={variants}>
       <motion.div variants={actionsVariants} className=' text-primary '>
         <ExternalLink href='/#'>Resume</ExternalLink>{' '}
       </motion.div>
