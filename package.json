@@ -15,7 +15,7 @@
   "private": true,
   "proxy": "http://localhost:5000",
   "scripts": {
-    "start": "node src/server/server.main.js ",
+    "start": "nodemon src/server/server.main.js ",
     "start:dev": "export NODE_ENV=dev HOT=true && nodemon src/server/server.main.js",
     "prod": "yarn build:prod & yarn start:prod",
     "start:prod": "export NODE_ENV=prod && nodemon  src/server/server.main.js",
