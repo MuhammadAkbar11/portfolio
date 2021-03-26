@@ -13,13 +13,15 @@
   "main": "index.js",
   "license": "MIT",
   "private": true,
+  "proxy": "http://localhost:5000",
   "scripts": {
-    "start": "yarn build:prod & yarn start:prod",
-    "start:dev": "export NODE_ENV=dev HOT=true && nodemon src/server/server.main.js ",
+    "start": "node src/server/server.main.js ",
+    "start:dev": "export NODE_ENV=dev HOT=true && nodemon src/server/server.main.js",
     "prod": "yarn build:prod & yarn start:prod",
     "start:prod": "export NODE_ENV=prod && nodemon  src/server/server.main.js",
     "build:prod": "webpack --config webpack/webpack.config.js --env.env=prod --colors",
-    "dev:build": "webpack --config webpack/webpack.config.js --env.env=dev --colors"
+    "dev:build": "webpack --config webpack/webpack.config.js --env.env=dev --colors",
+    "heroku-postbuild": "yarn build:prod"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
