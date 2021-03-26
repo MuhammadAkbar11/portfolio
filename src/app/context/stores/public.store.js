@@ -15,7 +15,7 @@ const PublicStore = {
     {
       id: 2,
       title: 'Project 2',
-      type: 'recommended',
+      type: 'best',
       desc: ` Lorem ipsum dolor sit amet consectetur adipisicing elit.
       Nulla magni odit non architecto, dicta optio inventore
       labore natus tenetur sapiente nesciunt quos repudiandae
