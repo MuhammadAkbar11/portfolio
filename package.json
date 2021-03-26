@@ -14,7 +14,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "export NODE_ENV=dev HOT=true && nodemon src/server/server.main.js ",
+    "start": "yarn build:prod & yarn start:prod",
+    "start:dev": "export NODE_ENV=dev HOT=true && nodemon src/server/server.main.js ",
     "prod": "yarn build:prod & yarn start:prod",
     "start:prod": "export NODE_ENV=prod && nodemon  src/server/server.main.js",
     "build:prod": "webpack --config webpack/webpack.config.js --env.env=prod --colors",
