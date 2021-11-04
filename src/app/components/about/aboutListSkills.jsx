@@ -1,19 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { PublicContext } from '@app/context/context';
 import AboutSkill from './aboutSkill';
 
-const dataSkills = {
-  skills1: ['Html', 'Css & Scss', 'Javascript'],
-  skills2: ['ReactJs', 'TaildwindCss', 'Bootstrap 4'],
-  skills3: ['GIT', 'Figma'],
-};
-
 function AboutListSkill() {
-  const [skills] = useState(dataSkills);
+  const {
+    publicStore: { skills },
+  } = useContext(PublicContext);
   return (
-    <div className='mt-2 pt-2 text-slate grid grid-cols-2 min-lg:grid-cols-3 '>
-      <AboutSkill skills={skills.skills1} />
-      <AboutSkill skills={skills.skills2} />
-      <AboutSkill skills={skills.skills3} />
+    <div className='mt-2 pt-2 text-slate  '>
+      <AboutSkill skills={skills} />
     </div>
   );
 }

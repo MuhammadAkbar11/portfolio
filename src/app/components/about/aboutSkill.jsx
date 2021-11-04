@@ -1,23 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CaretRight } from '../icons';
 
 function AboutSkill(props) {
   const { skills } = props;
   /* eslint-disable */
 
-  const skill = skills.map(skillItem => (
-    <li key={skillItem + 1} className='h-auto flex items-center '>
-      <div className='mr-2 text-primary h-2'>
-        <CaretRight />{' '}
-      </div>{' '}
-      {skillItem}
-    </li>
-  ));
+  const skill = skills.map((sk, idx) => {
+    const key = idx;
+    return (
+      <li key={key} className=' pr-2 h-auto w-4/12 block float-left   '>
+        <div className='flex items-center text-base italic'>
+          <span className='mr-1 text-primary text-opacity-75  '>#</span>
+          {sk}
+        </div>
+      </li>
+    );
+  });
 
   return (
-    <div>
-      <ul className='flex flex-col text-sm  leading-7  '>{skill}</ul>
+    <div className=' w-full '>
+      <ul className=' text-sm leading-8 xs:flex xs:flex-col md:block  '>
+        {skill}
+      </ul>
     </div>
   );
 }

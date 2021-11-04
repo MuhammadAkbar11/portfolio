@@ -1,5 +1,22 @@
 const PublicStore = {
   name: 'Muhammad Akbar Let-Let',
+  skills: [
+    'Html',
+    'Css & Scss',
+    'Javascript',
+    'ReactJs',
+    'Next.js (Basic)',
+    'Redux',
+    'NodeJs',
+    'ExpressJs',
+    'MySQL',
+    'MongoDb',
+    'Bootstrap ',
+    'TaildwindCss',
+    'Git',
+
+    'Webpack',
+  ],
   projects: [
     {
       id: 1,
