@@ -32,8 +32,8 @@ const hero = () => {
           className='order-1 min-lg:order-2 min-lg:pr-5 min-lg:text-xl'
         >
           <p>
-            Hi There, My name is Muhammad Akbar let-let, I’m a front-end
-            Developer from Bekasi, Indonesia
+            Hi There, My name is Muhammad Akbar let-let, I’m a Web Developer
+            from Bekasi, Indonesia
           </p>
         </StyledHeroInfoContents>
       </StyledHeroInfo>

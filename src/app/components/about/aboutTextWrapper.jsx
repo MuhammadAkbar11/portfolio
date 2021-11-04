@@ -38,8 +38,7 @@ const aboutInfo = () => {
       <Paragraph>
         {/* eslint-disable */}
         <span className='text-lg'>Hello..</span>. <br /> I'm Muhammad Akbar
-        Let-let, a <span className='text-primary '>Front-End </span>
-        Developer.
+        Let-let, a <span className='text-primary '>Web Developer </span>
       </Paragraph>
       <Paragraph>
         A person who enjoys building and designing beautiful websites. and
