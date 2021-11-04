@@ -4,9 +4,9 @@ import tw from 'twin.macro';
 const wrapper = styled.div`
   ${tw` text-slate flex flex-col px-6 pt-1 bg-gradient-to-bl from-light-secondary via-dark-secondary to-dark-secondary  `}
   ${isHide => isHide && tw`overflow-hidden`}
-  min-height: 800px;
+  min-height: 100vh;
   background-attachment: fixed;
-  padding-top: 80px;
+  padding-top: 50px;
 
   @media (min-width: 766px) {
     & {

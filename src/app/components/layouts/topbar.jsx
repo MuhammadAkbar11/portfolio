@@ -35,7 +35,7 @@ const topbar = () => {
 
   useEffect(() => {
     controls.start('show');
-  }, [variants]);
+  }, [controls]);
   return (
     <StyledTopMenu variants={variants} initial='closed' animate={controls}>
       <StyledNav variants={navVariants(0.6)}>
