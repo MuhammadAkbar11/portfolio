@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 import { motion, useAnimation } from 'framer-motion';
 import { StyledAboutProfPictWrapper } from '@app/styled';
-import profileImg from '@/assets/img/profile.jpg';
+import profileImg from '@/assets/img/profile.jpeg';
 import { useScrollShow } from '../../hooks';
 import { coloumVariants, media } from './variants/default.variants';
 import {
