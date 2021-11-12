@@ -18,6 +18,16 @@ const variants = {
       staggerDirection: 1,
     },
   },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.1,
+      type: 'spring',
+      when: 'afterChildren',
+      staggerChildren: 0.05,
+      staggerDirection: -1,
+    },
+  },
 };
 
 const actionsVariants = {
@@ -28,6 +38,16 @@ const actionsVariants = {
   animate: {
     opacity: 1,
     y: 0,
+    transition: {
+      duration: 0.05,
+      type: 'spring',
+      // damping: 9,
+      stiffness: 150,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: 15,
     transition: {
       duration: 0.1,
       type: 'spring',

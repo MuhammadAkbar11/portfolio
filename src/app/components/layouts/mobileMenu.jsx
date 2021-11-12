@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useAnimation } from 'framer-motion';
+import { AnimatePresence, useAnimation } from 'framer-motion';
 import { MobileMenuFooter, MobileMenuNavigation } from '..';
 import { StyledMobileMenu } from '../../styled';
 import { LayoutContext } from '../../context/context';
@@ -9,11 +9,22 @@ const defaultVariants = {
     clipPath: 'circle(8.6% at 95% 6%)',
     opacity: 0,
   },
+
   animate: {
-    clipPath: 'circle(8.6% at 95% 6%)',
+    opacity: 1,
+    clipPath: 'circle(133.8% at 95% 6%)',
+    transition: {
+      duration: 0.4,
+      when: 'beforeChildren',
+    },
   },
   exit: {
-    scaleY: 0,
+    clipPath: 'circle(0% at 95% 6%)',
+    transition: {
+      duration: 0.3,
+      type: 'spring',
+      when: 'afterChildren',
+    },
   },
 };
 
@@ -52,15 +63,19 @@ const index = () => {
     }
   }, [variants, mobileMenu]);
   return (
-    <StyledMobileMenu
-      variants={variants}
-      initial='init'
-      animate={controls}
-      exit='exit'
-    >
-      <MobileMenuNavigation />
-      <MobileMenuFooter />
-    </StyledMobileMenu>
+    <AnimatePresence>
+      {mobileMenu && (
+        <StyledMobileMenu
+          variants={defaultVariants}
+          initial='init'
+          animate='animate'
+          exit='exit'
+        >
+          <MobileMenuNavigation />
+          <MobileMenuFooter />
+        </StyledMobileMenu>
+      )}
+    </AnimatePresence>
   );
 };
 

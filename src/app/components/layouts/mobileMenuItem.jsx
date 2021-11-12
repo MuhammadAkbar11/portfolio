@@ -39,6 +39,10 @@ const variants = {
       type: 'spring',
     },
   },
+  exit: {
+    opacity: 0,
+    y: -15,
+  },
 };
 
 const overlayVariants = {
@@ -57,6 +61,12 @@ const overlayVariants = {
       duration: 0.5,
       type: 'tween',
     },
+  },
+  exit: {
+    opacity: 1,
+    scaleY: 0,
+    y: 15,
+    position: 'absolute',
   },
 };
 

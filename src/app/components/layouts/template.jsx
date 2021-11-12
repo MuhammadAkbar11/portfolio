@@ -35,7 +35,8 @@ const template = props => {
           <Wrapper className={mobileMenu ? 'blur' : ''}>
             <SideWrapper position='left' />
             <TopBar />
-            {mobileMenu && <MobileMenu />}
+            <MobileMenu />
+            {/* <MobileMenu /> */}
             <MainContent className={`${paddingMain}  `}>{children}</MainContent>
             <SideWrapper position='right' />
           </Wrapper>
