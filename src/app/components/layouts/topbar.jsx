@@ -39,7 +39,9 @@ const topbar = () => {
   return (
     <StyledTopMenu variants={variants} initial='closed' animate={controls}>
       <StyledNav variants={navVariants(0.6)}>
-        <img className='h-10' src={Logo} alt='' />
+        <a href='/'>
+          <img className='h-10' src={Logo} alt='' />
+        </a>
       </StyledNav>
       <StyledNav
         variants={navVariants(1.2)}
