@@ -8,7 +8,11 @@ const Works = () => {
 
   return (
     <Template>
-      <PageTitle title='works'>
+      <PageTitle
+        title={`Some Things I've builds`}
+        primaryColor='Things'
+        subtitle='works'
+      >
         {/* eslint-disable */}
         Some <span className=' text-primary'>Things</span> {"I've"} builds
       </PageTitle>

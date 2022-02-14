@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import { fadeUpVariants } from '../../animation/fadeUp';
+import { AnimatedLetters, OverflowHidden } from '..';
 
 const TitleWrapper = motion.custom(styled.div`
   ${tw`w-full flex flex-col flex-wrap min-md:mt-8 `}
@@ -19,37 +20,44 @@ const LargeTitle = motion.custom(styled.h1`
 `);
 
 const pageTitle = props => {
-  const { title, children } = props;
+  const { subtitle, title, primaryColor } = props;
   return (
     <>
       <TitleWrapper>
-        <SmallTitle
-          variants={fadeUpVariants(0.1)}
-          initial='closed'
-          animate='show'
-        >
-          .{title}
-          <span>()</span>
-        </SmallTitle>
-        <LargeTitle
-          variants={fadeUpVariants(0.5)}
-          initial='closed'
-          animate='show'
-        >
-          {children}
-        </LargeTitle>
+        <OverflowHidden>
+          <SmallTitle
+            variants={fadeUpVariants(0.1)}
+            initial='closed'
+            animate='show'
+          >
+            .{subtitle}
+            <span>()</span>
+          </SmallTitle>
+        </OverflowHidden>
+        <OverflowHidden>
+          <AnimatedLetters
+            comp={LargeTitle}
+            title={title}
+            type='word'
+            delay={0.3}
+            primaryTitles={primaryColor}
+          />
+        </OverflowHidden>
       </TitleWrapper>
     </>
   );
 };
 
 pageTitle.defaultProps = {
+  subtitle: '',
   title: '',
   children: null,
 };
 
 pageTitle.propTypes = {
   title: PropTypes.string,
+  primaryColor: PropTypes.string,
+  subtitle: PropTypes.string,
   children: PropTypes.node,
 };
 

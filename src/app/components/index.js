@@ -11,7 +11,6 @@ export { default as Footer } from './layouts/footer';
 
 export { default as MobileMenu } from './layouts/mobileMenu';
 export { default as MobileMenuNavigation } from './layouts/mobileMenuNavigation';
-export { default as MobileMenuItem } from './layouts/mobileMenuItem';
 export { default as MobileMenuFooter } from './layouts/mobileMenuFooter';
 
 export { default as ButtonLink } from './buttonLink';
@@ -20,7 +19,8 @@ export { default as ExternalLink } from './externalLink';
 
 export { default as Socials } from './socialMedia';
 export { default as SocialIcons } from './socialMediaIcons';
-
+export { default as AnimatedLetters } from './animatedLetters';
+export { default as OverflowHidden } from './overflowHidden';
 // Home
 export { default as Hero } from './hero/hero';
 

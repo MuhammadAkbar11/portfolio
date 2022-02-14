@@ -16,16 +16,16 @@ const buttonLinkVariant = {
     opacity: 1,
     x: 0,
     transition: {
-      delay: 1.1,
-      duration: 0.4,
+      delay: 1.2,
+      duration: 1,
       type: 'spring',
-      stiffness: 200,
+      stiffness: 69,
       when: 'beforeChildren',
     },
   },
   closed: {
     opacity: 0,
-    x: -10,
+    x: -40,
   },
 };
 
@@ -43,4 +43,21 @@ const deviderVariant = {
   },
 };
 
-export { heroVariant, deviderVariant, buttonLinkVariant };
+const heroInfoVariant = delay => ({
+  show: {
+    originY: 0,
+    opacity: 1,
+    y: 0,
+    transition: {
+      when: 'beforeChildren',
+      delay: 0.1 + delay,
+      duration: 1,
+    },
+  },
+  closed: {
+    opacity: 0,
+    y: 50,
+  },
+});
+
+export { heroVariant, heroInfoVariant, deviderVariant, buttonLinkVariant };

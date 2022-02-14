@@ -5,15 +5,15 @@ const fadeUpVariants = delay => {
       opacity: 1,
       y: 0,
       transition: {
-        y: { stiffness: 1000, velocity: -100 },
+        // y: { stiffness: 60 },
         when: 'beforeChildren',
         delay: 0.1 + delay,
-        duration: 0.1,
+        duration: 1,
       },
     },
     closed: {
       opacity: 0,
-      y: 15,
+      y: 60,
     },
   };
 };

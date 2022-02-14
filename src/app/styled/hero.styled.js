@@ -7,22 +7,13 @@ const styledHero = motion.custom(styled.div`
 `);
 
 const styledfirstName = motion.custom(styled.h3`
-  ${tw`text-lightness-slate -ml-1 pl-0 font-montserrat font-bold  `}
+  ${tw`flex text-lightness-slate -ml-1 pl-0 font-montserrat font-bold `}
   font-size: 8.5vw;
 `);
 
-const styledDivider = motion.custom(styled.hr`
-  ${tw`bg-primary ml-0 h-1 min-md:-mt-1 w-10 mt-1  `}
-  transform-origin: 0 0;
-  @media (min-width: 766px) {
-    width: 5rem;
-  }
-  border: none;
-`);
-
 const styledSecondName = motion.custom(styled.h3`
-  ${tw`text-lightness-slate pl-0 font-semibold mt-1  `}
-  font-size: 7vw;
+  ${tw`flex text-lightness-slate pt-1  font-semibold -mt-5 min-md:-mt-8`}
+  font-size: 8.2vw;
 `);
 
 const styledHeroInfo = motion.custom(styled.div`
@@ -38,7 +29,6 @@ const styledHeroInfoContents = motion.custom(styled.div`
 export {
   styledHero,
   styledfirstName,
-  styledDivider,
   styledSecondName,
   styledHeroInfo,
   styledHeroInfoContents,

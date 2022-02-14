@@ -22,9 +22,11 @@ const About = () => {
 
   return (
     <Template>
-      <PageTitle title='about'>
-        How do I say <span className=' text-primary'>About</span> myself?
-      </PageTitle>
+      <PageTitle
+        title='How do I say About myself?'
+        primaryColor='About'
+        subtitle='about'
+      />
       <StyledAboutSection>
         <AboutProfilePicture />
         <AboutTextWrapper />
