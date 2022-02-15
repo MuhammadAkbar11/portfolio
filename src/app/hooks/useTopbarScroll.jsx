@@ -19,6 +19,16 @@ function useTopbarScroll() {
       opacity: 0,
       y: -50,
     },
+    exit: {
+      opacity: 0,
+      y: -50,
+      transition: {
+        delay: 1.2,
+        duration: 1,
+        type: 'spring',
+        when: 'beforeChildren',
+      },
+    },
   });
 
   const handleShow = state => ({
