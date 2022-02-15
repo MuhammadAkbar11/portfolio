@@ -3,8 +3,39 @@ import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import { fadeUpVariants } from '../../animation/fadeUp';
+import { easeTransition } from '@app/animation/transtions';
 import { AnimatedLetters, OverflowHidden } from '..';
+
+const variants = {
+  subtitle: (delay, exitDelay) => ({
+    show: {
+      originY: 0,
+      opacity: 1,
+      y: 0,
+      transition: {
+        // y: { stiffness: 60 },
+        ...easeTransition,
+        when: 'beforeChildren',
+        delay: 0.1 + delay,
+        duration: 1,
+      },
+    },
+    closed: {
+      opacity: 0,
+      y: 60,
+    },
+    exit: {
+      opacity: 0,
+      y: 60,
+
+      transition: {
+        ...easeTransition,
+        delay: exitDelay,
+        duration: 0.9,
+      },
+    },
+  }),
+};
 
 const TitleWrapper = motion.custom(styled.div`
   ${tw`w-full flex flex-col flex-wrap min-md:mt-8 `}
@@ -26,9 +57,10 @@ const pageTitle = props => {
       <TitleWrapper>
         <OverflowHidden>
           <SmallTitle
-            variants={fadeUpVariants(0.1)}
+            variants={variants.subtitle(0.1, 0.8)}
             initial='closed'
             animate='show'
+            exit='exit'
           >
             .{subtitle}
             <span>()</span>
@@ -39,7 +71,8 @@ const pageTitle = props => {
             comp={LargeTitle}
             title={title}
             type='word'
-            delay={0.3}
+            delay={0.1}
+            exitDelay={0.2}
             primaryTitles={primaryColor}
           />
         </OverflowHidden>
