@@ -26,6 +26,8 @@ const styledMobileMenuItem = motion.custom(styled.div`
 
     transform-origin: 0 0;
   }
+
+  ${({ isActive }) => isActive && tw`text-primary`}
 `);
 
 const styledMobileMenuFooter = motion.custom(styled.div`

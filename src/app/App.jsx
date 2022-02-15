@@ -1,9 +1,10 @@
 import React, { useEffect, useReducer } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 
 import Home from '@app/containers/Home';
 import About from '@app/containers/About';
 import Works from '@app/containers/Works';
+import { AnimatePresence } from 'framer-motion';
 import { LayoutProvider, PublicProvider } from './context/context';
 import PublicStore from './context/stores/public.store';
 import PublicReducer from './context/reducers/public.reducer';
@@ -14,7 +15,15 @@ const App = () => {
   const [store, dispatch] = useReducer(PublicReducer, PublicStore);
   const [layoutStore, layoutDispatch] = useReducer(LayoutReducer, LayoutStore);
 
+  const location = useLocation();
+
   useEffect(() => {
+    setTimeout(() => {
+      layoutDispatch({
+        type: 'TOGGLE_LOADER',
+        payload: false,
+      });
+    }, 1590);
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
@@ -35,11 +44,13 @@ const App = () => {
             layoutDispatch,
           }}
         >
-          <Switch>
-            <Route path='/' exact render={() => <Home />} />
-            <Route path='/about' render={() => <About />} />
-            <Route path='/works' render={() => <Works />} />
-          </Switch>
+          <AnimatePresence initial={false} exitBeforeEnter>
+            <Switch location={location} key={location.pathname}>
+              <Route path='/about' render={() => <About />} />
+              <Route path='/works' render={() => <Works />} />
+              <Route path='/' exact render={() => <Home />} />
+            </Switch>
+          </AnimatePresence>
         </LayoutProvider>
       </PublicProvider>
     </>

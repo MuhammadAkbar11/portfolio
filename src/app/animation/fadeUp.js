@@ -15,6 +15,11 @@ const fadeUpVariants = delay => {
       opacity: 0,
       y: 60,
     },
+    exit: {
+      opacity: 0,
+      y: 60,
+      delay: 0.1 + delay,
+    },
   };
 };
 

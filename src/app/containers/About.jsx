@@ -8,7 +8,9 @@ import {
   Footer,
 } from '@components';
 import { StyledAboutSection } from '@app/styled';
-import useTitle from '../hooks/useTitle';
+import useTitle from '@app/hooks/useTitle';
+import { easeTransition } from '@app/animation/transtions';
+import withTransition from '../hoc/withTransition';
 
 const About = () => {
   useTitle('About');
@@ -27,7 +29,10 @@ const About = () => {
         primaryColor='About'
         subtitle='about'
       />
-      <StyledAboutSection>
+      <StyledAboutSection
+        exit={{ y: 100, opacity: 0 }}
+        transition={{ ...easeTransition, duration: 0.5 }}
+      >
         <AboutProfilePicture />
         <AboutTextWrapper />
       </StyledAboutSection>
@@ -37,4 +42,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default withTransition(About);

@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { PublicContext } from '@app/context/context';
 import { Template, Hero, Socials } from '@components';
 import { useScrollShow, useTitle } from '../hooks';
+import withTransition from '../hoc/withTransition';
 
 const Home = () => {
   const context = useContext(PublicContext); // eslint-disable-line
@@ -24,4 +25,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default withTransition(Home);
