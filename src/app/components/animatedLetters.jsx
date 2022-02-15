@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
 import React from 'react';
+import { motion } from 'framer-motion';
 
-const banner = delay => ({
+const banner = (delay, exitDelay = 0.5) => ({
   closed: {
     opacity: 0,
   },
@@ -11,6 +11,14 @@ const banner = delay => ({
     transition: {
       delay: 0.1 + delay,
       delayChildren: 0.2 + delay,
+      staggerChildren: 0.1,
+    },
+  },
+  exit: {
+    transition: {
+      delay: exitDelay,
+      delayChildren: exitDelay,
+      staggerDirection: -1,
       staggerChildren: 0.1,
     },
   },
@@ -29,6 +37,14 @@ const letterAni = {
     opacity: 0,
     y: 200,
   },
+  exit: {
+    y: 200,
+    opacity: 0,
+    transition: {
+      ease: [0.6, 0.01, -0.05, 0.95],
+      duration: 1,
+    },
+  },
 };
 
 const animatedLetters = ({
@@ -36,6 +52,7 @@ const animatedLetters = ({
   title,
   delay,
   type,
+  exitDelay,
   primaryTitles,
 }) => {
   const checkPrimaryColor = w =>
@@ -79,9 +96,10 @@ const animatedLetters = ({
   return (
     <Component
       className='flex relative '
-      variants={banner(+delay)}
+      variants={banner(+delay, exitDelay)}
       initial='closed'
       animate='show'
+      exit='exit'
     >
       {content}
     </Component>
@@ -90,9 +108,10 @@ const animatedLetters = ({
 
 animatedLetters.defaultProps = {
   delay: 0.1,
+  exitDelay: 0.5,
   comp: motion.div,
   type: 'letter',
-  primaryTitles: '',
+  primaryTitles: [],
 };
 
 export default animatedLetters;
