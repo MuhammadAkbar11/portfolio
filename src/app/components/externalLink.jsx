@@ -6,11 +6,12 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 
 const StyledLink = motion.custom(styled.a`
-  ${tw` text-current relative  p-1 `}
+  ${tw`text-current relative p-1 inline-block  `}
   opacity: 0.7;
   transition: 0.4s all;
+  width: max-content;
   &::after {
-    ${tw`  bg-primary px-2 `}
+    ${tw` bg-primary px-2 `}
     content : "";
     opacity: 1;
     position: absolute;
