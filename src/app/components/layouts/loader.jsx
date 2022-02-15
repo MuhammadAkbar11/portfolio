@@ -1,31 +1,16 @@
 /* eslint-disable */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import tw, { css } from 'twin.macro';
-import { StyledLoader } from '../../styled';
+import tw from 'twin.macro';
+import { StyledLoader } from '@app/styled';
 import { AnimatePresence, motion } from 'framer-motion';
+import { LayoutContext } from '@app/context/context';
 
-const TextLoader = styled.span`
-  ${tw` text-primary ml-1 text-3xl font-montserrat font-semibold `}
-  opacity: 0;
-  transition: 0.1s ease-in;
-  animation: animate 0.9s infinite alternate;
-  ${({ delay }) => {
-    return css`
-      animation-delay: ${delay * 0.1}s;
-    `;
-  }}
-
-  @keyframes animate {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-`;
+const TextLoader = motion.custom(styled.span`
+  ${tw`flex text-primary ml-1 text-3xl font-montserrat font-semibold `}
+  opacity: 1;
+`);
 
 const variants = {
   mount: {
@@ -35,54 +20,64 @@ const variants = {
     ],
     transition: {
       duration: 0.3,
+      delayChildren: 0.1,
+      staggerChildren: 0.5,
+      staggerDirection: 1,
     },
   },
   unMount: {
     clipPath: 'polygon(0 0, 0 0, 0 100%, 0% 100%)',
   },
   exit: {
-    x: '100vw',
-    scale: 5,
+    opacity: 0,
   },
 };
 
+const textVariants = delay => ({
+  mount: {
+    opacity: [1, 0, 1],
+    transition: {
+      delay: 0.3 * delay,
+      duration: 1,
+      repeat: Infinity,
+      repeatDelay: 2,
+    },
+  },
+  exit: {
+    scale: 5,
+  },
+});
+
 const loader = () => {
-  const location = useLocation();
-  const [isHide, setHide] = useState(false);
   const texts = 'Muhammad  Akbar ';
+  const layoutContext = useContext(LayoutContext);
 
-  useEffect(() => {
-    const delay = location.pathname === '/' ? '3000' : '2500';
-
-    setTimeout(() => {
-      setHide(true);
-    }, delay);
-
-    return () => {
-      setHide(false);
-    };
-  }, []);
+  const { loader } = layoutContext.layoutStore;
 
   return (
-    <AnimatePresence>
-      <StyledLoader>
-        <motion.div
-          variants={variants}
-          initial='unMount'
-          animate='mount'
-          className={`loader-content ${isHide ? 'hide' : ''} `}
-        >
-          {[...texts].map((text, i) => {
-            const key = i + 1;
-            return (
-              <TextLoader key={key} delay={i}>
-                {text}
-              </TextLoader>
-            );
-          })}
-        </motion.div>
-      </StyledLoader>
-    </AnimatePresence>
+    <StyledLoader>
+      <motion.div
+        variants={variants}
+        initial='unMount'
+        animate='mount'
+        exit=''
+        className={`loader-content flex`}
+      >
+        {[...texts].map((text, i) => {
+          const key = i + 1;
+          return (
+            <TextLoader
+              variants={textVariants(i)}
+              animate='mount'
+              key={key}
+              delay={i}
+            >
+              {text}
+            </TextLoader>
+          );
+        })}
+      </motion.div>
+    </StyledLoader>
   );
 };
 
