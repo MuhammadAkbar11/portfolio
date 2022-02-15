@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AnimatePresence, useAnimation } from 'framer-motion';
+import { useHistory } from 'react-router-dom';
 import { MobileMenuFooter, MobileMenuNavigation } from '..';
 import { StyledMobileMenu } from '../../styled';
 import { LayoutContext } from '../../context/context';
@@ -31,9 +32,13 @@ const defaultVariants = {
 const index = () => {
   const context = useContext(LayoutContext);
   const [variants, setVariants] = useState(defaultVariants);
+  const [activePath, setActivePath] = useState(null);
+
+  const history = useHistory();
+  const controls = useAnimation();
+
   const { mobileMenu } = context.layoutStore;
 
-  const controls = useAnimation();
   useEffect(() => {
     if (mobileMenu) {
       setVariants(prevState => {
@@ -62,8 +67,15 @@ const index = () => {
       controls.start('animate');
     }
   }, [variants, mobileMenu]);
+
   return (
-    <AnimatePresence>
+    <AnimatePresence
+      onExitComplete={() => {
+        if (activePath) {
+          history.push(activePath);
+        }
+      }}
+    >
       {mobileMenu && (
         <StyledMobileMenu
           variants={defaultVariants}
@@ -71,7 +83,7 @@ const index = () => {
           animate='animate'
           exit='exit'
         >
-          <MobileMenuNavigation />
+          <MobileMenuNavigation onActivePath={val => setActivePath(val)} />
           <MobileMenuFooter />
         </StyledMobileMenu>
       )}

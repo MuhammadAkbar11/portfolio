@@ -17,6 +17,16 @@ const variants = {
       staggerDirection: 1,
     },
   },
+  exit: {
+    opacity: 0,
+    transition: {
+      delay: 0.4,
+      when: 'afterChildren',
+      delayChildren: 0.1,
+      staggerChildren: 0.2,
+      staggerDirection: -1,
+    },
+  },
 };
 
 const navigations = () => {
@@ -26,7 +36,12 @@ const navigations = () => {
   const { navigations } = contextLayout.layoutStore;
 
   return (
-    <StyledNavigations variants={variants} initial='init' animate='show'>
+    <StyledNavigations
+      variants={variants}
+      initial='init'
+      animate='show'
+      exit={'exit'}
+    >
       {navigations.map((item, index) => {
         const key = index * 0.1;
         return <NavigationItem key={key} menu={item.menu} url={item.url} />;

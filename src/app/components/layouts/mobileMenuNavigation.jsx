@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { StyledMobileMenuItem, StyledMobileMenuNav } from '../../styled';
 import { LayoutContext } from '../../context/context';
+import { useHistory } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 // import { MobileMenuItem } from '..';
 
 const variants = {
@@ -100,27 +102,47 @@ const itemOverlayVariants = {
   },
 };
 
-const mobileMenuNavigation = () => {
+const mobileMenuNavigation = props => {
   const lycontext = useContext(LayoutContext);
-
+  const history = useHistory();
+  const location = useLocation();
   const { navigations } = lycontext.layoutStore;
 
+  const handleOnlick = (event, url) => {
+    event.preventDefault();
+
+    if (url !== location.pathname) {
+      lycontext.layoutDispatch({
+        type: 'TOGGLE_MOBILE_MENU',
+        payload: { value: false },
+      });
+      props.onActivePath(url);
+    }
+  };
   return (
     <StyledMobileMenuNav variants={variants}>
       {navigations.map((item, index) => {
         const key = index * 0.1;
+        const disabled = item.url === location.pathname;
+
         return (
-          <Link key={key} to={item.url}>
+          <motion.a
+            key={key}
+            href={item.url}
+            className={`${disabled && 'text-primary'}`}
+            onClick={e => handleOnlick(e, item.url)}
+          >
             <StyledMobileMenuItem
               variants={itemVariants}
               data-text={item?.menu}
               whileHover='hover'
               whileTap='hover'
+              isActive={disabled}
             >
               {item?.menu}
               <motion.div className='overlay' variants={itemOverlayVariants} />
             </StyledMobileMenuItem>
-          </Link>
+          </motion.a>
         );
       })}
     </StyledMobileMenuNav>
