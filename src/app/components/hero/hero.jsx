@@ -12,7 +12,12 @@ import { heroVariant, buttonLinkVariant, heroInfoVariant } from './variants';
 
 const hero = () => {
   return (
-    <StyledHero variants={heroVariant} initial='closed' animate='show'>
+    <StyledHero
+      variants={heroVariant}
+      initial='closed'
+      animate='show'
+      exit='exit'
+    >
       {/* <div className=' overflow-hidden border h-auto '> */}
       <OverflowHidden>
         <AnimatedLetters
@@ -25,7 +30,7 @@ const hero = () => {
       <OverflowHidden>
         <AnimatedLetters comp={StyledSecondName} delay={0.5} title='Akbar' />
       </OverflowHidden>
-      <StyledHeroInfo className=' overflow-hidden'>
+      <StyledHeroInfo className='overflow-hidden'>
         <StyledHeroInfoContents
           variants={buttonLinkVariant}
           className='order-2 mt-5 flex items-center min-lg:order-1'

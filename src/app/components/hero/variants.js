@@ -1,3 +1,5 @@
+import { easeTransition } from '../../animation/transtions';
+
 const heroVariant = {
   show: {
     opacity: 1,
@@ -9,6 +11,13 @@ const heroVariant = {
   closed: {
     opacity: 0,
   },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.5,
+      when: 'afterChildren',
+    },
+  },
 };
 
 const buttonLinkVariant = {
@@ -16,7 +25,7 @@ const buttonLinkVariant = {
     opacity: 1,
     x: 0,
     transition: {
-      delay: 1.2,
+      delay: 1.5,
       duration: 1,
       type: 'spring',
       stiffness: 69,
@@ -26,6 +35,17 @@ const buttonLinkVariant = {
   closed: {
     opacity: 0,
     x: -40,
+  },
+  exit: {
+    opacity: 0,
+    x: -100,
+    transition: {
+      delay: 0.1,
+      duration: 1,
+      type: 'spring',
+      stiffness: 69,
+      when: 'beforeChildren',
+    },
   },
 };
 
@@ -57,6 +77,16 @@ const heroInfoVariant = delay => ({
   closed: {
     opacity: 0,
     y: 50,
+  },
+  exit: {
+    opacity: [1, 0],
+    y: 50,
+    transition: {
+      ...easeTransition,
+      // when: 'afterChildren',
+      delay: 0.3,
+      duration: 1,
+    },
   },
 });
 
