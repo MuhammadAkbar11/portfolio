@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Wrapper, MainContent } from '@app/styled';
 import { SideWrapper, TopBar, Loader, MobileMenu } from '@components';
@@ -8,41 +8,27 @@ import { AnimatePresence } from 'framer-motion';
 
 const template = props => {
   const context = useContext(LayoutContext);
-  const [loader, setLoader] = useState(true);
+  // const [loader, setLoader] = useState(true);
 
-  const { paddingMain, mobileMenu } = context.layoutStore;
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoader(false);
-    }, 1590);
-    return () => {
-      setLoader(true);
-      context.layoutDispatch({
-        type: 'TOGGLE_MOBILE_MENU',
-        payload: { value: false },
-      });
-    };
-  }, []);
+  const { paddingMain, mobileMenu, loader } = context.layoutStore;
 
   const { children } = props;
 
   return (
     <>
-      <AnimatePresence>
-        {loader ? (
-          <Loader />
-        ) : (
-          <Wrapper className={mobileMenu ? 'blur' : ''}>
-            <SideWrapper position='left' />
-            <TopBar />
-            <MobileMenu />
-            {/* <MobileMenu /> */}
-            <MainContent className={`${paddingMain}  `}>{children}</MainContent>
-            <SideWrapper position='right' />
-          </Wrapper>
-        )}
-      </AnimatePresence>
+      {/* <AnimatePresence initial={false} exitBeforeEnter> */}
+      {loader ? (
+        <Loader />
+      ) : (
+        <Wrapper className={mobileMenu ? 'blur' : ''}>
+          <SideWrapper position='left' />
+          <TopBar />
+          <MobileMenu />
+          <MainContent className={`${paddingMain}  `}>{children}</MainContent>
+          <SideWrapper position='right' />
+        </Wrapper>
+      )}
+      {/* </AnimatePresence> */}
     </>
   );
 };

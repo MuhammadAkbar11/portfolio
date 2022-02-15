@@ -1,5 +1,6 @@
 const LayoutStore = {
   mobileMenu: false,
+  loader: true,
   navigations: [
     {
       menu: 'home',

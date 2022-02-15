@@ -27,6 +27,9 @@ const navVariants = delay => ({
     y: -20,
     opacity: 0,
   },
+  exit: {
+    y: -20,
+  },
 });
 
 const topbar = () => {
@@ -37,7 +40,13 @@ const topbar = () => {
     controls.start('show');
   }, [variants]);
   return (
-    <StyledTopMenu variants={variants} initial='closed' animate={controls}>
+    <StyledTopMenu
+      variants={variants}
+      initial='closed'
+      exit='exit'
+      // exit={{ opacity: 0 }}
+      animate={controls}
+    >
       <StyledNav variants={navVariants(0.6)}>
         <a href='/'>
           <img className='h-10' src={Logo} alt='' />
