@@ -1,12 +1,10 @@
 import React, { useContext } from 'react';
 /* eslint-disable */
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { StyledMobileMenuItem, StyledMobileMenuNav } from '../../styled';
-import { LayoutContext } from '../../context/context';
+import { StyledMobileMenuItem, StyledMobileMenuNav } from '@app/styled';
+import { LayoutContext } from '@app/context/context';
 import { useHistory } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-// import { MobileMenuItem } from '..';
 
 const variants = {
   init: {
@@ -139,7 +137,7 @@ const mobileMenuNavigation = props => {
               whileTap='hover'
               isActive={disabled}
             >
-              {item?.menu}
+              {`.${item?.menu}${item?.label}`}
               <motion.div className='overlay' variants={itemOverlayVariants} />
             </StyledMobileMenuItem>
           </motion.a>

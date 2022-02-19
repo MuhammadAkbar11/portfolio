@@ -23,7 +23,7 @@ const proptypes = {
 const StyledLink = motion.custom(styled.div`
   ${tw`text-slate whitespace-no-wrap font-inconsolata min-md:mx-5 cursor-pointer`}
   &.active {
-    ${tw`text-primary `}
+    ${tw`text-primary font-semibold  `}
   }
 `);
 
@@ -46,11 +46,7 @@ const variants = {
 
 const variantsChild = {
   hover: {
-    // opacity: [1, 0, 0, 1],
-    // rotate: ['0deg', '0deg', '-90deg', '-90deg'],
-    // y: ['0%', '-100%', '100%', '0%'],
-    // scale: [1, 0, 0, 1.05],
-    // rotate: ['0deg', '0deg', '-90deg', '-90deg'],
+    fontWeight: 600,
     y: -5,
     scale: 1.05,
     color: '#63B3ED',
@@ -83,7 +79,10 @@ const navigationItem = props => {
       whileTap='tap'
       exit={'exit'}
     >
-      <motion.div className='text-base font-semibold ' variants={variantsChild}>
+      <motion.div
+        className='text-base italic  font-inconsolata '
+        variants={variantsChild}
+      >
         .{menu}()
       </motion.div>
     </StyledLink>
