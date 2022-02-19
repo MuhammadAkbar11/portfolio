@@ -16,7 +16,7 @@ const variants = {
         // y: { stiffness: 60 },
         ...easeTransition,
         when: 'beforeChildren',
-        delay: 0.1 + delay,
+        delay,
         duration: 1,
       },
     },
@@ -27,7 +27,6 @@ const variants = {
     exit: {
       opacity: 0,
       y: 60,
-
       transition: {
         ...easeTransition,
         delay: exitDelay,
@@ -42,7 +41,7 @@ const TitleWrapper = motion.custom(styled.div`
 `);
 
 const SmallTitle = motion.custom(styled.span`
-  ${tw` z-10  font-inconsolata text-xs min-md:text-lg text-primary`}
+  ${tw` z-10  font-inconsolata italic text-xs min-md:text-lg text-primary`}
 `);
 
 const LargeTitle = motion.custom(styled.h1`
@@ -71,7 +70,7 @@ const pageTitle = props => {
             comp={LargeTitle}
             title={title}
             type='word'
-            delay={0.1}
+            delay={0.2}
             exitDelay={0.2}
             primaryTitles={primaryColor}
           />
