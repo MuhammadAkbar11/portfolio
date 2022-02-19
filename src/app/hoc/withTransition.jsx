@@ -1,82 +1,74 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { LayoutContext } from '@app/context/context';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import { LayoutContext } from '@app/context/context';
+import Logo from 'assets/svg/AL.svg';
+import variants from './withTransitonVariants';
 
-const variants = {
-  slidIn: {
-    show: {
-      opacity: 0,
-      // scale: 0,
-      y: 100,
-      clipPath: 'inset(0 0 100% 0)',
-      transition: {
-        delay: 1.5,
-        duration: 0.1,
-        // ...easeTransition,
-      },
-    },
-    closed: {
-      opacity: 0,
-      y: 100,
-      clipPath: 'inset(0 0 100% 0)',
-      transition: {
-        delay: 1,
-        duration: 0.1,
-        // ...easeTransition,
-      },
-    },
-    exit: {
-      opacity: 1,
-
-      y: [10, 0, -500],
-      clipPath: [
-        'inset(97% 0 0 0)',
-        // 'inset(12% 0 0 0)',
-        'inset(0 0 0 0)',
-        'inset(0 0 0 0)',
-        'inset(0 0 0 0)',
-        'inset(0 0 44% 0)',
-        'inset(0 0 100% 0)',
-      ],
-      transition: {
-        delay: 1,
-        duration: 1.3,
-        // ...easeTransition,
-      },
-    },
-  },
-};
-
-const SlideIn = motion.custom(styled.div`
-  ${tw` bg-secondary  `}
+const Transition = motion.custom(styled.div`
+  ${tw` bg-gradient-to-br  from-light-secondary via-dark-secondary to-dark-secondary flex justify-center items-center `}
   z-index: 9000;
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
   width: 100%;
+
+  .logo {
+  }
 `);
 
 const withTransition = OriginalComponent => {
   return () => {
     const {
-      layoutStore: { loader },
+      layoutDispatch,
+      layoutStore: { loader, isReload },
     } = useContext(LayoutContext);
 
+    useEffect(() => {
+      return () => {
+        layoutDispatch({
+          type: 'PAGE_NOT_REFRESH',
+        });
+      };
+    }, []);
     return (
       <>
         <OriginalComponent />
+        {!isReload && (
+          <Transition
+            variants={variants.slideOut}
+            initial='closed'
+            animate='show'
+          >
+            <motion.div variants={variants.logo}>
+              <motion.img
+                variants={variants.logoImg}
+                className='h-12 '
+                src={Logo}
+                alt=''
+              />
+            </motion.div>
+          </Transition>
+        )}
         {!loader && (
-          <SlideIn
-            className='slide-in'
+          <Transition
+            className='slide-in   '
             variants={variants.slidIn}
             initial='closed'
             animate='show'
             exit='exit'
-          />
-          // <Loader />
+          >
+            <motion.div variants={variants.logo}>
+              <motion.img
+                variants={variants.logoImg}
+                className='h-12 '
+                src={Logo}
+                alt=''
+              />
+            </motion.div>
+          </Transition>
         )}
       </>
     );

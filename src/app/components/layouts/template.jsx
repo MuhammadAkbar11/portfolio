@@ -1,34 +1,48 @@
 /* eslint-disable */
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Wrapper, MainContent } from '@app/styled';
 import { SideWrapper, TopBar, Loader, MobileMenu } from '@components';
 import { LayoutContext } from '@app/context/context';
-import { AnimatePresence } from 'framer-motion';
 
 const template = props => {
+  const [mount, setMount] = useState(false);
   const context = useContext(LayoutContext);
-  // const [loader, setLoader] = useState(true);
 
   const { paddingMain, mobileMenu, loader } = context.layoutStore;
 
   const { children } = props;
 
+  useEffect(() => {
+    setMount(true);
+    return () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+      setMount(false);
+    };
+  }, []);
+
   return (
     <>
-      {/* <AnimatePresence initial={false} exitBeforeEnter> */}
       {loader ? (
         <Loader />
       ) : (
         <Wrapper className={mobileMenu ? 'blur' : ''}>
-          <SideWrapper position='left' />
-          <TopBar />
-          <MobileMenu />
-          <MainContent className={`${paddingMain}  `}>{children}</MainContent>
-          <SideWrapper position='right' />
+          {mount && (
+            <>
+              <SideWrapper position='left' />
+              <TopBar />
+              <MobileMenu />
+              <MainContent className={`${paddingMain}  `}>
+                {children}
+              </MainContent>
+              <SideWrapper position='right' />
+            </>
+          )}
         </Wrapper>
       )}
-      {/* </AnimatePresence> */}
     </>
   );
 };

@@ -23,7 +23,7 @@ const App = () => {
         type: 'TOGGLE_LOADER',
         payload: false,
       });
-    }, 1590);
+    }, 2700);
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
