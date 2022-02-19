@@ -5,7 +5,7 @@ import tw from 'twin.macro';
 import PropTypes from 'prop-types';
 
 const StyledBtn = motion.custom(styled.div`
-  ${tw`flex items-center justify-around font-inconsolata text-xl lowercase hover:text-primary px-0 py-2`}
+  ${tw`flex items-center justify-around font-inconsolata italic   hover:text-primary px-0 py-2`}
 `);
 
 const childrenVariants = {
@@ -38,7 +38,7 @@ const buttonLink = props => {
         {...attr}
       >
         {' '}
-        <motion.span variants={childrenVariants} className=''>
+        <motion.span variants={childrenVariants} className='  '>
           .{children}()
         </motion.span>
       </StyledBtn>{' '}
@@ -48,7 +48,7 @@ const buttonLink = props => {
 
 buttonLink.defaultProps = {
   children: '',
-  className: '',
+  className: 'text-xl',
   url: '#/',
 };
 
