@@ -1,16 +1,25 @@
+/* eslint-disable */
 import React from 'react';
+import styled from 'styled-components';
+import tw from 'twin.macro';
+
+const OverflowHiddenStyled = styled.div`
+  ${tw`flex relative inset-0 p-0 m-0 overflow-hidden`}
+`;
 
 const overflowHidden = ({ children, ...props }) => {
   const { className } = props;
   delete props.className;
+
   return (
-    <div
-      className={` flex relative inset-0 p-0 m-0 overflow-hidden ${className}`}
-      {...props}
-    >
+    <OverflowHiddenStyled className={`${className}`} {...props}>
       {children}
-    </div>
+    </OverflowHiddenStyled>
   );
+};
+
+overflowHidden.defaultProps = {
+  className: '',
 };
 
 export default overflowHidden;
