@@ -6,6 +6,7 @@ import {
   AboutProfilePicture,
   AboutMoreInfos,
   Footer,
+  OverflowHidden,
 } from '@components';
 import { StyledAboutSection } from '@app/styled';
 import useTitle from '@app/hooks/useTitle';
@@ -31,12 +32,14 @@ const About = () => {
       />
       <StyledAboutSection
         exit={{ y: 100, opacity: 0 }}
-        transition={{ ...easeTransition, duration: 0.5 }}
+        transition={{ ...easeTransition, delay: 0.3, duration: 0.5 }}
       >
         <AboutProfilePicture />
         <AboutTextWrapper />
       </StyledAboutSection>
-      <AboutMoreInfos />
+      <OverflowHidden>
+        <AboutMoreInfos />
+      </OverflowHidden>
       <Footer />
     </Template>
   );

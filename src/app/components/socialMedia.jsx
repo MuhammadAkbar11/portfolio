@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { motion, useAnimation } from 'framer-motion';
-import { SocialIcons } from '.';
+import { motion } from 'framer-motion';
+import { SocialIcons } from '@components';
 import { Github, Instagram, LinkedIn } from './icons';
-import { useIsWindowScrolling } from '../hooks';
 
-const defaultVariants = {
+const variants = {
   show: {
-    opacity: 0,
+    opacity: 1,
     transition: {
-      delay: 0.9,
       duration: 0.5,
       when: 'beforeChildren',
       staggerChildren: 0.3,
@@ -19,57 +17,31 @@ const defaultVariants = {
   closed: {
     opacity: 0,
   },
+  exit: {
+    opacity: 0,
+    transition: {
+      delay: 0.6,
+      duration: 0.5,
+      when: 'afterChildren',
+      staggerChildren: 0.5,
+    },
+  },
 };
 
 const socialMedia = props => {
   const { className, inView } = props;
 
-  const [variants, setVariants] = useState(defaultVariants);
-
-  const { isWinScroll } = useIsWindowScrolling();
-  const controls = useAnimation();
-
-  useEffect(() => {
-    if (inView) {
-      setVariants(prevState => {
-        return {
-          ...prevState,
-          show: {
-            opacity: 1,
-            transition: {
-              delay: isWinScroll ? 0.1 : 0.9,
-              duration: 0.5,
-              when: 'beforeChildren',
-              staggerChildren: 0.3,
-              staggerDirection: 1,
-            },
-          },
-        };
-      });
-    }
-
-    return () => {
-      setVariants(defaultVariants);
-    };
-  }, [inView, isWinScroll]);
-
-  useEffect(() => {
-    if (inView) controls.start('show');
-  }, [inView, variants]);
-
   return (
     <motion.div
       variants={variants}
       initial='closed'
-      animate={controls}
+      animate={!inView ? '' : 'show'}
+      exit='exit'
       className={`flex ${className}`}
     >
-      {/* prettier-disable */}
-
       {[
         {
           id: 1,
-
           Icon: Github,
           url: '#/',
         },

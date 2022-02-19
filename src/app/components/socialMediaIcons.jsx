@@ -25,10 +25,21 @@ const variants = {
       type: 'spring',
     },
   },
+  exit: {
+    opacity: 0,
+    y: 50,
+    transition: {
+      duration: 0.3,
+      type: 'spring',
+      stiffness: 100,
+      ease: 'easeInOut',
+    },
+  },
 };
 
 const socialMediaIcons = props => {
   const { className, icon, url } = props;
+
   return (
     <motion.a
       href={url}

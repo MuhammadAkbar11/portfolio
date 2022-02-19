@@ -1,13 +1,17 @@
-module.exports = {
+import { easeTransition } from '../../animation/transtions';
+
+const variants = {
   coloumVariants: {
     init: {
       opacity: 0,
       y: '1rem',
     },
     animate: {
-      opacity: 0,
-      y: '1rem',
+      opacity: 1,
+      y: '0rem',
       transition: {
+        delay: 1,
+        type: 'spring',
         duration: 0.5,
         when: 'beforeChildren',
       },
@@ -19,7 +23,7 @@ module.exports = {
         scaleX: 1,
       },
       animate: {
-        scaleX: 1,
+        scaleX: 0,
         transition: {
           delay: 0.3,
           type: 'spring',
@@ -32,9 +36,9 @@ module.exports = {
         scale: 1,
       },
       animate: {
-        scale: 1,
+        scale: 1.3,
         transition: {
-          delay: 0.8,
+          delay: 0.5,
           type: 'spring',
           duration: 0.6,
         },
@@ -55,24 +59,39 @@ module.exports = {
       y: '1rem',
     },
     animate: {
-      opacity: 0,
-      y: '1rem',
+      y: '0rem',
+      opacity: 1,
+      transition: {
+        delay: 1.2,
+        duration: 0.6,
+        type: 'spring',
+        when: 'beforeChildren',
+      },
     },
   },
-  moreInfo: {
+  moreInfo: delay => ({
     init: {
       opacity: 0,
       y: 20,
     },
     animate: {
+      y: '0rem',
       opacity: 1,
-      y: 0,
       transition: {
-        delay: 0.3,
+        delay,
+        duration: 0.6,
         type: 'spring',
-        duration: 0.5,
         when: 'beforeChildren',
       },
     },
-  },
+    exit: {
+      opacity: 0,
+      y: 100,
+      transition: {
+        duration: 1,
+        ...easeTransition,
+      },
+    },
+  }),
 };
+export default variants;

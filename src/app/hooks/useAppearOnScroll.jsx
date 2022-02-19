@@ -21,10 +21,10 @@ const useAppearOnScroll = (ref, options = defaultOptions) => {
       ...options,
     });
 
-    if (ref.current) observe.observe(ref.current);
+    if (ref?.current) observe.observe(ref.current);
 
     return () => {
-      if (ref.current) {
+      if (ref?.current) {
         observe.unobserve(ref.current);
       }
       setIsVisible(false);

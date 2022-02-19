@@ -1,38 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useRef } from 'react';
 import { StyledAboutTextWrapper } from '@app/styled';
 import { ExternalLink } from '@components';
-import { useAnimation } from 'framer-motion';
 import Paragraph from './paragraph';
 import AboutListSkill from './aboutListSkills';
-import { useScrollShow } from '../../hooks';
-import { texts } from './variants/default.variants';
-import { setAnimateTexts } from './variants/actions.variant';
+
+import useAppearOnScroll from '../../hooks/useAppearOnScroll';
+import variants from './variants';
 
 const aboutInfo = () => {
-  const [ref, inView] = useScrollShow();
-
-  const [variants, setVariants] = useState({ ...texts });
-  const controls = useAnimation();
-
-  useEffect(() => {
-    if (inView) {
-      setVariants(setAnimateTexts);
-    }
-
-    return () => {
-      setAnimateTexts(texts);
-    };
-  }, [inView]);
-
-  useEffect(() => {
-    if (inView) controls.start('animate');
-  }, [variants]);
+  const ref = useRef();
+  const [visible] = useAppearOnScroll(ref);
 
   return (
     <StyledAboutTextWrapper
-      variants={variants}
+      variants={variants.texts}
       initial='init'
-      animate={controls}
+      animate={visible ? 'animate' : ''}
       ref={ref}
     >
       <Paragraph>

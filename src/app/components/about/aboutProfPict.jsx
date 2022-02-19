@@ -1,16 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { StyledAboutProfPictWrapper } from '@app/styled';
 import profileImg from '@/assets/img/profile.jpeg';
-import { useScrollShow } from '../../hooks';
-import { coloumVariants, media } from './variants/default.variants';
-import {
-  setAnimatePPWrapp,
-  setAnimateOverlay,
-  setAnimateImage,
-} from './variants/actions.variant';
+import variants from './variants';
+import useAppearOnScroll from '../../hooks/useAppearOnScroll';
 
 const ProfPictCard = motion.custom(styled.div`
   position: relative;
@@ -49,48 +44,27 @@ const ProfPictOverlay = motion.custom(styled.div`
 `);
 
 const aboutProfPict = () => {
-  const [refWrapper, inViewWrapper] = useScrollShow();
-
-  const [variants, setVariants] = useState({ ...coloumVariants });
-  const [overlayVariants, setOverlayVariants] = useState({ ...media.overlay });
-  const [imageVariants, setImageVariants] = useState({ ...media.img });
-
-  const controlsWrapper = useAnimation();
-
-  useEffect(() => {
-    if (inViewWrapper) {
-      setVariants(setAnimatePPWrapp);
-      setOverlayVariants(setAnimateOverlay);
-      setImageVariants(setAnimateImage);
-    }
-
-    return () => {
-      setVariants(coloumVariants);
-      setOverlayVariants(media.overlay);
-      setImageVariants(media.img);
-    };
-  }, [inViewWrapper]);
-
-  useEffect(() => {
-    if (inViewWrapper) {
-      controlsWrapper.start('animate');
-    }
-  }, [variants, overlayVariants, imageVariants]);
+  const ref = useRef();
+  const [visible] = useAppearOnScroll(ref);
 
   return (
     <StyledAboutProfPictWrapper
-      variants={variants}
-      ref={refWrapper}
+      variants={variants.coloumVariants}
+      ref={ref}
       initial='init'
-      animate={controlsWrapper}
+      animate={visible ? 'animate' : ''}
+      exit='exit'
     >
       <ProfPictCard className=' about-pict-card max-lg:mx-auto min '>
         <ProfPictImg
-          variants={imageVariants}
+          variants={variants.media.img}
           src={profileImg}
           whileHover='hover'
         />
-        <ProfPictOverlay className='overlay' variants={overlayVariants} />
+        <ProfPictOverlay
+          className='overlay'
+          variants={variants.media.overlay}
+        />
       </ProfPictCard>
     </StyledAboutProfPictWrapper>
   );

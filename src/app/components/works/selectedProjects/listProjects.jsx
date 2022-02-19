@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { PublicContext } from '@app/context/context';
 import { SelectedProject } from '@components';
 import { motion } from 'framer-motion';
@@ -21,12 +21,6 @@ const listVariants = {
 const listProjects = () => {
   const context = useContext(PublicContext);
   const { projects } = context.publicStore;
-  const [isMount, setMount] = useState(false);
-  useEffect(() => {
-    setTimeout(() => {
-      setMount(true);
-    }, 100);
-  }, []);
 
   const selectedProjects = projects
     .filter(project => project.type === 'best')
@@ -45,12 +39,9 @@ const listProjects = () => {
 
   return (
     <>
-      {' '}
-      {isMount && (
-        <motion.div variants={listVariants} initial='hidden' animate='show'>
-          {selectedProjects}
-        </motion.div>
-      )}{' '}
+      <motion.div variants={listVariants} initial='hidden' animate='show'>
+        {selectedProjects}
+      </motion.div>
     </>
   );
 };

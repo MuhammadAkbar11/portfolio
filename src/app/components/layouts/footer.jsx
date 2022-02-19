@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useRef } from 'react';
 import { Socials } from '@components';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import { useScrollShow } from '@app/hooks';
+import useAppearOnScroll from '../../hooks/useAppearOnScroll';
 
-const StyledFooter = motion.custom(styled.footer`
+const Footer = motion.custom(styled.footer`
   ${tw` mt-12 py-8 `}
 `);
 
@@ -17,66 +17,54 @@ const FooterColumn = styled.div`
   ${tw` flex-1 flex`}
 `;
 
-const FooterStartColumn = styled(FooterColumn)`
-  ${tw`justify-start  `}
-`;
+const FooterStartColumn = motion.custom(styled.div`
+  ${tw`flex-1 flex justify-start  `}
+`);
 
 const FooterEndColumn = styled(FooterColumn)`
   ${tw`justify-start max-md:py-6 min-md:justify-end`}
 `;
 
-const defaultVariants = {
-  init: {
+const variants = {
+  closed: {
     opacity: 0,
     y: 20,
   },
-  animate: {
-    opacity: 0,
-    y: 20,
+  show: {
+    opacity: 1,
+    y: 0,
     transition: {
-      delay: 0.15,
+      delay: 0.5,
       duration: 0.3,
       type: 'tween',
       stiffness: 100,
       when: 'beforeChildren',
     },
   },
+  exit: {
+    opacity: 0,
+    y: 20,
+    transition: {
+      delay: 0.1,
+      duration: 0.3,
+      type: 'tween',
+      stiffness: 100,
+      when: 'afterChildren',
+    },
+  },
 };
 
 const footer = () => {
-  const [variants, setVariants] = useState(defaultVariants);
+  const ref = useRef();
 
-  const [refFooter, inView] = useScrollShow();
-
-  const controls = useAnimation();
-
-  useEffect(() => {
-    if (inView) {
-      setVariants(prevState => ({
-        ...prevState,
-        animate: {
-          ...prevState.animate,
-          opacity: 1,
-          y: 0,
-        },
-      }));
-    }
-
-    return () => setVariants(defaultVariants);
-  }, [inView]);
-
-  useEffect(() => {
-    if (inView) {
-      controls.start('animate');
-    }
-  }, [inView, variants]);
-
+  const [visible] = useAppearOnScroll(ref);
   return (
-    <StyledFooter
-      ref={refFooter}
+    <Footer
+      ref={ref}
       variants={variants}
-      initial='init'
-      animate={controls}
+      initial='closed'
+      animate={visible ? 'show' : ''}
+      exit='exit'
     >
       <FooterRow>
         <FooterStartColumn>
@@ -95,15 +83,15 @@ const footer = () => {
             }}
             href='#/'
             target='_blank'
-            className='hover:text-primary text-lg '
+            className='hover:text-primary text-lg font-inconsolata italic '
           >
             .sayHello()
           </motion.a>
           <div className='mx-3 '>|</div>
-          <Socials inView={inView} />
+          <Socials inView={visible} />
         </FooterEndColumn>
       </FooterRow>
-    </StyledFooter>
+    </Footer>
   );
 };
 
