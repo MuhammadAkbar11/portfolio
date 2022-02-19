@@ -24,8 +24,12 @@ app.use(webpackHotMiddleware);
 
 app.use(express.static(staticFile));
 
+app.get('/api', (req, res, next) => {
+  res.json({ message: 'Hello Akbar' });
+});
+
 app.get('*', (req, res, next) => {
-  const HTMLFILE = path.join(staticFile, "index.html");
+  const HTMLFILE = path.join(staticFile, 'index.html');
   res.sendFile(HTMLFILE, err => {
     if (err) res.status(500).send(err);
   });
