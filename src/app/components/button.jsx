@@ -15,21 +15,24 @@ const handleSize = size => {
   let sizeStyles;
   switch (size) {
     case 'sm':
-      sizeStyles = tw`py-2 px-4 text-xs`;
+      sizeStyles = tw`py-2 px-3  text-xs`;
+      return sizeStyles;
+    case 'md':
+      sizeStyles = tw`py-2 px-4 text-lg`;
       return sizeStyles;
     case 'lg':
-      sizeStyles = tw`py-3 px-6 text-lg`;
+      sizeStyles = tw`py-3 px-5 text-lg`;
       return sizeStyles;
     case 'xl':
-      return tw`py-4 px-8 text-lg`;
+      return tw`py-4 px-7 text-lg`;
     default:
-      sizeStyles = tw`py-3 px-10 text-base `;
+      sizeStyles = tw`py-3 px-5 text-base `;
       return sizeStyles;
   }
 };
 
 const StyledButton = motion.custom(styled.div`
-  ${tw`block rounded text-center font-inconsolata `}
+  ${tw` rounded text-center font-inconsolata `}
   ${({ outline }) => handleOutline(outline)}
   ${({ size }) => handleSize(size)}
 
@@ -67,11 +70,10 @@ function button(props) {
   return (
     <StyledButton
       className={className}
-      type={attr.type}
       as={tag}
-      {...attr}
       outline={outline}
       size={size}
+      {...attr}
     >
       {children}
     </StyledButton>

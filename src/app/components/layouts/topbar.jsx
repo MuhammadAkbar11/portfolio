@@ -1,16 +1,18 @@
 /* eslint-disable */
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import Logo from 'assets/svg/AL.svg';
 import { motion, useAnimation } from 'framer-motion';
-import { StyledTopMenu } from '../../styled';
+import { StyledTopMenu } from '@app/styled';
 import { Button, ToggleNav } from '..';
-import { useTopbarScroll } from '../../hooks';
+import { useTopbarScroll } from '@app/hooks';
 
 const StyledNav = motion.custom(styled.nav`
-  ${tw`min-md:justify-center min-md:flex  `}
+  ${tw`flex `}
   width: 15%;
+  height: max-content;
 `);
 
 const navVariants = delay => ({
@@ -47,18 +49,24 @@ const topbar = () => {
       // exit={{ opacity: 0 }}
       animate={controls}
     >
-      <StyledNav variants={navVariants(0.6)}>
-        <a href='/'>
+      <StyledNav variants={navVariants(0.6)} className='justify-center'>
+        <Link to='/'>
           <img className='h-10' src={Logo} alt='' />
-        </a>
+        </Link>
       </StyledNav>
       <StyledNav
         variants={navVariants(1.2)}
-        className=' max-md:flex max-md:justify-end  '
+        className=' relative justify-center  '
       >
-        <div className='hidden min-md:block'>
-          <Button outline href='#/'>
-            Resume
+        <div className='hidden min-md:flex justify-center relative mx-auto  w-full   '>
+          <Button
+            as='a'
+            target={'_blank'}
+            href='/resume'
+            outline
+            className='italic '
+          >
+            .resume()
           </Button>
         </div>
         <ToggleNav />

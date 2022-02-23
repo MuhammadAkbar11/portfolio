@@ -18,7 +18,7 @@ const FooterColumn = styled.div`
 `;
 
 const FooterStartColumn = motion.custom(styled.div`
-  ${tw`flex-1 flex justify-start  `}
+  ${tw`flex-1 flex justify-start flex-wrap  `}
 `);
 
 const FooterEndColumn = styled(FooterColumn)`
@@ -68,8 +68,8 @@ const footer = () => {
     >
       <FooterRow>
         <FooterStartColumn>
-          Designed & Build By
-          <span className='text-primary mx-1'> Muhammad Akbar </span> 2020
+          <span className='mr-1'>Designed & Build By</span>
+          <span className='text-primary mr-1'>Muhammad Akbar </span> 2020
         </FooterStartColumn>
         <FooterEndColumn>
           <motion.a
