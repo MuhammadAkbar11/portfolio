@@ -64,6 +64,23 @@ function useTopbarScroll() {
     },
   });
 
+  const handleReset = () => {
+    setVariants(prevState => ({
+      ...prevState,
+      show: {
+        opacity: 1,
+        y: 0,
+        position: 'fixed',
+        transition: {
+          delay: 0.8,
+          duration: 0.4,
+          type: 'spring',
+          when: 'beforeChildren',
+        },
+      },
+    }));
+  };
+
   useEffect(() => {
     if (isScrolling) {
       setVariants(prevState => {
@@ -75,8 +92,15 @@ function useTopbarScroll() {
         }
         return newState;
       });
+    } else {
+      handleReset();
     }
+
+    return () => {
+      handleReset();
+    };
   }, [isShow, isScrolling, isTop]);
+
   return variants;
 }
 

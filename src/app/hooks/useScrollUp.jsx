@@ -6,19 +6,27 @@ const useScrollUp = () => {
   const [shouldShowActions, setShouldShowActions] = useState(true);
   const [isScroll, setIsScroll] = useState(false);
 
+  function handleScroll() {
+    setIsScroll(true);
+    const yPos = window.scrollY;
+    const isScrollingUp = yPos < lastYPos;
+
+    const isTop = yPos <= 5;
+    setYTop(isTop);
+    setShouldShowActions(isScrollingUp);
+    setLastYPos(yPos);
+  }
+
   useEffect(() => {
-    function handleScroll() {
-      setIsScroll(true);
-      const yPos = window.scrollY;
-      const isScrollingUp = yPos < lastYPos;
+    const hasScrollbar =
+      window.innerWidth > document.documentElement.clientWidth;
 
-      const isTop = yPos <= 5;
-      setYTop(isTop);
-      setShouldShowActions(isScrollingUp);
-      setLastYPos(yPos);
+    if (hasScrollbar) {
+      window.addEventListener('scroll', handleScroll, false);
+    } else {
+      setYTop(true);
+      setShouldShowActions(true);
     }
-
-    window.addEventListener('scroll', handleScroll, false);
 
     return () => {
       window.removeEventListener('scroll', handleScroll, false);
