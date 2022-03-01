@@ -41,12 +41,16 @@ const TitleWrapper = motion.custom(styled.div`
 `);
 
 const SmallTitle = motion.custom(styled.span`
-  ${tw` z-10  font-inconsolata italic text-xs min-md:text-lg text-primary`}
+  ${tw` z-10  font-inconsolata italic text-base min-md:text-lg text-primary`}
 `);
 
 const LargeTitle = motion.custom(styled.h1`
-  ${tw` z-10 -mt-1 text-light font-montserrat font-extrabold  `}
-  font-size: 4.2vw;
+  ${tw` z-10  text-light font-montserrat font-extrabold  `}
+  font-size: 4.5vw;
+  @media (max-width: 767.98px) {
+    ${tw`mt-1`}
+    font-size: 6vw;
+  }
 `);
 
 const pageTitle = props => {
