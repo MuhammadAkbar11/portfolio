@@ -1,7 +1,6 @@
-import React from 'react';
-
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import styled from 'styled-components';
 import { useLocation, useHistory } from 'react-router-dom';
 
@@ -44,44 +43,75 @@ const variants = {
   },
 };
 
-const variantsChild = {
-  hover: {
+const variantsChild = isActive => ({
+  show: {
+    opacity: 1,
+  },
+  onhover: {
     fontWeight: 600,
-    y: -5,
     scale: 1.05,
+    opacity: [1, 0, 0, 1],
+    rotate: ['0deg', '0deg', '-90deg', '-90deg'],
+    y: ['0%', '-100%', '100%', '0%'],
     color: '#63B3ED',
-    transition: { duration: 0.4, type: 'spring', damping: 9, stiffness: 120 },
+    transition: { duration: 0.5, type: 'spring', damping: 9, stiffness: 50 },
+  },
+  leaveHover: {
+    fontWeight: 500,
+    scale: 1,
+    opacity: [1, 0, 0, 1],
+    rotate: ['-90deg', '-90deg', '0deg', '0deg'],
+    y: ['0%', '100%', '-100%', '0%'],
+    color: isActive ? '#63B3ED' : '#8892B0',
+    transition: { duration: 0.5, type: 'spring', damping: 9, stiffness: 50 },
   },
   tap: {
-    scale: 1.05,
+    scale: 0.95,
   },
-};
+});
+
 /* eslint-disable */
 const navigationItem = props => {
+  const ref = useRef();
   const { menu, url } = props;
+
   const location = useLocation();
   const history = useHistory();
 
+  const labelControls = useAnimation();
+
   const handleOnlick = e => {
     e.preventDefault();
+    labelControls.start('tap');
     if (location.pathname !== url) {
       history.push(url);
     }
+  };
+
+  const handleHover = event => {
+    labelControls.start('onhover');
+  };
+
+  const handleLeave = event => {
+    labelControls.start('leaveHover');
   };
 
   return (
     <StyledLink
       href={url}
       onClick={handleOnlick}
-      className={`${location.pathname === url && 'active'} `}
+      onMouseEnter={handleHover}
+      onMouseLeave={handleLeave}
+      className={`${location.pathname === url && 'active'} py-2  `}
       variants={variants}
-      whileHover={location.pathname !== url ? 'hover' : null}
+      // whileHover={location.pathname !== url ? 'hover' : null}
       whileTap='tap'
       exit={'exit'}
     >
       <motion.div
-        className='text-base italic  font-inconsolata '
-        variants={variantsChild}
+        className='text-base italic font-inconsolata '
+        variants={variantsChild(location.pathname === url)}
+        animate={labelControls}
       >
         .{menu}()
       </motion.div>

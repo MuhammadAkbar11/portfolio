@@ -137,7 +137,7 @@ const mobileMenuNavigation = props => {
               whileTap='hover'
               isActive={disabled}
             >
-              {`.${item?.menu}${item?.label}`}
+              {`${item?.menu}`}
               <motion.div className='overlay' variants={itemOverlayVariants} />
             </StyledMobileMenuItem>
           </motion.a>
