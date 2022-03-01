@@ -2,4 +2,6 @@ dist/
 public/
 build/
 node_modules/*
-tes.**
+tes.***
+.env
+.env.*
