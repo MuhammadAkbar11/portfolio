@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 /* eslint-disable no-unused-expressions */
 const handleOutline = outline => {
   return outline === true
-    ? tw` outline-none border border-primary bg-transparent text-primary hover:bg-primary hover:text-secondary focus:bg-primary focus:text-secondary focus:shadow-outline `
+    ? tw` outline-none border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-secondary focus:bg-primary focus:text-secondary focus:shadow-outline `
     : tw`bg-primary text-secondary focus:shadow-outline`;
 };
 
@@ -32,7 +32,7 @@ const handleSize = size => {
 };
 
 const StyledButton = motion.custom(styled.div`
-  ${tw` rounded text-center font-inconsolata `}
+  ${tw` text-center font-inconsolata `}
   ${({ outline }) => handleOutline(outline)}
   ${({ size }) => handleSize(size)}
 
