@@ -18,7 +18,7 @@ const FooterColumn = styled.div`
 `;
 
 const FooterStartColumn = motion.custom(styled.div`
-  ${tw`flex-1 flex justify-start flex-wrap  `}
+  ${tw`flex-1 flex justify-start flex-wrap text-primary font-thin font-inconsolata  italic `}
 `);
 
 const FooterEndColumn = styled(FooterColumn)`
@@ -58,6 +58,7 @@ const footer = () => {
   const ref = useRef();
 
   const [visible] = useAppearOnScroll(ref);
+  /* eslint-disable */
   return (
     <Footer
       ref={ref}
@@ -68,8 +69,7 @@ const footer = () => {
     >
       <FooterRow>
         <FooterStartColumn>
-          <span className='mr-1'>Designed & Build By</span>
-          <span className='text-primary mr-1'>Muhammad Akbar </span> 2020
+          {'// Designed & Build By Muhammad Akbar 2020'}
         </FooterStartColumn>
         <FooterEndColumn>
           <motion.a
