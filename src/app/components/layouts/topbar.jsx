@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import Logo from 'assets/svg/AL.svg';
+import Logo2 from 'assets/svg/AL2.svg';
 import { motion, useAnimation } from 'framer-motion';
 import { StyledTopMenu } from '@app/styled';
 import { Button, ToggleNav } from '..';
@@ -49,9 +49,12 @@ const topbar = () => {
       // exit={{ opacity: 0 }}
       animate={controls}
     >
-      <StyledNav variants={navVariants(0.6)} className='justify-center'>
+      <StyledNav
+        variants={navVariants(0.6)}
+        className='justify-center text-primary'
+      >
         <Link to='/'>
-          <img className='h-10' src={Logo} alt='' />
+          <img className='h-10' src={Logo2} alt='' />
         </Link>
       </StyledNav>
       <StyledNav
