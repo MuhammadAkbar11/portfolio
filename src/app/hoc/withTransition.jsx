@@ -1,9 +1,9 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { LayoutContext } from '@app/context/context';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import Logo from 'assets/svg/AL.svg';
+import Logo from 'assets/svg/AL2.svg';
 import variants from './withTransitonVariants';
 
 const Transition = motion.custom(styled.div`
@@ -14,28 +14,40 @@ const Transition = motion.custom(styled.div`
   left: 0;
   height: 100vh;
   width: 100%;
-
-  .logo {
-  }
 `);
+
+const BgTranstion = styled.div`
+  ${tw` bg-gradient-to-bl from-light-secondary via-dark-secondary to-dark-secondary  `}
+  height: 100vh;
+  width: 100%;
+`;
 
 const withTransition = OriginalComponent => {
   return () => {
+    const [transition, setTransition] = useState(true);
     const {
       layoutDispatch,
       layoutStore: { loader, isReload },
     } = useContext(LayoutContext);
 
     useEffect(() => {
+      if (isReload && loader) {
+        setTimeout(() => {
+          setTransition(false);
+        }, 50);
+      } else {
+        setTransition(false);
+      }
       return () => {
         layoutDispatch({
           type: 'PAGE_NOT_REFRESH',
         });
+        setTransition(true);
       };
     }, []);
     return (
       <>
-        <OriginalComponent />
+        {!transition ? <OriginalComponent /> : <BgTranstion />}
         {!isReload && (
           <Transition
             variants={variants.slideOut}
@@ -45,7 +57,7 @@ const withTransition = OriginalComponent => {
             <motion.div variants={variants.logo}>
               <motion.img
                 variants={variants.logoImg}
-                className='h-12 '
+                className=' h-16 '
                 src={Logo}
                 alt=''
               />
@@ -63,7 +75,7 @@ const withTransition = OriginalComponent => {
             <motion.div variants={variants.logo}>
               <motion.img
                 variants={variants.logoImg}
-                className='h-12 '
+                className='h-16 '
                 src={Logo}
                 alt=''
               />

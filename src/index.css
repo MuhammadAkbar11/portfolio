@@ -6,3 +6,8 @@
 
 @import 'tailwindcss/utilities';
 @import './styles/utils/custom.utilities.css';
+
+body.transition {
+  height: 100vh !important;
+  overflow: hidden !important;
+}

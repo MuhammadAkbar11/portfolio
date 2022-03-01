@@ -24,10 +24,6 @@ const App = () => {
         payload: false,
       });
     }, 2700);
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
   }, []);
 
   return (

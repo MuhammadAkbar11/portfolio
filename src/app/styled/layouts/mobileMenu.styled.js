@@ -19,7 +19,7 @@ const styledMobileMenuNav = motion.custom(styled.nav`
 `);
 
 const styledMobileMenuItem = motion.custom(styled.div`
-  ${tw`text-4xl my-3 relative italic font-inconsolata  text-slate`}
+  ${tw`text-5xl my-2 relative uppercase font-semibold font-poppins  text-slate`}
   cursor: pointer;
   & .overlay {
     ${tw`absolute bg-primary left-0 top-0 right-0 w-full  h-full`}
