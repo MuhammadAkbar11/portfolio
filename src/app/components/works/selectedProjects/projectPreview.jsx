@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
 
+/* eslint-disable */
+
 const defaultProps = {
   img: '',
   alt: 'akbar',
