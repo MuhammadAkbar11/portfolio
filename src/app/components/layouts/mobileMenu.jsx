@@ -37,7 +37,7 @@ const index = () => {
   const history = useHistory();
   const controls = useAnimation();
 
-  const { mobileMenu } = context.layoutStore;
+  const { mobileMenu } = context.layoutStore; // eslint-disable-line
 
   useEffect(() => {
     if (mobileMenu) {

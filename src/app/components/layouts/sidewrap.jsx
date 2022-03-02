@@ -10,6 +10,16 @@ const StyledSideWrap = styled.aside`
   width: 10%;
 `;
 
+/* eslint-disable */
+
+const defaultProps = {
+  position: '',
+};
+
+const proptypes = {
+  position: PropTypes.string.isRequired,
+};
+
 const sidewrap = props => {
   let content = '';
   const { position } = props;
@@ -33,12 +43,8 @@ const sidewrap = props => {
   );
 };
 
-sidewrap.defaultProps = {
-  position: '',
-};
+sidewrap.defaultProps = defaultProps;
 
-sidewrap.propTypes = {
-  position: PropTypes.string.isRequired,
-};
+sidewrap.propTypes = proptypes;
 
 export default sidewrap;

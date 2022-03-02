@@ -1,11 +1,11 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { motion, useAnimation } from 'framer-motion';
 import styled from 'styled-components';
 import { useLocation, useHistory } from 'react-router-dom';
-
 import tw from 'twin.macro';
-// import { easeTransition } from '../../animation/transtions';
+
+/* eslint-disable */
 
 const defaultProps = {
   menu: '',
@@ -70,9 +70,7 @@ const variantsChild = isActive => ({
   },
 });
 
-/* eslint-disable */
 const navigationItem = props => {
-  const ref = useRef();
   const { menu, url } = props;
 
   const location = useLocation();

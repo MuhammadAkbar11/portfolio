@@ -87,14 +87,13 @@ const pageTitle = props => {
 pageTitle.defaultProps = {
   subtitle: '',
   title: '',
-  children: null,
+  primaryColor: 'primary',
 };
 
 pageTitle.propTypes = {
   title: PropTypes.string,
   primaryColor: PropTypes.string,
   subtitle: PropTypes.string,
-  children: PropTypes.node,
 };
 
 export default pageTitle;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import propTypes from 'prop-types';
 
 const banner = (delay, exitDelay = 0.5) => ({
   closed: {
@@ -106,7 +107,17 @@ const animatedLetters = ({
   );
 };
 
+animatedLetters.propTypes = {
+  comp: propTypes.elementType,
+  title: propTypes.string,
+  delay: propTypes.number,
+  type: propTypes.string,
+  exitDelay: propTypes.number,
+  primaryTitles: propTypes.string,
+};
+
 animatedLetters.defaultProps = {
+  title: '',
   delay: 0.1,
   exitDelay: 0.5,
   comp: motion.div,
