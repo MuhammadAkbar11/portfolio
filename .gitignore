@@ -1,8 +1,8 @@
 dist/
 public/
 build/
+lib/
 node_modules
-tes.***
+test.***
 .env
 .env.*
-yarn.lock
