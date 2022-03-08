@@ -21,9 +21,8 @@ const listVariants = {
 
 const listProjects = () => {
   const context = useContext(PublicContext);
-  const { projects, project: projectState } = context.publicStore;
+  const { project: projectState } = context.publicStore;
   const dispatch = context.publicDispatch;
-  console.log(context);
 
   useEffect(() => {
     const loadProjects = async () => {
@@ -43,25 +42,8 @@ const listProjects = () => {
     loadProjects();
   }, []);
 
-  const selectedProjects = projects
-    .filter(project => project.type === 'best')
-    .map(item => {
-      return (
-        <SelectedProject
-          id={item.id}
-          key={item.id}
-          title={item.title}
-          tools={item.tools}
-          description={item.desc}
-          isReverse={item.id % 2 === 0 ? true : false}
-        />
-      );
-    });
-
   const projectListTransform = projectState?.projectList?.map((project, i) => {
     let idx = i;
-
-    console.log(project._id);
     return (
       <div className='mb-5' key={project._id}>
         <SelectedProject
