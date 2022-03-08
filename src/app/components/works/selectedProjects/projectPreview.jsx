@@ -21,7 +21,7 @@ const proptypes = {
 };
 
 const StyledProjectPreview = motion.custom(styled.div`
-  ${tw`w-full relative flex items-center min-lg:w-1/2  hover:opacity-100 py-6 `}
+  ${tw`w-full relative flex flex-1 items-center min-lg:w-1/2  hover:opacity-100 py-6 `}
   ${props => {
     const { position } = props.children[1].props;
     if (position === 'right') {
@@ -67,7 +67,7 @@ const StyledOverlay = motion.custom(styled.div`
 const StyledImg = motion.custom(styled.a`
   ${tw`my-auto`}
   width: 85%;
-  height: 80;
+  height: 270px;
   position: relative;
   transform-origin: 0 0;
   object-fit: cover;

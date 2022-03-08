@@ -7,7 +7,7 @@ import { Github, IconExternalLinkAlt } from '@components/icons';
 
 /* eslint-disable */
 const StyledProjectInfo = motion.custom(styled.div`
-  ${tw` w-full min-lg:w-1/2 py-6 px-4 `}
+  ${tw` w-full flex-1 min-lg:w-1/2 py-6 px-4 `}
   ${props => {
     const { position } = props;
     if (position === 'right') {
@@ -55,7 +55,7 @@ const Title = styled.h1`
 `;
 
 const Label = styled.p`
-  ${tw`text-lg text-primary font-thin font-inconsolata my-1 italic`}
+  ${tw`text-lg text-primary font-thin font-inconsolata mb-2 italic`}
 `;
 const Description = styled.div`
   ${tw`text-sm font-poppins`}
@@ -67,6 +67,8 @@ const defaultProps = {
   tools: [],
   position: '',
   variants: {},
+  github: '',
+  demo: '',
   actionVariants: {},
 };
 
@@ -74,8 +76,11 @@ const proptypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   tools: PropTypes.arrayOf(PropTypes.string),
+  github: PropTypes.string,
+  demo: PropTypes.string,
   position: PropTypes.string,
   variants: PropTypes.objectOf(PropTypes.object),
+
   actionVariants: PropTypes.objectOf(PropTypes.object),
 };
 
@@ -111,9 +116,16 @@ const projectInfo = props => {
     tools,
     position,
     variants,
+    github,
+    demo,
     actionVariants,
   } = props;
+  let demoUrl = demo;
   const toolsLength = tools.length;
+
+  if (github === 'https://github.com/MuhammadAkbar11/portfolio') {
+    demoUrl = '';
+  }
 
   return (
     <StyledProjectInfo variants={variants} position={position}>
@@ -121,13 +133,12 @@ const projectInfo = props => {
         <Title>{title}</Title>
         <Label>{' // Selected Project'}</Label>
         <Description>
-          {' '}
           <p className={`leading-7  text-lightness-slate description`}>
             {description}
           </p>
         </Description>
-        <div className='my-5 w-full'>
-          <ul className='flex text-base  text-slate font-inconsolata  tools'>
+        <div className='my-3 w-full'>
+          <ul className='flex flex-wrap text-base  text-slate font-inconsolata  tools'>
             <span className='font-semibold text-primary text-lg'>{'['}</span>
             {tools.map((tool, i) => (
               <li key={tool + 1} className=' capitalize tool '>
@@ -142,23 +153,29 @@ const projectInfo = props => {
             <span className='font-semibold text-primary text-lg'>{']'}</span>
           </ul>
         </div>
-        <div className='flex relative'>
-          <motion.a
-            className='hover:text-primary  h-6 '
-            variants={actionVariants}
-            whileHover='hover'
-            href='#/'
-          >
-            <Github />
-          </motion.a>
-          <motion.a
-            className='hover:text-primary  h-6 ml-5 '
-            variants={actionVariants}
-            whileHover='hover'
-            href='#/'
-          >
-            <IconExternalLinkAlt />
-          </motion.a>
+        <div className='flex relative mt-3'>
+          {((github !== '') & (github !== null)) == 1 && (
+            <motion.a
+              className='hover:text-primary  h-6 '
+              variants={actionVariants}
+              whileHover='hover'
+              target='_blank'
+              href={github}
+            >
+              <Github />
+            </motion.a>
+          )}
+          {((demoUrl !== '') & (demoUrl !== null)) == 1 && (
+            <motion.a
+              className='hover:text-primary  h-6 ml-5 '
+              variants={actionVariants}
+              whileHover='hover'
+              target='_blank'
+              href={demoUrl}
+            >
+              <IconExternalLinkAlt />
+            </motion.a>
+          )}
         </div>
       </StyledProjectInfoRow>
     </StyledProjectInfo>

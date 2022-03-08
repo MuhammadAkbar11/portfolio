@@ -11,23 +11,29 @@ import variants from './variants';
 import useAppearOnScroll from '@app/hooks/useAppearOnScroll';
 
 const defaultProps = {
-  id: '',
+  // id: '',
   title: '',
+  image: '',
   description: '',
+  github: '',
+  demo: '',
   tools: [],
   isReverse: false,
 };
 
 const proptypes = {
-  id: PropTypes.number,
+  // id: PropTypes.string,
   title: PropTypes.string,
+  image: PropTypes.string,
   description: PropTypes.string,
   tools: PropTypes.arrayOf(PropTypes.string),
+  github: PropTypes.string,
+  demo: PropTypes.string,
   isReverse: PropTypes.bool,
 };
 
 const project = props => {
-  const { title, description, tools, id, isReverse } = props;
+  const { title, description, tools, isReverse, github, demo, image } = props;
   const ref = useRef();
   const [isVisible] = useAppearOnScroll(ref);
 
@@ -38,17 +44,17 @@ const project = props => {
     projectActionsVariants,
   } = variants;
   return (
-    <OverflowHidden className=''>
+    <OverflowHidden>
       <motion.div
         ref={ref}
         initial='init'
         variants={projectVariants}
         animate={isVisible ? 'animate' : ''}
         exit='exit'
-        className='flex flex-col min-lg:flex-row  min-lg:mb-24'
+        className='flex flex-col min-lg:justify-between w-full min-lg:flex-row  min-lg:mb-24'
       >
         <ProjectPreview
-          img={projectImg}
+          img={image}
           alt={title}
           variants={projectPreviewVariants}
           position={isReverse ? 'left' : 'right'}
@@ -60,6 +66,8 @@ const project = props => {
           variants={projectInfoVariants}
           actionVariants={projectActionsVariants}
           position={isReverse ? 'left' : 'right'}
+          github={github}
+          demo={demo}
         />
       </motion.div>
     </OverflowHidden>
