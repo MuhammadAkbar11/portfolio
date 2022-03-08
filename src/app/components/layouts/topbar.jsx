@@ -65,11 +65,14 @@ const topbar = () => {
           <Button
             as='a'
             target={'_blank'}
-            href='/resume'
+            href='/download-cv'
             outline
-            className='italic '
+            className='italic text-xs'
+            style={{
+              fontSize: '14px',
+            }}
           >
-            .resume()
+            .downloadCV()
           </Button>
         </div>
         <ToggleNav />
