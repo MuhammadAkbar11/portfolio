@@ -37,7 +37,7 @@ const listProjects = () => {
             type: 'PROJECT_LIST_SUCCESS',
             payload: loadProjects.data?.projects,
           });
-        }, 666);
+        }, 1000);
       } catch (error) {}
     };
 
