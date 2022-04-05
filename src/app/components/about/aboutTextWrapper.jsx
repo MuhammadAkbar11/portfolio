@@ -36,8 +36,11 @@ const aboutInfo = () => {
         now i live in <span className='text-primary '>Bekasi</span>, Vest Java.
         I'm currently a student at{' '}
         <span className='text-primary'>
-          <ExternalLink href='http://www.bsi.ac.id'>
-            UBSI Jatiwaringin
+          <ExternalLink
+            href='https://nusamandiri.ac.id
+'
+          >
+            University Nusa Mandiri
           </ExternalLink>
         </span>
       </Paragraph>

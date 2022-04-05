@@ -16,6 +16,7 @@ export { default as MobileMenuFooter } from './layouts/mobileMenuFooter';
 export { default as ButtonLink } from './buttonLink';
 export { default as Button } from './button';
 export { default as ExternalLink } from './externalLink';
+export { default as ProjectsSkeleton } from './skeletons/projectsSkeleton';
 
 export { default as Socials } from './socialMedia';
 export { default as SocialIcons } from './socialMediaIcons';

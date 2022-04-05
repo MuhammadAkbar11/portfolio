@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { PublicContext } from '@app/context/context';
-import { SelectedProject } from '@components';
+import { SelectedProject, ProjectsSkeleton } from '@components';
 import { motion } from 'framer-motion';
 import axios from 'axios';
 
@@ -32,43 +32,50 @@ const listProjects = () => {
       try {
         const loadProjects = await axios.get('/api/projects');
 
-        dispatch({
-          type: 'PROJECT_LIST_SUCCESS',
-          payload: loadProjects.data?.projects,
-        });
+        setTimeout(() => {
+          dispatch({
+            type: 'PROJECT_LIST_SUCCESS',
+            payload: loadProjects.data?.projects,
+          });
+        }, 666);
       } catch (error) {}
     };
 
     loadProjects();
   }, []);
 
-  const projectListTransform = projectState?.projectList?.map((project, i) => {
-    let idx = i;
+  const projectListTransform = projectState?.projectList
+    ?.filter(x => x.isSelected === true)
+    .map((project, i) => {
+      let idx = i;
+      return (
+        <div className='mb-5' key={project._id}>
+          <SelectedProject
+            // id={project._id}
+            image={project.image}
+            title={project.title}
+            tools={project.stacks}
+            description={project.description}
+            isReverse={idx % 2 === 0 ? true : false}
+            demo={project.demo}
+            github={project.github}
+          />
+        </div>
+      );
+    });
+
+  const skeleton = [...Array(5).keys()].map((x, idx) => {
+    const key = idx;
     return (
-      <div className='mb-5' key={project._id}>
-        <SelectedProject
-          // id={project._id}
-          image={project.image}
-          title={project.title}
-          tools={project.stacks}
-          description={project.description}
-          isReverse={idx % 2 === 0 ? true : false}
-          demo={project.demo}
-          github={project.github}
-        />
-      </div>
+      <ProjectsSkeleton key={key} isReverse={idx % 2 === 0 ? true : false} />
     );
   });
 
   return (
     <>
       <motion.div variants={listVariants} initial='hidden' animate='show'>
-        <div className='text-center'>
-          {' '}
-          {projectState?.loading && 'Loading Bruhh'}
-        </div>
+        <div className='text-center'>{projectState?.loading && skeleton}</div>
         {projectListTransform}
-        {/* {selectedProjects} */}
       </motion.div>
     </>
   );
