@@ -85,7 +85,8 @@ const footer = () => {
             target='_blank'
             className='hover:text-primary text-lg font-inconsolata italic '
           >
-            .sayHello()
+            .sayHello
+            <span className='text-primary'>()</span>
           </motion.a>
           <div className='mx-3 '>|</div>
           <Socials inView={visible} />

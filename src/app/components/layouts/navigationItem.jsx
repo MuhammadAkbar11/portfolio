@@ -107,11 +107,12 @@ const navigationItem = props => {
       exit={'exit'}
     >
       <motion.div
-        className='text-base italic font-inconsolata '
+        className='text-base  italic font-inconsolata '
         variants={variantsChild(location.pathname === url)}
         animate={labelControls}
       >
-        .{menu}()
+        .{menu}
+        <span className='text-primary'>()</span>
       </motion.div>
     </StyledLink>
   );

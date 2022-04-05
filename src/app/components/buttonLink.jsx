@@ -39,7 +39,8 @@ const buttonLink = props => {
       >
         {' '}
         <motion.span variants={childrenVariants} className='  '>
-          .{children}()
+          .{children}
+          <span className='text-primary'>()</span>
         </motion.span>
       </StyledBtn>{' '}
     </>
