@@ -17,6 +17,7 @@ export { default as ButtonLink } from './buttonLink';
 export { default as Button } from './button';
 export { default as ExternalLink } from './externalLink';
 export { default as ProjectsSkeleton } from './skeletons/projectsSkeleton';
+export { default as ListSkillSkeleton } from './skeletons/listSkillSkeleton';
 
 export { default as Socials } from './socialMedia';
 export { default as SocialIcons } from './socialMediaIcons';
@@ -28,6 +29,7 @@ export { default as Hero } from './hero/hero';
 export { default as AboutTextWrapper } from './about/aboutTextWrapper';
 export { default as AboutProfilePicture } from './about/aboutProfPict';
 export { default as AboutMoreInfos } from './about/aboutInformations.jsx';
+export { default as SkillItem } from './about/skillItem';
 
 export { default as SelectedProjects } from './works/selectedProjects/listProjects';
 export { default as SelectedProject } from './works/selectedProjects/project';
