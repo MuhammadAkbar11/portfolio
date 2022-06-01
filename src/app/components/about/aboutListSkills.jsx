@@ -3,6 +3,7 @@ import axios from 'axios';
 import { PublicContext } from '@app/context/context';
 import { ListSkillSkeleton, SkillItem } from '..';
 
+/* eslint-disable */
 function AboutListSkill() {
   const context = useContext(PublicContext);
   const {
@@ -46,7 +47,7 @@ function AboutListSkill() {
               {skillList.map(sk => {
                 return (
                   <React.Fragment key={sk._id}>
-                    <SkillItem {...sk} />
+                    <SkillItem skill={sk.name} />
                   </React.Fragment>
                 );
               })}
