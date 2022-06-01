@@ -5,22 +5,11 @@ const PublicStore = {
     projectList: [],
     error: null,
   },
-  skills: [
-    'Html',
-    'Css & Scss',
-    'Javascript',
-    'ReactJs',
-    'Next.js (Basic)',
-    'Redux',
-    'NodeJs',
-    'ExpressJs',
-    'MySQL',
-    'MongoDb',
-    'Bootstrap ',
-    'TaildwindCss',
-    'Git',
-    'Webpack',
-  ],
+  skill: {
+    loading: true,
+    skillList: [],
+    error: null,
+  },
 };
 
 export default PublicStore;
