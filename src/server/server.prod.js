@@ -19,6 +19,20 @@ app.get('/api/projects', async (req, res, next) => {
   }
 });
 
+app.get('/api/skills', async (req, res, next) => {
+  try {
+    const getSkills = await axios.get(`${API_URL}/skills`, {
+      headers: {
+        'x-api-key': API_KEY,
+      },
+    });
+    res.json({ ...getSkills.data });
+  } catch (error) {
+    error.message = error.message || 'Something went wrong';
+    res.status(error.statusCode || 500).json({ ...error });
+  }
+});
+
 app.get('*', function (request, response) {
   response.sendFile(path.join(__dirname, '../../', 'build', 'index.html'));
 });
