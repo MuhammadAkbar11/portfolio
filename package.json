@@ -24,7 +24,7 @@
     "start": "node src/server/server.main.js",
     "dev": "cross-env MODE=dev nodemon src/server/server.main.js",
     "production": "node src/server/server.main.js",
-    "build": "webpack --config webpack/webpack.config.js --env.env=production --colors",
+    "build": "webpack --config webpack/webpack.config.js --env.env=production --colors --progress",
     "build:dev": "cross-env MODE=dev webpack --config webpack/webpack.config.js --env.env=dev --colors",
     "heroku-postbuild": "yarn build"
   },
