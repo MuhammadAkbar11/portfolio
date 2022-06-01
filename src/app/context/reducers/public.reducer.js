@@ -31,7 +31,37 @@ const PublicReducer = (state, action) => {
         },
       };
     },
+    SKILL_LIST_REQ: (state, action) => {
+      return {
+        ...state,
+        skill: {
+          loading: true,
+          skillList: [],
+          error: null,
+        },
+      };
+    },
+    SKILL_LIST_SUCCESS: (state, action) => {
+      return {
+        ...state,
 
+        skill: {
+          loading: false,
+          skillList: action.payload,
+          error: null,
+        },
+      };
+    },
+    SKILL_LIST_ERROR: (state, action) => {
+      return {
+        ...state,
+        skill: {
+          loading: false,
+          skillList: [],
+          error: action.payload,
+        },
+      };
+    },
     DEFAULT: state => state,
   };
 
