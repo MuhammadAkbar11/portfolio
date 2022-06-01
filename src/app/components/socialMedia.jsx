@@ -43,12 +43,12 @@ const socialMedia = props => {
         {
           id: 1,
           Icon: Github,
-          url: '#/',
+          url: 'https://github.com/MuhammadAkbar11',
         },
         {
           id: 2,
           Icon: LinkedIn,
-          url: '#/',
+          url: 'https://www.linkedin.com/in/muhammadakbarletlet/',
         },
         {
           id: 3,

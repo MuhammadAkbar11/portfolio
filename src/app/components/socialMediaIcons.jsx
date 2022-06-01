@@ -46,6 +46,7 @@ const socialMediaIcons = props => {
       variants={variants}
       whileHover='hover'
       className={`${className}`}
+      target='_blank'
     >
       {icon}
     </motion.a>

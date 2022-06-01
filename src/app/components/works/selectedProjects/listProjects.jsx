@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from 'react';
+import axios from 'axios';
+import { motion } from 'framer-motion';
 import { PublicContext } from '@app/context/context';
 import { SelectedProject, ProjectsSkeleton } from '@components';
-import { motion } from 'framer-motion';
-import axios from 'axios';
 
 const listVariants = {
   hidden: {
