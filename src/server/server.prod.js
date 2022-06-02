@@ -12,7 +12,6 @@ const STATIC_FILE = path.join(__dirname, '../../', 'build');
 app.use(express.static(STATIC_FILE));
 
 app.get('/api/projects', async (req, res, next) => {
-  console.log('test');
   try {
     const getProjects = await axios.get(`${API_URL}/projects`, {
       headers: {
