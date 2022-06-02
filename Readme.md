@@ -14,7 +14,7 @@
 
 <p align="center">
   <a href="https://muhammad-akbar.herokuapp.com/" target="_blank">
-    <img src="./demo.png" width="80%" >
+    <img src="https://raw.githubusercontent.com/MuhammadAkbar11/portfolio/main/demo.png" width="80%" >
   </a>
 </p>
 
