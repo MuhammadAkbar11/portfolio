@@ -7,10 +7,11 @@
 </h1>
 
 <p align="center">
-  This is the first portfolio I've built while learning reactjs and this portfolio was inspired by <a href="https://brittanychiang.com/" target="_blank">brittanychiang.com</a>
+  This is the first portfolio I've built while learning reactjs and this portfolio was inspired by <a href="https://brittanychiang.com/" target="_blank">brittanychiang.com</a>.
 </p>
 
 <p align="center" >
+  <img src="https://img.shields.io/github/package-json/v/MuhammadAkbar11/portfolio?color=63B3ED&style=for-the-badge&labelColor=435055" />
   <a href="https://reactjs.org/" target="_blank"><img src="https://img.shields.io/badge/-React-435055?style=for-the-badge&logo=react" /></a>
   <a href="https://webpack.js.org/" target="_blank"><img src="https://img.shields.io/badge/-Webpack-435055?style=for-the-badge&logo=webpack" /> </a>
   <a href="https://tailwindcss.com/" target="_blank"><img src="https://img.shields.io/badge/-Tailwindcss-435055?style=for-the-badge&logo=tailwindcss" /></a>
@@ -28,7 +29,7 @@
 
 ## Requirments
 - **Yarn** v1.22+
-- **NodeJS** < v14.17
+- **NodeJS** <= v14.17
 
 ## Built With
 - **[ReactJs](https://reactjs.org/)**
