@@ -54,7 +54,9 @@ const hero = () => {
             className='order-2 mt-5 flex items-center min-lg:order-1'
           >
             {/* eslint-disable-line */}
-            <ButtonLink>sayHello</ButtonLink>
+            <ButtonLink href='mailto:muhammadakbarletlet11@gmail.com'>
+              sayHello
+            </ButtonLink>
           </StyledHeroInfoContents>
           <StyledHeroInfoContents
             variants={heroInfoVariant(0.8)}

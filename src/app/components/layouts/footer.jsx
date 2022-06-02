@@ -81,7 +81,7 @@ const footer = () => {
                 type: 'spring',
               },
             }}
-            href='#/'
+            href='mailto:muhammadakbarletlet11@gmail.com'
             target='_blank'
             className='hover:text-primary text-lg font-inconsolata italic '
           >

@@ -22,7 +22,12 @@ const aboutInformations = () => {
         <span className=' text-light-slate'>
           Let's make great products together!, don't hesitate to{' '}
         </span>
-        <ExternalLink className='font-inconsolata '> Contact Me</ExternalLink>
+        <ExternalLink
+          href='mailto:muhammadakbarletlet11@gmail.com'
+          className='font-inconsolata '
+        >
+          Contact Me
+        </ExternalLink>
       </div>
     </motion.div>
   );
