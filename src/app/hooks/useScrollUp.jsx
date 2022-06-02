@@ -18,10 +18,9 @@ const useScrollUp = () => {
   }
 
   useEffect(() => {
-    const hasScrollbar =
-      window.innerWidth > document.documentElement.clientWidth;
+    const hasVScroll = document.body.clientHeight > window.innerHeight;
 
-    if (hasScrollbar) {
+    if (hasVScroll) {
       window.addEventListener('scroll', handleScroll, false);
     } else {
       setYTop(true);
