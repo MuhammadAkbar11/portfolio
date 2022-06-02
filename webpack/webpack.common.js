@@ -66,6 +66,14 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Loading... Muhammad Akbar  | ..',
+      favicon: path.resolve(
+        __dirname,
+        '..',
+        'src',
+        'assets',
+        'favicon',
+        'favicon.ico'
+      ),
       template: path.resolve(__dirname, '..', 'src', 'index.html'),
       filename: 'index.html',
       inject: 'body',
