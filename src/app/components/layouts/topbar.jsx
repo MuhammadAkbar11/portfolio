@@ -57,6 +57,7 @@ const topbar = () => {
           <img className='h-10' src={Logo2} alt='' />
         </Link>
       </StyledNav>
+
       <StyledNav
         variants={navVariants(1.2)}
         className=' relative justify-center  '
@@ -72,7 +73,7 @@ const topbar = () => {
               fontSize: '14px',
             }}
           >
-            .downloadCV()
+            {`.download("cv")`}
           </Button>
         </div>
         <ToggleNav />

@@ -67,7 +67,7 @@ const animatedLetters = ({
     const k = idx;
     return (
       <motion.span
-        className={`${isPrimary ? 'text-primary' : ''} mr-1 `}
+        className={`${isPrimary ? 'text-primary' : ''} mr-0 `}
         variants={letterAni}
         key={k}
       >
@@ -123,7 +123,7 @@ animatedLetters.defaultProps = {
   exitDelay: 0.5,
   comp: motion.div,
   type: 'letter',
-  primaryTitles: [],
+  primaryTitles: '',
   className: '',
 };
 

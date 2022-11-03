@@ -36,13 +36,13 @@ const toggleMenu = () => {
     <div className='relative min-md:hidden'>
       <ButtonLink
         href='#/'
-        className='px-0 text-sm font-inconsolata italic '
+        className='px-0 text-base font-semibold font-inconsolata italic text-slate '
         onClick={handleClick}
         whileTap={{
           scale: 0.9,
         }}
       >
-        {!mobileMenu ? 'showMenu' : 'closeMenu'}
+        menu
       </ButtonLink>
     </div>
   );
