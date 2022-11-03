@@ -36,9 +36,8 @@ const hero = () => {
         animate='show'
         exit='exit'
       >
-        {/* <div className=' overflow-hidden border h-auto '> */}
-        <div className='hero-name min-md:-mt-10 xl:-mt-10 mb-5 min-md:mb-12 '>
-          <OverflowHidden>
+        <div className='hero-name max-sm:mt-5 min-md:-mt-10 xl:-mt-10 mb-5 min-md:mb-12 '>
+          <OverflowHidden className='  xl:mb-6 '>
             <AnimatedLetters
               comp={StyledFirstName}
               delay={0.1}
@@ -46,7 +45,7 @@ const hero = () => {
               primaryTitles='m,m'
             />
           </OverflowHidden>
-          <OverflowHidden>
+          <OverflowHidden className=' max-sm:-mt-2 sm:-mt-6 '>
             <AnimatedLetters
               comp={StyledSecondName}
               delay={0.5}
@@ -66,7 +65,7 @@ const hero = () => {
           </StyledHeroInfoContents>
           <StyledHeroInfoContents
             variants={heroInfoVariant(0.8)}
-            className='order-1 min-lg:order-2 min-lg:pr-5 min-lg:text-md italic font-inconsolata  '
+            className='order-1 min-lg:order-2 min-lg:pr-5 min-lg:text-md min-lg:italic min-lg:font-inconsolata  '
           >
             <p>
               Hi There, My name is Muhammad Akbar let-let, I’m a Web Developer
@@ -75,6 +74,7 @@ const hero = () => {
           </StyledHeroInfoContents>
         </StyledHeroInfo>
         <div
+          className='mt-12 min-lg:mt-16 '
           ref={ref}
           style={{
             minHeight: '50px',
