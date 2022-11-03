@@ -4,15 +4,6 @@ import { motion } from 'framer-motion';
 
 const styledHero = motion.custom(styled.div`
   ${tw`flex flex-col h-full flex-1 w-full justify-start min-md:justify-center `}
-  & .hero-name {
-    line-height: 80px;
-    @media (max-width: 576px) {
-      line-height: 65px;
-    }
-    @media (max-width: 360px) {
-      line-height: 55px;
-    }
-  }
 `);
 
 const styledfirstName = motion.custom(styled.h3`

@@ -9,13 +9,8 @@ const OverflowHiddenStyled = styled.div`
 
 const overflowHidden = ({ children, ...props }) => {
   const { className } = props;
-  delete props.className;
 
-  return (
-    <OverflowHiddenStyled className={`${className}`} {...props}>
-      {children}
-    </OverflowHiddenStyled>
-  );
+  return <OverflowHiddenStyled {...props}>{children}</OverflowHiddenStyled>;
 };
 
 overflowHidden.defaultProps = {

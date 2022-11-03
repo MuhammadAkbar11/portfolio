@@ -351,6 +351,8 @@ module.exports = {
       10: '2.5rem',
       11: '2.75rem',
       12: '3rem',
+      14: '4.5rem',
+      16: '5rem',
       none: '1',
       tight: '1.25',
       snug: '1.375',
