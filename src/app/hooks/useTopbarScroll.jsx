@@ -39,9 +39,10 @@ function useTopbarScroll() {
       y: 0,
       height: !isTop ? '95px' : '80px',
       boxShadow: !isTop
-        ? '0 .3rem 0.2rem rgba(3, 3, 3, 0.3)'
-        : '0 .3rem 0.2rem rgba(3, 3, 3, 0)',
+        ? '0 5px 8px rgba(3, 3, 3, 0.1)'
+        : '0 5px 8px rgba(3, 3, 3, 0)',
       backgroundColor: !isTop ? 'rgba(10, 24, 46, .9)' : 'rgba(10, 24, 46, 0)',
+      backdropFilter: 'blur(20px)',
       transition: {
         ...state.show.transition,
         delay: 0.1,
