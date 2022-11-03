@@ -55,6 +55,7 @@ const animatedLetters = ({
   type,
   exitDelay,
   primaryTitles,
+  className,
 }) => {
   const checkPrimaryColor = w =>
     typeof primaryTitles === 'string'
@@ -66,10 +67,7 @@ const animatedLetters = ({
     const k = idx;
     return (
       <motion.span
-        style={{
-          letterSpacing: '0.2rem',
-        }}
-        className={`${isPrimary ? 'text-primary' : ''} `}
+        className={`${isPrimary ? 'text-primary' : ''} mr-1 `}
         variants={letterAni}
         key={k}
       >
@@ -94,9 +92,11 @@ const animatedLetters = ({
     });
   }
 
+  const classNm = `flex h-auto relative ${className}`;
+
   return (
     <Component
-      className='flex relative '
+      className={classNm}
       variants={banner(+delay, exitDelay)}
       initial='closed'
       animate='show'
@@ -109,6 +109,7 @@ const animatedLetters = ({
 
 animatedLetters.propTypes = {
   comp: propTypes.elementType,
+  className: propTypes.string,
   title: propTypes.string,
   delay: propTypes.number,
   type: propTypes.string,
@@ -123,6 +124,7 @@ animatedLetters.defaultProps = {
   comp: motion.div,
   type: 'letter',
   primaryTitles: [],
+  className: '',
 };
 
 export default animatedLetters;

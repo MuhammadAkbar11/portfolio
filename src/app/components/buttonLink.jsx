@@ -10,7 +10,7 @@ const StyledBtn = motion.custom(styled.div`
 
 const childrenVariants = {
   hover: {
-    y: [0, -2],
+    y: [0, -1],
     scale: [1, 1.05],
     transition: {
       y: {
@@ -37,7 +37,6 @@ const buttonLink = props => {
         href={url}
         {...attr}
       >
-        {' '}
         <motion.span variants={childrenVariants} className='  '>
           .{children}
           <span className='text-primary'>()</span>

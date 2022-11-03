@@ -37,17 +37,23 @@ const hero = () => {
         exit='exit'
       >
         {/* <div className=' overflow-hidden border h-auto '> */}
-        <OverflowHidden>
-          <AnimatedLetters
-            comp={StyledFirstName}
-            delay={0.1}
-            title='Muhammad'
-            primaryTitles='m,m'
-          />
-        </OverflowHidden>
-        <OverflowHidden>
-          <AnimatedLetters comp={StyledSecondName} delay={0.5} title='Akbar' />
-        </OverflowHidden>
+        <div className='hero-name min-md:-mt-10 xl:-mt-10 mb-5 min-md:mb-12 '>
+          <OverflowHidden>
+            <AnimatedLetters
+              comp={StyledFirstName}
+              delay={0.1}
+              title='Muhammad'
+              primaryTitles='m,m'
+            />
+          </OverflowHidden>
+          <OverflowHidden>
+            <AnimatedLetters
+              comp={StyledSecondName}
+              delay={0.5}
+              title='Akbar'
+            />
+          </OverflowHidden>
+        </div>
         <StyledHeroInfo className='overflow-hidden'>
           <StyledHeroInfoContents
             variants={buttonLinkVariant}
@@ -60,7 +66,7 @@ const hero = () => {
           </StyledHeroInfoContents>
           <StyledHeroInfoContents
             variants={heroInfoVariant(0.8)}
-            className='order-1 min-lg:order-2 min-lg:pr-5 min-lg:text-xl'
+            className='order-1 min-lg:order-2 min-lg:pr-5 min-lg:text-md italic font-inconsolata  '
           >
             <p>
               Hi There, My name is Muhammad Akbar let-let, I’m a Web Developer
@@ -73,7 +79,6 @@ const hero = () => {
           style={{
             minHeight: '50px',
           }}
-          className='pt-12'
         >
           {showSocials && <Socials inView={showSocials} />}
         </div>
