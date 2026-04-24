@@ -60,7 +60,7 @@ const topbar = () => {
 
       <StyledNav
         variants={navVariants(1.2)}
-        className=' relative justify-center  '
+        className='relative justify-center  '
       >
         <div className='hidden min-md:flex justify-center relative mx-auto  w-full   '>
           <Button

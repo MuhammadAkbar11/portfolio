@@ -39,7 +39,7 @@ const hero = () => {
       >
         <div className='relative hero-name max-sm:mt-5 min-md:-mt-10 xl:-mt-10 mb-5 min-md:mb-12 leading-10 sm:leading-12 md:leading-11  min-lg:leading-16  '>
           <div className='mb-2 min-lg:mb-6'>
-            <OverflowHidden className=''>
+            <OverflowHidden>
               <AnimatedLetters
                 comp={StyledFirstName}
                 delay={0.1}

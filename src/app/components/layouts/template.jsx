@@ -35,9 +35,7 @@ const template = props => {
               <SideWrapper position='left' />
               <TopBar />
               <MobileMenu />
-              <MainContent className={`${paddingMain}  `}>
-                {children}
-              </MainContent>
+              <MainContent className={`${paddingMain}`}>{children}</MainContent>
               <SideWrapper position='right' />
             </>
           )}
