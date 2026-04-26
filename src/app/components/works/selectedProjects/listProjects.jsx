@@ -31,10 +31,9 @@ const listProjects = () => {
       });
       try {
         const loadProjects = await axios.get('/api/projects');
-
         dispatch({
           type: 'PROJECT_LIST_SUCCESS',
-          payload: loadProjects.data?.projects,
+          payload: loadProjects.data?.data,
         });
       } catch (error) {}
     };

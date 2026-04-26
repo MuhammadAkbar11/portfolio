@@ -18,10 +18,9 @@ function AboutListSkill() {
       });
       try {
         const getSkillList = await axios.get('/api/skills');
-
         dispatch({
           type: 'SKILL_LIST_SUCCESS',
-          payload: getSkillList.data?.skills,
+          payload: getSkillList.data?.data,
         });
       } catch (error) {
         dispatch({
